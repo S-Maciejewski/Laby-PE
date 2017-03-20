@@ -1,0 +1,203 @@
+\documentclass[polish,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage{circuitikz} 
+\usetikzlibrary{circuits.ee.IEC}
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+
+%makro do indeksów w tabeli
+\newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
+
+%makro do informacji w tabeli
+\newcommand{\PRzFieldCnt}[1]{\itshape #1}
+
+%potężne makro tworzące tabelę z informacjami o teamie
+\newcommand{\PRzHeading}[8]{
+%% #1 - nazwa laboratorium
+%% #2 - kierunek 
+%% #3 - specjalność 
+%% #4 - rok studiów 
+%% #5 - symbol grupy lab.
+%% #6 - temat 
+%% #7 - numer lab.
+%% #8 - skład grupy ćwiczeniowej
+
+\begin{center}
+\begin{tabular}{ p{0.32\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.12\textwidth} p{0.12\textwidth} }
+
+  &   &   &   &   \\
+\hline
+\multicolumn{5}{|c|}{}\\[-1ex]
+\multicolumn{5}{|c|}{{\LARGE #1}}\\
+\multicolumn{5}{|c|}{}\\[-1ex]
+
+\hline
+\multicolumn{1}{|l|}{\PRzFieldDsc{Kierunek}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Specjalność}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Rok studiów}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Symbol grupy lab.}} \\
+\multicolumn{1}{|c|}{\PRzFieldCnt{#2}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#3}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#4}}		& \multicolumn{2}{|c|}{\PRzFieldCnt{#5}} \\
+
+\hline
+\multicolumn{4}{|l|}{\PRzFieldDsc{Temat Laboratorium}}		& \multicolumn{1}{|l|}{\PRzFieldDsc{Numer lab.}} \\
+\multicolumn{4}{|c|}{\PRzFieldCnt{#6}}				& \multicolumn{1}{|c|}{\PRzFieldCnt{#7}} \\
+
+\hline
+\multicolumn{5}{|l|}{\PRzFieldDsc{Skład grupy ćwiczeniowej oraz numery indeksów}}\\
+\multicolumn{5}{|c|}{\PRzFieldCnt{#8}}\\
+
+\hline
+\multicolumn{3}{|l|}{\PRzFieldDsc{Uwagi}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Ocena}} \\
+\multicolumn{3}{|c|}{\PRzFieldCnt{\ }}		& \multicolumn{2}{|c|}{\PRzFieldCnt{\ }} \\
+
+\hline
+\end{tabular}
+\end{center}
+}
+%koniec potężnego makro do tabeli
+
+\begin{document}
+
+%stworzenie tabeli - miejsce na zmienianie danych w tabeli
+%indeksy do uzupełnienia
+\PRzHeading{Laboratorium Elektrotechniki}{Informatyka}{--}{I}{I1}{Wprowadzenie}{2}{Ewa Fengler(132219), Sebastian Maciejewski(?), Jan Techner(132332)}{}
+
+%ZADANIA
+
+\section{Cel}
+
+%Wprowadzenie, opis zadania i określenie celów doświadczenia
+
+Celem laboratorium jest zbadanie właściwości obwodu rezonansowego szeregowego przedstawionego na rysunku \ref{fig:rlc} dla sygnału wejściowego napięciowego o różnych wartościach częstotliwości wejściowej. Badania przeprowadzono dla wartości elementów wyznaczonych przez prowadzącego zajęcia. Wartości elementów dla badanego obwodu: R=1k$\Omega$, L=66mH, C=10nF.
+
+%rysunek obwodu - EWA
+\tikzset{circuit declare symbol = AC source}
+\tikzset{AC source IEC graphic/.style={
+    circuit symbol lines,
+    circuit symbol size=width 2 height 2,
+    shape=generic circle IEC,
+    /pgf/generic circle IEC/before background={
+    \pgfpathmoveto{\pgfpoint{-0.8pt}{0pt}}
+    \pgfpathsine{\pgfpoint{0.4pt}{0.4pt}}
+    \pgfpathcosine{\pgfpoint{0.4pt}{-0.4pt}}
+    \pgfpathsine{\pgfpoint{0.4pt}{-0.4pt}}
+    \pgfpathcosine{\pgfpoint{0.4pt}{0.4pt}}
+    \pgfusepath{stroke}
+    },
+    transform shape, draw
+  }
+}
+\tikzset{circuit ee IEC/.append style=
+  {set AC source graphic = AC source IEC graphic}
+}
+\begin{figure}[!h]
+
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 3cm, y = 2cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic,
+  ]
+
+\draw (0,-1) to [vco] (0,1) --
+	  (0,1) to [capacitor={farad=10n,info'={$C$}}] (1,1) --   
+      (1,1) to [inductor={henry=66m,info'={$L$}}] (2,1) --
+      (2,1) to [resistor={ohm=1k,info'={$R$}}] (2,-1) --
+      (2,-1) to (0,-1);
+
+\end{tikzpicture}
+\caption{Badany obwód RLC}
+\label{fig:rlc}
+\end{figure}
+
+
+\section{Pomiary}
+Dla obwodu z rysunku \ref{fig:rlc} dokonano serią pomiarów napięcia na elementach R, L, C dla częstotliwości wejściowej z zakresu <0;12kHz>. Pomiary wykonane podczas badań zapisano w poniższej tabeli \ref{my-label}.
+
+\begin{table}[!h]
+\centering
+\begin{tabular}{llll}
+\hline
+Częstotliwość(kHz) & $V_c$(mV) & $V_l$(mV) & $V_r$(mV) \\ \hline
+0.8                & 727    & 9      & 29     \\
+2.0                & 770    & 57     & 77     \\
+...                & ...    & ...    & ...    \\ \hline
+\end{tabular}
+\caption{Wartości pomiarów na elementach obwodu dla różnych częstotliwości}
+\label{my-label}
+\end{table}
+
+Zależności z tabeli \ref{my-label} przedstawiono jako charakterystykę napięciowo-częstotliwościową na rysunku \ref{fig:wyk}.
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\begin{axis}[
+xlabel={Częstotliwość [kHz]},
+ylabel={Napięcie [mV]},
+xmin=0,xmax=15,
+ymin=0,ymax=2000,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[color=red,mark=*]
+coordinates {
+(0.8,727)
+(2.0,770)
+(3.2,823)
+(3.8,926)
+(4.5,985)
+(5.0,1134)
+(5.8,1233)
+(6.0,1348)
+(6.2,1405)
+(6.4,1466)
+(6.6,1513)
+};
+
+\addplot[color=blue,mark=square]
+coordinates {
+(0.8,9)
+(2.0,57)
+(3.8,117)
+(4.5,238)
+(5.0,311)
+(5.8,490)
+(6.0,621)
+(6.2,785)
+(6.4,876)
+(6.6,984)
+};
+
+\addplot[color=green,mark=triangle]
+coordinates {
+(0.8,29)
+(2.0,77)
+(3.8,114)
+(4.5,169)
+(5.0,209)
+(5.8,271)
+(6.0,329)
+(6.2,371)
+(6.4,403)
+(6.6,427)
+};
+
+\legend{C,L,R}
+\end{axis}
+\end{tikzpicture}
+\caption{Zależność napięć na elementach obwodu względem częstotliwości}
+\label{fig:wyk}
+\end{figure}
+
+\section{Wnioski}
+Zakładając poprawność przeprowadzonych badań jesteśmy w stanie stwierdzić, że dla częstotliwości równej... wg znanej nam wiedzy \cite{bolkowski1986teoria} zachodzi zjawisko rezonansu szeregowego, które pokrywa się z wartością obliczoną na podstawie wzorów algebraicznych \cite{bolkowski1986teoria}. Wszelkie rozbieżności mogą wynikać z...
+\bibliographystyle{IEEEtran}
+
+\bibliography{IEEEabrv,refs}
+
+\end{document}
+
