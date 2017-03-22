@@ -61,15 +61,95 @@
 
 %stworzenie tabeli - miejsce na zmienianie danych w tabeli
 %indeksy do uzupełnienia
-\PRzHeading{Laboratorium Elektrotechniki}{Informatyka}{--}{I}{I1}{Wprowadzenie}{2}{Ewa Fengler(132219), Sebastian Maciejewski(?), Jan Techner(132332)}{}
+\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Wprowadzenie}{2}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
 
 %ZADANIA
 
-\section{Cel}
+\section{Zadanie A}
+
+\subsection*{Cel}
 
 %Wprowadzenie, opis zadania i określenie celów doświadczenia
 
-Celem laboratorium jest zbadanie właściwości obwodu rezonansowego szeregowego przedstawionego na rysunku \ref{fig:rlc} dla sygnału wejściowego napięciowego o różnych wartościach częstotliwości wejściowej. Badania przeprowadzono dla wartości elementów wyznaczonych przez prowadzącego zajęcia. Wartości elementów dla badanego obwodu: R=1k$\Omega$, L=66mH, C=10nF.
+Ćwiczenie ma na celu zaznajomienie z podstawowymi wielkościami fizycznymi służącymi do opisu własności obwodów elektrycznych oraz oznaczeniami elementów tych obwodów (cewki, rezystory i kondensatory). Aby prawidłowo wykonać opisane w poleceniu pomiary konieczne jest także nauczenie się obsługi przyrządów pomiarowych - pomiar rezystancji, pojemności kondensatorów i pojemności cewek przy pomocy multimetru RIGOL DS1022.
+
+\subsection{Część 1.}
+Odczytanie wartości rezystancji na podstawie kodu paskowego rezystorów oraz pomiar jej wartości za pomocą multimetru.\\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{R} & \textbf{Barwy} & \textbf{Odczyt} & \textbf{Pomiar}\\
+\hline
+R1 & czerwony, czerwony, brązowy & $220\Omega$ & $220\Omega$\\
+\hline
+R2 & pomarańczowy, pomarańczowy, zielony & $3,3M\Omega$ & $3,25M\Omega$\\
+\hline
+R3 & brązowy, czarny, brązowy & $100\Omega$ & $98\Omega$\\
+\hline
+R4 & brązowy, czarny, czerwony & $1k\Omega$ & $0,99k\Omega$\\
+\hline
+R5 & czerwony, czarny, czerwony & $2k\Omega$ & $1,95k\Omega$\\
+\hline
+R6 & czerwony, czarny, zielony & $2M\Omega$ & $1,97M\Omega$\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Część 2.}
+Odczytanie pojemności kondensatorów oraz pomiar ich pojemności przy pomocy mostka pomiarowego.\\
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{C} & \textbf{Oznaczenie} & \textbf{Odczyt} & \textbf{Pomiar}\\
+\hline
+C1 & 223 & 22nF & 33,4nF\\
+\hline
+C2 & 10n & 10nF & 8,4nF\\
+\hline
+C3 & 132 & 3,3nF & 2,9nF\\
+\hline
+C4 & 222 & 2,2nF & 2,3nF\\
+\hline
+C5 & 10$\mu$F & 10$\mu$F & 10,7$\mu$F\\
+\hline
+C6 & 12$\mu$F & 22$\mu$F & 20,9$\mu$F\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Część 3.}
+Pomiar indukcyjności wybranych cewek używając mostka pomiarowego.\\
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\textbf{L} & \textbf{Pomiar}\\
+\hline
+L1 & 30,08nH\\
+\hline
+L2 & 30,28nH\\
+\hline
+L3 & 30,9$\mu$H\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Zadanie B}
+
+\subsection*{Cel}
+
+Zadanie B ma na celu zapoznanie się z metodą obliczania oporu zastępczego dla rezystorów połączonych szeregowo i równolegle (także dla całych obwodów) i naukę umiejętności budowania oraz pomiaru właściwości obwodów na płytce prototypowej. W sposób naturalny ćwiczenie kształci również umiejętność odczytywania schematów obwodów.\\
+
+\subsection{Część 1.}
+
+Obliczenie i wyprowadzenie wzoru dla rezystancji zastępczej obwodu przedstawionego poniżej\\
+%tu rysunek obwodu z zadania B, cz. 1.
+
+%tu trzeba będzie wpisać wzór, mogę to zrobić, ale to już nie dziś 
+
+
 
 %rysunek obwodu - EWA
 \tikzset{circuit declare symbol = AC source}
