@@ -61,7 +61,7 @@
 
 %stworzenie tabeli - miejsce na zmienianie danych w tabeli
 %indeksy do uzupełnienia
-\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Wprowadzenie}{2}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
+\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Wprowadzenie}{1}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
 
 %ZADANIA
 
@@ -144,153 +144,360 @@ Zadanie B ma na celu zapoznanie się z metodą obliczania oporu zastępczego dla
 
 \subsection{Część 1.}
 
-Obliczenie i wyprowadzenie wzoru dla rezystancji zastępczej obwodu przedstawionego poniżej\\
-%tu rysunek obwodu z zadania B, cz. 1.
+Obliczenie i wyprowadzenie wzoru dla rezystancji zastępczej obwodu przedstawionego poniżej.\\
+
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 2cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) to [resistor={ohm=1k, info'={$R7$}}] (1,0) --
+	  (1,0) to (1,0.5)--
+	  (1,0.5) to [resistor={ohm=100, info'={$R5$}}] (2,0.5) --
+	  (2,0.5) to (2,0)
+	  (1,0) to (1,-0.5)--
+	  (1,-0.5) to [resistor={ohm=200, info'={$R6$}}] (2,-0.5) --
+	  (2,-0.5) to (2,0)--
+	  (2,0) to (2.25,0)--
+	  (2.25,0) to (2.25,1.5)--
+	  (2.25,1.5) to [resistor={ohm=2k, info'={$R1$}}] (3.25,1.5) --
+	  (3.25,1.5) to (3.25,0)
+	  (2.25,0) to (2.25,-1.5)--
+	  (2.25,-1.5) to [resistor={ohm=270, info'={$R4$}}] (3.25,-1.5) --
+	  (3.25,-1.5) to (3.25,0)
+	  (2.25,-0.5) to [resistor={ohm=1k, info'={$R3$}}] (3.25,-0.5)
+	  (2.25,0.5) to [resistor={ohm=3k, info'={$R2$}}] (3.25,0.5)
+	  (3.25,0) to (3.5,0) --
+	  (3.5,0) to (3.5,0.5) --
+	  (3.5, 0.5) to [resistor={ohm=1, info'={$R8$}}] (4.5, 0.5) --
+	  (4.5, 0.5) to (4.5,0)
+	  (3.5,0) to (3.5,-0.5) --
+	  (3.5,-0.5) to [resistor={ohm=100, info'={$R9$}}] (4.5,-0.5) --
+	  (4.5,-0.5) to (4.5,0) --
+	  (4.5,0) to (5,0);  
+\path (-0.2,0) node(x) {{A}}
+	  (5.2,0) node(x) {{B}};
+\end{tikzpicture}
+\end{figure}
+
 
 
 $$
-R_{z} = R_{7} + \frac{R_{5}+R_{6}}{R_5*R_6} + \frac{R_{1}*R_{2}*R_{3}+R_{1}*R_{2}*R_{4}+R_{1}*R_{3}*R_{4}+R_{2}*R_{3}*R_{4}}{R_{1}*R_{2}*R_{3}*R_{4}} + \frac{R_{8}+R_{9}}{R_{8}*R_{9}}
+R_{z} = R_{7} + \frac{R_{5}+R_{6}}{R_{5}\cdot R_{6}} + \frac{R_{1}\cdot R_{2}\cdot R_{3}+R_{1}\cdot R_{2}\cdot R_{4}+R_{1}\cdot R_{3}\cdot R_{4}+R_{2}\cdot R_{3}\cdot R_{4}}{R_{1}\cdot R_{2}\cdot R_{3}\cdot R_{4}} + \frac{R_{8}+R_{9}}{R_{8}\cdot R_{9}}
 $$
-\\
+
 \begin{center}
-$R_{z} = 1000\Omega + \frac{100\Omega + 200\Omega}{100\Omega*200\Omega} + \frac{1\Omega + 100\Omega}{1\Omega*100\Omega}+$\\
+$R_{z} = 1k\Omega + \frac{100\Omega + 200\Omega}{100\Omega\cdot200\Omega} + \frac{1\Omega + 100\Omega}{1\Omega\cdot100\Omega}+$\\
 \vspace{0,5cm}
 \begin{large}
-$+ \frac{2000\Omega*3000\Omega*1000\Omega + 2000\Omega*3000\Omega*270\Omega + 2000\Omega*1000\Omega*270\Omega + 3000\Omega*1000\Omega*270\Omega}{2000\Omega*3000\Omega*1000\Omega*270\Omega}$\\
+$+ \frac{2k\Omega\cdot3k\Omega\cdot1k\Omega + 2k\Omega\cdot3k\Omega\cdot270\Omega + 2k\Omega\cdot1k\Omega\cdot270\Omega + 3k\Omega\cdot1k\Omega\cdot270\Omega}{2k\Omega\cdot3k\Omega\cdot1k\Omega\cdot270\Omega}$\\
 \end{large}
 \end{center}
 $$
 R_{z} = 1000\Omega + 0,015\Omega + 1,01\Omega + 0,006\Omega = 1001,031\Omega
 $$
 
+\newpage
+\subsection{Część 2.}
+Obliczanie rezystancji obwodów oraz jej pomiar dla obwodu zbudowanego na płytce prototypowej.\\
+Pod każdym przykładem zamieszczono porównanie obliczonej rezystancji z jej zmierzoną wartością.\\
 
+\subsubsection{Obwód 1.}
 
-%R_{z} = R_{7} + \frac{R_{1}*R_{2}*R_{3}+R_{1}*R_{2}*R_{4}+R_{1}*R_{3}*R_{4}+R_{2}*R_{3}*R_{4}}{R_{1}*R_{2}*R_{3}*R_{4}} + \frac{R_{5}*R_{6}*R_{8}+R_{5}*R_{6}*R_{9}+R_{5}*R_{8}*R_{9}+R_{6}*R_{8}*R_{9}}{R_{5}*R_{6}*R_{8}*R_{9}} zostawiam to, nie ma sensu robić jednego wielkiego wzoru
-
-
-
-
-%rysunek obwodu - EWA
-\tikzset{circuit declare symbol = AC source}
-\tikzset{AC source IEC graphic/.style={
-    circuit symbol lines,
-    circuit symbol size=width 2 height 2,
-    shape=generic circle IEC,
-    /pgf/generic circle IEC/before background={
-    \pgfpathmoveto{\pgfpoint{-0.8pt}{0pt}}
-    \pgfpathsine{\pgfpoint{0.4pt}{0.4pt}}
-    \pgfpathcosine{\pgfpoint{0.4pt}{-0.4pt}}
-    \pgfpathsine{\pgfpoint{0.4pt}{-0.4pt}}
-    \pgfpathcosine{\pgfpoint{0.4pt}{0.4pt}}
-    \pgfusepath{stroke}
-    },
-    transform shape, draw
-  }
-}
-\tikzset{circuit ee IEC/.append style=
-  {set AC source graphic = AC source IEC graphic}
-}
 \begin{figure}[!h]
-
 \centering
 \begin{tikzpicture}[
     circuit ee IEC,
-    x = 3cm, y = 2cm,
+    x = 2cm, y = 1cm,
     every info/.style = {font = \scriptsize},
     set diode graphic = var diode IEC graphic,
-    set make contact graphic = var make contact IEC graphic,
-  ]
+    set make contact graphic = var make contact IEC graphic]
 
-\draw (0,-1) to [vco] (0,1) --
-	  (0,1) to [capacitor={farad=10n,info'={$C$}}] (1,1) --   
-      (1,1) to [inductor={henry=66m,info'={$L$}}] (2,1) --
-      (2,1) to [resistor={ohm=1k,info'={$R$}}] (2,-1) --
-      (2,-1) to (0,-1);
-
+\draw (0,0) to (0.5,0) --
+	  (0.5,0) to (0.5,0.5)--
+	  (0.5,0.5) to [resistor={ohm=2k, info'={$R2$}}] (1.5,0.5) --
+	  (1.5,0.5) to [resistor={ohm=2k, info'={$R3$}}] (2.5, 0.5) -- 
+	  (2.5,0.5) to (2.5,0)
+	  (0.5,0) to (0.5,-0.5)--
+	  (0.5,-0.5) to [resistor={ohm=1k, info'={$R1$}}] (2.5,-0.5) --
+	  (2.5,-0.5) to (2.5,0) --
+	  (2.5,0) to (3,0); 
+\path (-0.2,0) node(x) {{A}}
+	  (3.2,0) node(x) {{B}};
 \end{tikzpicture}
-\caption{Badany obwód RLC}
-\label{fig:rlc}
 \end{figure}
 
-
-\section{Pomiary}
-Dla obwodu z rysunku \ref{fig:rlc} dokonano serią pomiarów napięcia na elementach R, L, C dla częstotliwości wejściowej z zakresu <0;12kHz>. Pomiary wykonane podczas badań zapisano w poniższej tabeli \ref{my-label}.
-
-\begin{table}[!h]
-\centering
-\begin{tabular}{llll}
+$$
+R_{z} = \frac{(R_{2}+R_{3})\cdot R_{1}}{R_{1}+R_{2}+R_{3}}
+$$
+\\
+$$
+R_{z} = \frac{(2k\Omega+2k\Omega)\cdot 1k\Omega}{1k\Omega+2k\Omega+3k\Omega}
+$$
+\\
+\begin{tabular}{|c|c|}
 \hline
-Częstotliwość(kHz) & $V_c$(mV) & $V_l$(mV) & $V_r$(mV) \\ \hline
-0.8                & 727    & 9      & 29     \\
-2.0                & 770    & 57     & 77     \\
-...                & ...    & ...    & ...    \\ \hline
+\textbf{Obliczenia} & \textbf{Pomiar}\\
+\hline
+$800\Omega$ & $790\Omega$\\
+\hline
 \end{tabular}
-\caption{Wartości pomiarów na elementach obwodu dla różnych częstotliwości}
-\label{my-label}
-\end{table}
 
-Zależności z tabeli \ref{my-label} przedstawiono jako charakterystykę napięciowo-częstotliwościową na rysunku \ref{fig:wyk}.
+\subsubsection{Obwód 2.}
+
 \begin{figure}[!h]
 \centering
-\begin{tikzpicture}[scale=1.0]
-\begin{axis}[
-xlabel={Częstotliwość [kHz]},
-ylabel={Napięcie [mV]},
-xmin=0,xmax=15,
-ymin=0,ymax=2000,
-legend pos=north west,
-ymajorgrids=true,grid style=dashed
-]
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 2cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
 
-\addplot[color=red,mark=*]
-coordinates {
-(0.8,727)
-(2.0,770)
-(3.2,823)
-(3.8,926)
-(4.5,985)
-(5.0,1134)
-(5.8,1233)
-(6.0,1348)
-(6.2,1405)
-(6.4,1466)
-(6.6,1513)
-};
-
-\addplot[color=blue,mark=square]
-coordinates {
-(0.8,9)
-(2.0,57)
-(3.8,117)
-(4.5,238)
-(5.0,311)
-(5.8,490)
-(6.0,621)
-(6.2,785)
-(6.4,876)
-(6.6,984)
-};
-
-\addplot[color=green,mark=triangle]
-coordinates {
-(0.8,29)
-(2.0,77)
-(3.8,114)
-(4.5,169)
-(5.0,209)
-(5.8,271)
-(6.0,329)
-(6.2,371)
-(6.4,403)
-(6.6,427)
-};
-
-\legend{C,L,R}
-\end{axis}
+\draw (0,0) to (0.5,0) --
+	  (0.5,0) to (0.5,-0.5) --
+	  (0.5,-0.5) to [resistor={ohm=100, info'={$R4$}}] (3.75,-0.5) --
+	  (3.75,-0.5) to (3.75, 0)
+	  (0.5,0) to (0.5,1) --
+	  (0.5,1) to (0.75,1) --
+	  (0.75,1) to (0.75,1.5) --
+	  (0.75,1.5) to [resistor={ohm=1k, info'={$R1$}}] (1.75,1.5) --
+	  (1.75,1.5) to (1.75,1)
+	  (0.75,1) to (0.75,0.5) --
+	  (0.75,0.5) to [resistor={ohm=2k, info'={$R2$}}] (1.75,0.5) --
+	  (1.75,0.5) to (1.75,1) --
+	  (1.75,1) to [resistor={ohm=1k, info'={$R3$}}] (2.75,1) --
+	  (2.75,1) to [resistor={ohm=100, info'={$R5$}}] (3.75,1) --
+	  (3.75,1) to (3.75,0)--
+	  (3.75,0) to (4.25,0);
+\path (-0.2,0) node(x) {{A}}
+	  (4.45,0) node(x) {{B}};
 \end{tikzpicture}
-\caption{Zależność napięć na elementach obwodu względem częstotliwości}
-\label{fig:wyk}
 \end{figure}
+
+$$
+R_{z} = \frac{R_{4}\cdot(R_{1}\cdot R_{2} + (R_{1} + R_{2})\cdot(R_{3}+R_{5})}{R_{1}\cdot R_{2} + (R_{1}+R_{2})\cdot(R_{3}+R_{5}) + (R_{1}+R_{2})\cdot R_{4}}
+$$
+\\
+$$
+R_{z} = \frac{100\Omega\cdot(1k\Omega\cdot 2k\Omega + (1k\Omega + 2k\Omega)\cdot(1k\Omega+100\Omega)}{1k\Omega\cdot 2k\Omega + (1k\Omega+2k\Omega)\cdot(1k\Omega+100\Omega) + (1k\Omega+2k\Omega)\cdot 100\Omega}
+$$
+\\
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Obliczenia} & \textbf{Pomiar}\\
+\hline
+$94,6\Omega$ & $95\Omega$\\
+\hline
+\end{tabular}
+
+\newpage
+\subsubsection{Obwód 3.}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 2cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) to (0.5,0) --
+	  (0.5,0) to [resistor={ohm=2k, info'={$R1$}}] (0.5,-2) --
+	  (0.5,-2) to (0, -2)
+	  (0.5,0) to (1,0) --
+	  (1,0) to [resistor={ohm=100, info'={$R3$}}] (2,0)
+	  (1,0) to (1,-1.5) --
+	  (1,-1.5) to [resistor={ohm=1k, info'={$R4$}}] (2,-1.5)--
+	  (2,-1.5) to (2,0) --
+	  (2,0) to (2.5,0) --
+	  (2.5,0) to [resistor={ohm=2k, info'={$R2$}}] (2.5, -2) --
+	  (2.5,-2) to (3,-2)
+	  (2.5,0) to (3,0) ;
+\path (-0.2,0) node(x) {{A}}
+	  (-0.2,-2) node(x) {{B}};
+\end{tikzpicture}
+\end{figure}
+
+$$
+R_{z} = R_{1} = 2k\Omega
+$$
+\\
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Obliczenia} & \textbf{Pomiar}\\
+\hline
+$2k\Omega$ & $1,952k\Omega$\\
+\hline
+\end{tabular}
+
+\subsubsection{Obwód 4.}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 2cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) to (0.5,0) --
+	  (0.5,0) to (0.5,-0.5) --
+	  (0.5,-0.5) to [resistor={ohm=1k, info'={$R4$}}] (3.75,-0.5) --
+	  (3.75,-0.5) to (3.75, 0)
+	  (0.5,0) to (0.5,1) --
+	  (0.5,1) to (0.75,1) --
+	  (0.75,1) to (0.75,1.5) --
+	  (0.75,1.5) to [resistor={ohm=100, info'={$R5$}}] (1.75,1.5) --
+	  (1.75,1.5) to [resistor={ohm=1k, info'={$R1$}}] (2.75,1.5) --
+	  (2.75,1.5) to (2.75,1)
+	  (0.75,1) to (0.75,0.5) --
+	  (0.75,0.5) to [resistor={ohm=2k, info'={$R2$}}] (2.75,0.5) --
+	  (2.75,0.5) to (2.75,1)
+	  (2.75,1) to [resistor={ohm=2k, info'={$R3$}}] (3.75,1) --
+	  (3.75,1) to (3.75,0)--
+	  (3.75,0) to (4.25,0);
+\path (-0.2,0) node(x) {{A}}
+	  (4.45,0) node(x) {{B}};
+\end{tikzpicture}
+\end{figure}
+
+$$
+R_{z} = \frac{R_{4}\cdot ((R_{1} + R_{5})\cdot R_{2} + (R_{1} + R_{2} + R_{5})\cdot R_{3})}{(R_{1} + R_{2} + R_{5})\cdot (R_{3} + R_{4}) + (R_{1} + R_{5})\cdot R_{2}}
+$$
+\\
+$$
+R_{z} = \frac{1k\Omega\cdot ((1k\Omega + 100\Omega)\cdot 2k\Omega + (1k\Omega + 2k\Omega + 100\Omega)\cdot 2k\Omega)}{(1k\Omega + 2k\Omega + 100\Omega)\cdot (2k\Omega + 1k\Omega) + (1k\Omega + 100\Omega)\cdot 2k\Omega}
+$$
+\\
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Obliczenia} & \textbf{Pomiar}\\
+\hline
+$730,4\Omega$ & $725\Omega$\\
+\hline
+\end{tabular}
+
+\newpage
+\subsubsection{Obwód 5.}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 2cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) to (0.5,0) --
+	  (0.5,0) to [resistor={ohm=2k, info'={$R1$}}] (0.5,-2) --
+	  (0.5,-2) to (0, -2)
+	  (0.5,0) to (1,0) --
+	  (1,0) to [resistor={ohm=2k, info'={$R3$}}] (2,0)
+	  (1,0) to (1,-1) --
+	  (1,-1) to [resistor={ohm=1k, info'={$R4$}}] (2,-1)--
+	  (2,-1) to (2,0) --
+	  (2,0) to (2.5,0) --
+	  (2.5,0) to [resistor={ohm=2k, info'={$R2$}}] (2.5, -2) --
+	  (2.5,-2) to (3,-2)
+	  (2.5,0) to (3,0) 
+	  (0.5,-2) to (2.5,-2);
+\path (-0.2,0) node(x) {{A}}
+	  (-0.2,-2) node(x) {{B}};
+\end{tikzpicture}
+\end{figure}
+
+$$
+R_{z} = \frac{R_{1}\cdot(R_{3}\cdot R_{4} + R_{2}\cdot(R_{3} + R_{4}))}{R_{3}\cdot R_{4} + (R_{1}\cdot R_{2})\cdot (R_{3} + R_{4})}
+$$ 
+\\
+$$
+R_{z} = \frac{2k\Omega\cdot(2k\Omega\cdot 1k\Omega + 2k\Omega\cdot(2k\Omega + 1k\Omega))}{2k\Omega\cdot 1k\Omega + (2k\Omega\cdot 2k\Omega)\cdot (2k\Omega + 1k\Omega)}
+$$ 
+\\
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Obliczenia} & \textbf{Pomiar}\\
+\hline
+$1142,9\Omega$ & $1119\Omega$\\
+\hline
+\end{tabular}
+
+
+\subsubsection{Obwód 6.}
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 2cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) to (0.25,0) --
+	  (0.25,0) to [resistor={ohm=1k, info'={$R3$}}] (1.25,0) --
+	  (1.25,0) to (1.25, -0.5)
+	  (0,-1) to (0.25,-1) --
+	  (0.25,-1) to [resistor={ohm=2k, info'={$R4$}}] (1.25,-1)--
+	  (1.25,-1) to (1.25,-0.5) --
+	  (1.25,-0.5) to (1.5,-0.5) --
+	  (1.5,-0.5) to (1.5,0) -- 
+	  (1.5,0) to [resistor={ohm=100, info'={$R1$}}] (2.5,0)--
+	  (2.5,0) to (2.5,-0.5)
+	  (1.5,-0.5) to (1.5,-1) -- 
+	  (1.5,-1) to [resistor={ohm=2k, info'={$R2$}}] (2.5,-1)--
+	  (2.5,-1) to (2.5,-0.5)--
+	  (2.5,-0.5) to (2.75, -0.5)
+	  (0.25, -1) to (0.25, -2)--
+	  (0.25, -2) to [resistor={ohm=1k, info'={$R5$}}] (2.75,-2)--
+	  (2.75,-2) to (2.75,-0.5);
+\path (-0.2,0) node(x) {{A}}
+	  (-0.2,-1) node(x) {{B}};
+\end{tikzpicture}
+\end{figure}
+
+W celu zwiększenia czytelności obliczeń, w tym przypadku wprowadzimy dodatkowe oznaczenia:
+$$
+R_{6} = \frac{R_{1}\cdot R_{2}}{R_{1}+R_{2}} = \frac{100\Omega\cdot 2k\Omega}{100\Omega+2k\Omega} = 95,24\Omega
+$$
+$$
+R_{7} = R_{6} + R_{5} = 1000\Omega + 95,24\Omega = 1095,24\Omega
+$$
+$$
+R_{8} = \frac{R_{4}\cdot R_{7}}{R_{4}+R_{7}} = \frac{2000\Omega\cdot 1095,24\Omega}{2000\Omega + 1095,24\Omega} = 707,7\Omega
+$$
+\\
+$$
+R_{z} = R_{3} + R_{8} = 1000\Omega + 707,7\Omega = 1707,7\Omega\\
+$$
+\\
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Obliczenia} & \textbf{Pomiar}\\
+\hline
+$1707,7\Omega$ & $1684\Omega$\\
+\hline
+\end{tabular}
+
+\subsection{Podsumowanie}
+W zadaniu widać było różnice pomiędzy obliczoną rezystancją i jej zmierzoną, rzeczywistą wartością. Różnice te mogą wynikać między innymi z 
+:
+\begin{itemize}
+\item Niezerowego oporu przewodów płytki prototypowej i kabli użytych do podłączenia miernika;
+\item Niepewności pomiarowych sprzętu użytego w doświadczeniu;
+\item Ograniczonej precyzji wykonania opornika prowadzącej do różnicy między oporem nominalnym a rzeczywistym.
+\end{itemize}
+
+
 
 \section{Wnioski}
 Zakładając poprawność przeprowadzonych badań jesteśmy w stanie stwierdzić, że dla częstotliwości równej... wg znanej nam wiedzy \cite{bolkowski1986teoria} zachodzi zjawisko rezonansu szeregowego, które pokrywa się z wartością obliczoną na podstawie wzorów algebraicznych \cite{bolkowski1986teoria}. Wszelkie rozbieżności mogą wynikać z...
