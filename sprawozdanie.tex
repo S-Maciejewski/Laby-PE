@@ -147,7 +147,26 @@ Zadanie B ma na celu zapoznanie się z metodą obliczania oporu zastępczego dla
 Obliczenie i wyprowadzenie wzoru dla rezystancji zastępczej obwodu przedstawionego poniżej\\
 %tu rysunek obwodu z zadania B, cz. 1.
 
-%tu trzeba będzie wpisać wzór, mogę to zrobić, ale to już nie dziś 
+
+$$
+R_{z} = R_{7} + \frac{R_{5}+R_{6}}{R_5*R_6} + \frac{R_{1}*R_{2}*R_{3}+R_{1}*R_{2}*R_{4}+R_{1}*R_{3}*R_{4}+R_{2}*R_{3}*R_{4}}{R_{1}*R_{2}*R_{3}*R_{4}} + \frac{R_{8}+R_{9}}{R_{8}*R_{9}}
+$$
+\\
+\begin{center}
+$R_{z} = 1000\Omega + \frac{100\Omega + 200\Omega}{100\Omega*200\Omega} + \frac{1\Omega + 100\Omega}{1\Omega*100\Omega}+$\\
+\vspace{0,5cm}
+\begin{large}
+$+ \frac{2000\Omega*3000\Omega*1000\Omega + 2000\Omega*3000\Omega*270\Omega + 2000\Omega*1000\Omega*270\Omega + 3000\Omega*1000\Omega*270\Omega}{2000\Omega*3000\Omega*1000\Omega*270\Omega}$\\
+\end{large}
+\end{center}
+$$
+R_{z} = 1000\Omega + 0,015\Omega + 1,01\Omega + 0,006\Omega = 1001,031\Omega
+$$
+
+
+
+%R_{z} = R_{7} + \frac{R_{1}*R_{2}*R_{3}+R_{1}*R_{2}*R_{4}+R_{1}*R_{3}*R_{4}+R_{2}*R_{3}*R_{4}}{R_{1}*R_{2}*R_{3}*R_{4}} + \frac{R_{5}*R_{6}*R_{8}+R_{5}*R_{6}*R_{9}+R_{5}*R_{8}*R_{9}+R_{6}*R_{8}*R_{9}}{R_{5}*R_{6}*R_{8}*R_{9}} zostawiam to, nie ma sensu robić jednego wielkiego wzoru
+
 
 
 
