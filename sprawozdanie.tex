@@ -73,7 +73,7 @@
 
 Ćwiczenie ma na celu zaznajomienie z podstawowymi wielkościami fizycznymi służącymi do opisu własności obwodów elektrycznych oraz oznaczeniami elementów tych obwodów (cewki, rezystory i kondensatory). Aby prawidłowo wykonać opisane w poleceniu pomiary konieczne jest także nauczenie się obsługi przyrządów pomiarowych - pomiar rezystancji, pojemności kondensatorów i pojemności cewek przy pomocy multimetru RIGOL DS1022.
 
-\subsection{Część 1.}
+\subsection{Część I}
 Odczytanie wartości rezystancji na podstawie kodu paskowego rezystorów oraz pomiar jej wartości za pomocą multimetru.\\
 
 \begin{center}
@@ -96,7 +96,7 @@ R6 & czerwony, czarny, zielony & $2M\Omega$ & $1,97M\Omega$\\
 \end{tabular}
 \end{center}
 
-\subsection{Część 2.}
+\subsection{Część II}
 Odczytanie pojemności kondensatorów oraz pomiar ich pojemności przy pomocy mostka pomiarowego.\\
 
 \begin{center}
@@ -119,7 +119,7 @@ C6 & 12$\mu$F & 22$\mu$F & 20,9$\mu$F\\
 \end{tabular}
 \end{center}
 
-\subsection{Część 3.}
+\subsection{Część III}
 Pomiar indukcyjności wybranych cewek używając mostka pomiarowego.\\
 
 \begin{center}
@@ -142,7 +142,7 @@ L3 & 30,9$\mu$H\\
 
 Zadanie B ma na celu zapoznanie się z metodą obliczania oporu zastępczego dla rezystorów połączonych szeregowo i równolegle (także dla całych obwodów) i naukę umiejętności budowania oraz pomiaru właściwości obwodów na płytce prototypowej. W sposób naturalny ćwiczenie kształci również umiejętność odczytywania schematów obwodów.\\
 
-\subsection{Część 1.}
+\subsection{Część I}
 
 Obliczenie i wyprowadzenie wzoru dla rezystancji zastępczej obwodu przedstawionego poniżej.\\
 
@@ -188,14 +188,17 @@ Obliczenie i wyprowadzenie wzoru dla rezystancji zastępczej obwodu przedstawion
 
 
 $$
-R_{z} = R_{7} + \frac{R_{5}+R_{6}}{R_{5}\cdot R_{6}} + \frac{R_{1}\cdot R_{2}\cdot R_{3}+R_{1}\cdot R_{2}\cdot R_{4}+R_{1}\cdot R_{3}\cdot R_{4}+R_{2}\cdot R_{3}\cdot R_{4}}{R_{1}\cdot R_{2}\cdot R_{3}\cdot R_{4}} + \frac{R_{8}+R_{9}}{R_{8}\cdot R_{9}}
+R_{z} = R_{7} + \frac{1}{\frac{1}{R_{5}} + \frac{1}{R_{6}}} + \frac{1}{\frac{1}{R_{1}} + \frac{1}{R_{2}} + \frac{1}{R_{3}} + \frac{1}{R_{4}}} + \frac{1}{\frac{1}{R_{8}} + \frac{1}{R_{9}}}
+$$
+$$
+R_{7} + \frac{R_{5} \cdot R_{6}}{R_{5} + R_{6}} + \frac{R_{1}\cdot R_{2}\cdot R_{3}\cdot R_{4}}{ R_{1}\cdot R_{2}\cdot R_{3} + R_{1}\cdot R_{2}\cdot R_{4} + R_{1}\cdot R_{3}\cdot R_{4} + R_{2}\cdot R_{3}\cdot R_{4}} + \frac{R_{8}\cdot R_{9}}{R_{8} + R_{9}}
 $$
 
 \begin{center}
-$R_{z} = 1k\Omega + \frac{100\Omega + 200\Omega}{100\Omega\cdot200\Omega} + \frac{1\Omega + 100\Omega}{1\Omega\cdot100\Omega}+$\\
+$R_{z} = 1k\Omega + \frac{100\Omega\cdot200\Omega}{100\Omega + 200\Omega} + \frac{1\Omega\cdot100\Omega}{1\Omega + 100\Omega}+$\\
 \vspace{0,5cm}
 \begin{large}
-$+ \frac{2k\Omega\cdot3k\Omega\cdot1k\Omega + 2k\Omega\cdot3k\Omega\cdot270\Omega + 2k\Omega\cdot1k\Omega\cdot270\Omega + 3k\Omega\cdot1k\Omega\cdot270\Omega}{2k\Omega\cdot3k\Omega\cdot1k\Omega\cdot270\Omega}$\\
+$+ \frac{2k\Omega\cdot3k\Omega\cdot1k\Omega\cdot270\Omega}{2k\Omega\cdot3k\Omega\cdot1k\Omega + 2k\Omega\cdot3k\Omega\cdot270\Omega + 2k\Omega\cdot1k\Omega\cdot270\Omega + 3k\Omega\cdot1k\Omega\cdot270\Omega}$\\
 \end{large}
 \end{center}
 $$
@@ -203,7 +206,7 @@ R_{z} = 1000\Omega + 0,015\Omega + 1,01\Omega + 0,006\Omega = 1001,031\Omega
 $$
 
 \newpage
-\subsection{Część 2.}
+\subsection{Część II}
 Obliczanie rezystancji obwodów oraz jej pomiar dla obwodu zbudowanego na płytce prototypowej.\\
 Pod każdym przykładem zamieszczono porównanie obliczonej rezystancji z jej zmierzoną wartością.\\
 
@@ -497,10 +500,213 @@ W zadaniu widać było różnice pomiędzy obliczoną rezystancją i jej zmierzo
 \item Ograniczonej precyzji wykonania opornika prowadzącej do różnicy między oporem nominalnym a rzeczywistym.
 \end{itemize}
 
+\section{Zadanie C}
+\subsection*{Cel}
+Zadanie C ma na celu zaznajomienie z obsługą zestawu laboratoryjnego NDN DF6911 (konkretnie sekcji DC POWER SUPPLY) i naukę wykonywania pomiarów napięcia i natężenia prądu stałego.
 
 
-\section{Wnioski}
-Zakładając poprawność przeprowadzonych badań jesteśmy w stanie stwierdzić, że dla częstotliwości równej... wg znanej nam wiedzy \cite{bolkowski1986teoria} zachodzi zjawisko rezonansu szeregowego, które pokrywa się z wartością obliczoną na podstawie wzorów algebraicznych \cite{bolkowski1986teoria}. Wszelkie rozbieżności mogą wynikać z...
+\subsection{Część I}
+Odczyt i pomiar napięcia prądu zasilacza.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{U} & \textbf{Pomiar} & \textbf{Odczyt}\\
+\hline
+1[V] & 1,203V & 1V\\
+\hline
+3[V] & 3,24V & 3V\\
+\hline
+4,5[V] & 4,75V & 4,5V\\
+\hline
+11[V] & 11,23V & 11V\\
+\hline
+13[V] & 13,22V & 13V\\
+\hline
+25[V] & 25,31V & 25V\\
+\hline
+28[V] & 28,27V & 28V\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Część II}
+Wyprowadzenie wzoru i zależności opisujących dzielnik napięcia przedstawiony na schemacie poniżej, konstrukcja tego dzielnika oraz próba wyznaczenia $R_{1}$ oraz $R_{2}$, dla których $U_{in}$ = $15V$ i $U_{out}$ = $3,3V$.\\
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 1cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) circle [radius = 0.5] 
+	  (0,0.5) to (0,2) --
+	  (0,2) to (1,2) --
+	  (1.5,2) to [resistor={info'={$R1$}}] (1.5,0) --
+	  (1.5,0) to [resistor={info'={$R2$}}] (1.5,-2) --
+	  (1.5,-2) to (0,-2) --
+	  (0,-2) to (0,-0.5)
+	  (1.5,0) to  (3,0) -- 
+	  (3,0) to (3,-0.75)
+	  (1.5,-2) to (3,-2) --
+	  (3,-2) to (3,-1.25) 
+	  ;
+\path (-0.5,0.7) node(x) {{$U_{in}$}}
+	  (0,0.28) node(x) {{$\Large +$}}
+	  (0,-0.28) node(x) {{$\Large -$}}
+	  (3,-1) node(x) {{$U_{out}$}}
+	  ;
+\end{tikzpicture}
+\end{figure}
+\newpage
+
+$$
+U_{out} = I\cdot R_{2} = 3,3V
+$$
+$$
+I = \frac{U_{out}}{R_{2}}
+$$
+$$
+U_{in} = R_{1}\cdot I + R_{2}\cdot I = 15V
+$$
+$$
+R_{1}\cdot I = 11,7V
+$$
+$$
+R_{1}\cdot\frac{U_{out}}{R_{2}} = 11,7V
+$$
+$$
+\frac{R_{1}}{R_{2}} = \frac{11,7V}{3,3V} = 3,54
+$$
+\\
+Zatem, znając stosunek $\frac{R_{1}}{R_{2}}$, możemy spróbować uzyskać żądane napięcie używając oporników $R_{1} = 7k\Omega$ i $R_{2} = 2k\Omega$.\\
+Pomiar rezystancji dla tak skonstruowanego dzielnika napięcia wynosił $3,365V$.
+
+\subsection{Część III}
+
+Zbudowanie na płytce prototypowej obwodu przedstawionego poniżej, pomiar spadku napięcia na rezystorze $R_{1}$ oraz natężenia prądu w obwodzie.
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 1cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) circle [radius = 0.5] 
+	  (0,0.5) to (0,1) --
+	  (0,1) to [resistor={ohm = 2100, info'={$R1$}}] (3,1) --
+	  (3,1) to (3,-1) -- 
+	  (3,-1) to (0,-1) --
+	  (0,-1) to (0,-0.5);
+\path (-0.5,0.7) node(x) {{V1}}
+	  (-0.5,-0.7) node(x) {{5V}}
+	  (0,-0.28) node(x) {{$\Large -$}}
+	  (0,0.28) node(x) {{$\Large +$}}
+	  ;
+\end{tikzpicture}
+\end{figure}
+\begin{flushleft}
+Ponieważ opornik $R_{1}$ jest jedynym opornikiem w tym obwodzie, to spadek napięcia na nim wyniesie wartość napięcia źródła, czyli $U_{R1}=5V$. Stąd można obliczyć natężenie w następujący sposób:
+\end{flushleft}
+$$
+I=\frac{U}{R}=\frac{5V}{2100\Omega}=3,281mA
+$$
+\\
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Natężenie obliczone} & \textbf{Pomiar}\\
+\hline
+$2,381mA$ & $2,424mA$\\
+\hline
+\end{tabular}
+
+\subsection{Część IV}
+Konstrukcja obwodu przedstawionego na schemacie i sprawdzenie dla niego praw Kirchhoffa (obliczanie spadków napięć na rezystorach i prądów w gałęziach oraz zestawienie ich z pomiarami).
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[
+    circuit ee IEC,
+    x = 1cm, y = 1cm,
+    every info/.style = {font = \scriptsize},
+    set diode graphic = var diode IEC graphic,
+    set make contact graphic = var make contact IEC graphic]
+
+\draw (0,0) circle [radius = 0.5] 
+	  (0,0.5) to (0,1) --
+	  (0,1) to [resistor={ohm = 1k, info'={$R4$}}] (3,1) --
+	  (3,1) to [resistor={ohm = 200, info'={$R3$}}](3,-1) -- 
+	  (3,-1) to [resistor={ohm = 100, info'={$R1$}}](0,-1) --
+	  (0,-1) to (0,-0.5)
+	  (3,1) to [resistor={ohm = 2k, info'={$R2$}}] (6,1) --
+	  (6,1) to (6,-1) --
+	  (6,-1) to (3,-1);
+\path (-0.5,0.7) node(x) {{V1}}
+	  (-0.5,-0.7) node(x) {{5V}}
+	  (0,-0.28) node(x) {{$\Large -$}}
+	  (0,0.28) node(x) {{$\Large +$}}
+	  ;
+\end{tikzpicture}
+\end{figure}
+\begin{flushleft}
+Oznaczmy prąd płynący przez R4 jako I1, przez R3 jako I2 i przez R2 jako I3.
+Z II prawa Kirchhoffa wiemy, że:
+\end{flushleft}
+
+$$
+5V - I_{1}\cdot(R_{1}+R_{4}) - R_{3}\cdot(I_{1} - I_{3}) = 0
+$$
+$$
+5V - I_{1}\cdot(R_{1}+R_{4}) - I_{3}\cdot R_{2} = 0\\
+$$
+$$
+I_{1}=11I_{3}
+$$
+$$
+5V=11I_{3}\cdot1100\Omega + 10I_{3}\cdot200\Omega \Rightarrow I_{3}=0,355mA
+$$
+
+\begin{flushleft}
+Zatem, obliczając wszystkie wartości i zestawiając je z wynikami pomiarów, można dokonać następującego porównania:
+\end{flushleft}
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Wielkość fizyczna} & \textbf{Obliczenia} & \textbf{Pomiar}\\
+\hline
+$I_{1}[mA]$ & $3,905mA$ & $3,962mA$\\
+\hline
+$I_{2}[mA]$ & $3,55mA$ & $3,587mA$\\
+\hline
+$I_{3}[mA]$ & $0,355mA$ & $0,362mA$\\
+\hline
+$U_{R1}[V]$ & $0,391V$ & $0,394V$\\
+\hline
+$U_{R2}[V]$ & $0,71V$ & $0,712V$\\
+\hline
+$U_{R3}[V]$ & $0,71V$ & $0,712V$\\
+\hline
+$U_{R4}[V]$ & $3,905V$ & $3,938V$\\
+\hline
+\end{tabular}
+\end{center}
+
+\begin{flushleft}
+Powyższą tabelę można uznać za empiryczny dowód II prawa Kirchhoffa, gdyż drobne różnice między pomiarami i obliczeniami wynikają z niedoskonałości sprzętu pomiarowego i zaokrągleń przy obliczeniach.
+\end{flushleft}
+
+
+
+
+\section{Bibliografia}
+W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
 \bibliographystyle{IEEEtran}
 
 \bibliography{IEEEabrv,refs}
