@@ -1,0 +1,29 @@
+\documentclass[polish,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage[american]{circuitikz} 
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+
+\begin{document}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize]
+\draw (0,2) to [american voltage source, l_=$V_1$, a^=$5V$] (0,-2)
+	  (0,2) to [R, l=$R_4$, a=100$\Omega$] (2,2) to [R, l_=$R_2$, a^=220$\Omega$] (2,0) to [R, l_=$R_3$, a^=510$\Omega$] (2,-2) -- (0,-2)
+	  (2,2) -- (4,2) to [R, l_=$R_1$, a^=360$\Omega$] (4,0) -- (2,0);
+\end{circuitikz}
+\end{figure}
+$\newline$
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize]
+\draw (0,1) to [american voltage source, l_=$U_{th}$] (0,-1)
+	  (0,1) to [R, l=$R_{th}$] (2,1) to [R, l=$R_x$] (2,-1) -- (0,-1);
+\end{circuitikz}
+\end{figure}
+
+
+\end{document}
