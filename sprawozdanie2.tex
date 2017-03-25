@@ -1,0 +1,182 @@
+\documentclass[polish,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage[american]{circuitikz} 
+\usepackage{anysize}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+
+%makro do indeksów w tabeli
+\newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
+
+%makro do informacji w tabeli
+\newcommand{\PRzFieldCnt}[1]{\itshape #1}
+
+%potężne makro tworzące tabelę z informacjami o teamie
+\newcommand{\PRzHeading}[8]{
+%% #1 - nazwa laboratorium
+%% #2 - kierunek 
+%% #3 - specjalność 
+%% #4 - rok studiów 
+%% #5 - symbol grupy lab.
+%% #6 - temat 
+%% #7 - numer lab.
+%% #8 - skład grupy ćwiczeniowej
+
+\begin{center}
+\begin{tabular}{ p{0.32\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.12\textwidth} p{0.12\textwidth} }
+
+  &   &   &   &   \\
+\hline
+\multicolumn{5}{|c|}{}\\[-1ex]
+\multicolumn{5}{|c|}{{\LARGE #1}}\\
+\multicolumn{5}{|c|}{}\\[-1ex]
+
+\hline
+\multicolumn{1}{|l|}{\PRzFieldDsc{Kierunek}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Specjalność}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Rok studiów}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Symbol grupy lab.}} \\
+\multicolumn{1}{|c|}{\PRzFieldCnt{#2}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#3}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#4}}		& \multicolumn{2}{|c|}{\PRzFieldCnt{#5}} \\
+
+\hline
+\multicolumn{4}{|l|}{\PRzFieldDsc{Temat Laboratorium}}		& \multicolumn{1}{|l|}{\PRzFieldDsc{Numer lab.}} \\
+\multicolumn{4}{|c|}{\PRzFieldCnt{#6}}				& \multicolumn{1}{|c|}{\PRzFieldCnt{#7}} \\
+
+\hline
+\multicolumn{5}{|l|}{\PRzFieldDsc{Skład grupy ćwiczeniowej oraz numery indeksów}}\\
+\multicolumn{5}{|c|}{\PRzFieldCnt{#8}}\\
+
+\hline
+\multicolumn{3}{|l|}{\PRzFieldDsc{Uwagi}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Ocena}} \\
+\multicolumn{3}{|c|}{\PRzFieldCnt{\ }}		& \multicolumn{2}{|c|}{\PRzFieldCnt{\ }} \\
+
+\hline
+\end{tabular}
+\end{center}
+}
+%koniec potężnego makro do tabeli
+
+\begin{document}
+
+%stworzenie tabeli - miejsce na zmienianie danych w tabeli
+%indeksy do uzupełnienia
+\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Twierdzenie Thevenina}{2}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
+
+%ZADANIA
+
+\section*{Cel}
+Celem przeprowadzanych doświadczeń jest zaznajomienie się z twierdzeniem Thevenina oraz jego zastosowaniem do pomiaru prądów w gałęziach.
+
+\section{Zadanie 1.}
+Rozpatrywany obwód wraz z wybranymi wartościami elementów.
+
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize]
+\draw (0,2) to [american voltage source, l_=$V_1$, a^=$5V$] (0,-2)
+	  (0,2) to [R, l=$R_4$, a=100$\Omega$] (2,2) to [R, l_=$R_2$, a^=220$\Omega$] (2,0) to [R, l_=$R_3$, a^=510$\Omega$] (2,-2) -- (0,-2)
+	  (2,2) -- (4,2) to [R, l_=$R_1$, a^=360$\Omega$] (4,0) -- (2,0);
+\end{circuitikz}
+\end{figure}
+
+\section{Zadanie 2.}
+Wartości rezystorów użytych do zbudowania obwodu.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Lp.} & \textbf{R} & \textbf{Kod paskowy(KP)} & \textbf{Wartość odczytana z KP} & \textbf{Wartość zmierzona}\\
+\hline
+1. & $R_1$ & pomarańczowy, niebieski, brązowy, złoty & $360\Omega$ & $354,9\Omega$\\
+\hline
+2. & $R_2$ & czerwony, czerwony, czarny, złoty & $220\Omega$ & $218\Omega$\\
+\hline
+3. & $R_3$ & zielony, brązowy, brązowy, złoty & $510\Omega$ & $499,9\Omega$\\
+\hline
+4. & $R_4$ & brązowy, czarny, brązowy, złoty & $100\Omega$ & $97,5\Omega$\\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+
+\section{Zadanie 3.}
+Wyniki pomiarów dla twierdzenia Thevenina.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Lp.} & \textbf{$U_{th}$} & \textbf{$R_{th}$}\\
+\hline
+1. & $1,35V$ & $159,99\Omega$\\
+\hline
+2. & $1,88V$ & $222,91\Omega$\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Zadanie 4.}
+Obliczenie prądów dla badanego obwodu w gałęzi z rezystorem $R_x$ w oparciu o twierdzenie Thevenina.
+
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize]
+\draw (0,1) to [american voltage source, l_=$U_{th}$] (0,-1)
+	  (0,1) to [R, l=$R_{th}$] (2,1) to [R, l=$R_x$] (2,-1) -- (0,-1);
+\end{circuitikz}
+\end{figure}
+
+$$
+I_{R1} = \frac{U_{th1}}{R_{th1}+R_1} = \frac{1,35V}{159,99\Omega + 354,9\Omega} = 2,62mA
+$$
+$$
+I_{R2} = \frac{U_{th2}}{R_{th2}+R_2} = \frac{1,88V}{222,91\Omega + 218\Omega} = 4,26mA
+$$
+
+\section{Zadanie 5.}
+Zestawienie wyników z poprzednich zadań.
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Lp.} & \textbf{$U_{th}$} & \textbf{$R_{th}$} & \textbf{$I_{Rx}$}\\
+\hline
+1. & $1,35V$ & $159,99\Omega$ & $2,62mA$\\
+\hline
+2. & $1,88V$ & $222,91\Omega$ & $4,26mA$\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Zadanie 6.}
+Analityczne obliczenie wartości szukanych prądów.
+
+%OBLICZENIA
+
+\section{Zadanie 7.}
+Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Lp.} & \textbf{$I_{Rx}$(z tw. Thevenina)} & \textbf{$I_{Rx}$(z obliczeń)}\\
+\hline
+1. & $mA$ & $mA$\\
+\hline %TU WPISAĆ WYNIKI OBLICZEŃ
+2. & $mA$ & $mA$\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Wnioski}
+
+%TU WPISAĆ WNIOSKI
+
+\section*{Bibliografia}
+W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
+\bibliographystyle{IEEEtran}
+
+\bibliography{IEEEabrv,refs}
+
+\end{document}
+
