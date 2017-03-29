@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb, amsfonts, amsthm, amsmath, bm}
+\usepackage[polish]{babel}
+\usepackage[cp1250]{inputenc}
+\usepackage[T1]{fontenc}
+\begin{document}
+
+%$5V = IR_4 + I_2R_2 + JR_3$\\
+%$5V = IR_4 + I_1R_1 + IR_3$\\
+%$I_1 + I_2 = I$
+
+%\begin{equation*}
+%5V = IR_4 + I_2R_2 + JR_3\\
+%5V = IR_4 + I_1R_1 + IR_3\\
+%I_1 + I_2 = I\\
+%\end{equation*}
+
+
+$ \begin{cases} 
+\phantom{I_1 + }
+	   5V& = IR_4 + I_2R_2 + JR_3\\
+\phantom{I_1 + }
+	   5V& = IR_4 + I_1R_1 + IR_3\\
+I_1 + I_2& = I
+\end{cases} $
+
+\bigbreak
+\bigbreak
+
+$ \begin{cases}
+\phantom{I_1 + .}
+		0 &= I_2R_2 - I_1R_1\\
+I_1 + I_2 &= I\\
+\phantom{I_1 + }
+	   5V &= IR_4 + I_1R_1 + IR_3
+\end{cases} $
+
+\bigbreak
+\bigbreak
+
+$ \begin{cases}
+\phantom{I. }
+   I_1R_1 &= (I - I_1)R_2\\
+I_1 + I_2 &= I\\
+\phantom{I_1 + }
+	   5V &= IR_4 + (I - I_1)R_2 + IR_3
+\end{cases} $
+
+\bigbreak
+\bigbreak
+
+
+$\bm{R_Z} = R_4 + \frac{R_2R_1}{R_1 + R_2} + R_3 = 610 = \frac{220*360}{220 = 360} = \bm{747\Omega}$
+%nie za mało dokładnie?
+\bigbreak
+
+$R = \frac{U}{I}\quad\Rightarrow\quad \bm{I} = \frac{U}{R_Z} = \frac{5V}{747\Omega} = 6,69mA = \bm{0,00669A}$
+\bigbreak
+\bigbreak
+
+$5V = IR_4 + I_2R_2 + IR_3$
+\bigbreak
+
+$5V = IR_4 + I_1R_1 + IR_3$
+\bigbreak
+\bigbreak
+
+$\frac{5V - I(R_4 + R_3)}{R_2} = \bm{I_2 = 4,177mA}$
+\bigbreak
+
+$\frac{5V - I(R_4 + R_3)}{R_1} = \bm{I_1 = 2,55mA}$
+
+
+\end{document}
+
+
