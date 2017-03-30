@@ -112,7 +112,7 @@ Wyniki pomiarów dla twierdzenia Thevenina.
 \hline
 1. & $1,35V$ & $159,99\Omega$\\
 \hline
-12. & $1,88V$ & $222,91\Omega$\\
+2. & $1,88V$ & $222,91\Omega$\\
 \hline
 \end{tabular}
 \end{center}
@@ -137,6 +137,7 @@ $$
 
 \section{Zadanie 5.}
 Zestawienie wyników z poprzednich zadań.
+
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -148,9 +149,18 @@ Zestawienie wyników z poprzednich zadań.
 \hline
 \end{tabular}
 \end{center}
-
+\newpage
 \section{Zadanie 6.}
 Analityczne obliczenie wartości szukanych prądów. 
+\newline
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize]
+\draw (0,2) to [american voltage source, l_=$V_1$, i=$I$, a^=$5V$] (0,-2)
+	  (0,2) to [R, l=$R_4$, i=$I$, a=100$\Omega$] (2,2) to [R, l_=$R_2$, i=$I_2$, a^=220$\Omega$] (2,0) to [R, l_=$R_3$, i=$I$, a^=510$\Omega$] (2,-2) -- (0,-2)
+	  (2,2) -- (4,2) to [R, l_=$R_1$, i=$I_1$, a^=360$\Omega$] (4,0) -- (2,0);
+\end{circuitikz}
+\end{figure}
 \newline
 \newline
 Korzystając z I i II prawa Kirchoffa otrzymujemy dla danego obwodu następujący układ równań : 
