@@ -1,4 +1,6 @@
 \documentclass[polish,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb, amsfonts, amsthm, amsmath, bm}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
@@ -87,13 +89,13 @@ Wartości rezystorów użytych do zbudowania obwodu.
 \hline
 \textbf{Lp.} & \textbf{R} & \textbf{Kod paskowy(KP)} & \textbf{Wartość odczytana z KP} & \textbf{Wartość zmierzona}\\
 \hline
-1. & $R_1$ & pomarańczowy, niebieski, brązowy, złoty & $360\Omega$ & $354,9\Omega$\\
+1. & $R_1$ & pomarańczowy, niebieski, brązowy, złoty & $360\Omega\pm5\%$ & $354,9\Omega$\\
 \hline
-2. & $R_2$ & czerwony, czerwony, czarny, złoty & $220\Omega$ & $218\Omega$\\
+2. & $R_2$ & czerwony, czerwony, czarny, złoty & $220\Omega\pm5\%$ & $218\Omega$\\
 \hline
-3. & $R_3$ & zielony, brązowy, brązowy, złoty & $510\Omega$ & $499,9\Omega$\\
+3. & $R_3$ & zielony, brązowy, brązowy, złoty & $510\Omega\pm5\%$ & $499,9\Omega$\\
 \hline
-4. & $R_4$ & brązowy, czarny, brązowy, złoty & $100\Omega$ & $97,5\Omega$\\
+4. & $R_4$ & brązowy, czarny, brązowy, złoty & $100\Omega\pm5\%$ & $97,5\Omega$\\
 \hline
 \end{tabular}
 \end{center}
@@ -149,9 +151,65 @@ Zestawienie wyników z poprzednich zadań.
 \end{center}
 
 \section{Zadanie 6.}
-Analityczne obliczenie wartości szukanych prądów.
+Analityczne obliczenie wartości szukanych prądów. 
+\newline
+\newline
+Korzystając z I i II prawa Kirchoffa otrzymujemy dla danego obwodu następujący układ równań : 
+\bigbreak
+\bigbreak
+$ \begin{cases} 
+\phantom{I_1 + }
+	   5V& = IR_4 + I_2R_2 + JR_3\\
+\phantom{I_1 + }
+	   5V& = IR_4 + I_1R_1 + IR_3\\
+I_1 + I_2& = I
+\end{cases} $
 
-%OBLICZENIA
+\bigbreak
+\bigbreak
+
+$ \begin{cases}
+\phantom{I_1 + .}
+		0 &= I_2R_2 - I_1R_1\\
+I_1 + I_2 &= I\\
+\phantom{I_1 + }
+	   5V &= IR_4 + I_1R_1 + IR_3
+\end{cases} $
+
+\bigbreak
+\bigbreak
+
+$ \begin{cases}
+\phantom{I. }
+   I_1R_1 &= (I - I_1)R_2\\
+I_1 + I_2 &= I\\
+\phantom{I_1 + }
+	   5V &= IR_4 + (I - I_1)R_2 + IR_3
+\end{cases} $
+
+\bigbreak
+\bigbreak
+
+
+$\bm{R_Z} = R_4 + \frac{R_2R_1}{R_1 + R_2} + R_3 = 610 = \frac{220*360}{220 = 360} = \bm{747\Omega}$
+%nie za mało dokładnie?
+\bigbreak
+
+$R = \frac{U}{I}\quad\Rightarrow\quad \bm{I} = \frac{U}{R_Z} = \frac{5V}{747\Omega} = 6,69mA = \bm{0,00669A}$
+\bigbreak
+\bigbreak
+
+$5V = IR_4 + I_2R_2 + IR_3$
+\bigbreak
+
+$5V = IR_4 + I_1R_1 + IR_3$
+\bigbreak
+\bigbreak
+
+$\frac{5V - I(R_4 + R_3)}{R_2} = \bm{I_2 = 4,177mA}$
+\bigbreak
+
+$\frac{5V - I(R_4 + R_3)}{R_1} = \bm{I_1 = 2,55mA}$
 
 \section{Zadanie 7.}
 Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
@@ -161,9 +219,9 @@ Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
 \hline
 \textbf{Lp.} & \textbf{$I_{Rx}$(z tw. Thevenina)} & \textbf{$I_{Rx}$(z obliczeń)}\\
 \hline
-1. & $mA$ & $mA$\\
+1. & $2,62mA$ & $2,55mA$\\
 \hline %TU WPISAĆ WYNIKI OBLICZEŃ
-2. & $mA$ & $mA$\\
+2. & $4,26mA$ & $4,177mA$\\
 \hline
 \end{tabular}
 \end{center}
