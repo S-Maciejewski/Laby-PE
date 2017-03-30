@@ -200,8 +200,8 @@ I_1 + I_2 &= I\\
 \bigbreak
 
 
-$\bm{R_Z} = R_4 + \frac{R_2R_1}{R_1 + R_2} + R_3 = 610 = \frac{220*360}{220 = 360} = \bm{747\Omega}$
-%nie za mało dokładnie?
+$\bm{R_Z} = R_4 + \frac{R_2R_1}{R_1 + R_2} + R_3 = 610 = \frac{220*360}{220 + 360} = \bm{747\Omega}$
+
 \bigbreak
 
 $R = \frac{U}{I}\quad\Rightarrow\quad \bm{I} = \frac{U}{R_Z} = \frac{5V}{747\Omega} = 6,69mA = \bm{0,00669A}$
@@ -237,7 +237,18 @@ Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
 
 \section{Wnioski}
 
-%TU WPISAĆ WNIOSKI
+Wartości natężenia prądów otrzymane w wyniku pomiarów i zastosowania twierdzenia Thevenina nieznacznie różnią się od wartości obliczonych analitycznie, 
+co jest najpewniej skutkiem:
+\begin{itemize}
+\item błędów pomiarowych używanej aparatury;
+\item ograniczonej precyzji wykonania rezystorów;
+\item niezerowego oporu płytki prototypowej i kabli użytych do pomiaru.
+\end{itemize}
+
+\begin{flushleft}
+Mimo tych różnic, otrzymane doświadczalnie wyniki dobrze odpowiadają wyliczonym wartościom (błąd nie przekracza 3\%), co
+stanowi o zasadności twierdzenia Thevenina.
+\end{flushleft}
 
 \section*{Bibliografia}
 W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
@@ -246,4 +257,3 @@ W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzysta
 \bibliography{IEEEabrv,refs}
 
 \end{document}
-
