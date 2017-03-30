@@ -6,6 +6,7 @@
 \usepackage{babel}
 \usepackage{pslatex}
 \usepackage{pgfplots}
+\usepackage{hhline}
 \usepackage[american]{circuitikz} 
 \usepackage{anysize}
 \marginsize{2.5cm}{2.5cm}{3cm}{3cm}
@@ -105,7 +106,6 @@ Wartości rezystorów użytych do zbudowania obwodu przedstawionego na rysunku \
 \hline
 \end{tabular}
 \end{center}
-
 \newpage
 
 \section{Zadanie 3.}
@@ -116,10 +116,10 @@ Wyniki pomiarów dla twierdzenia Thevenina, gdzie:
 \end{center}
 
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c||c|c|}
 \hline
-\textbf{Lp.} & \textbf{$U_{th}$} & \textbf{$R_{th}$}\\
-\hline
+\textbf{Lp.} & \boldsymbol{$U_{th}$} & \boldsymbol{$R_{th}$}\\
+\hhline{|=#=|=|}
 1. & $1,35V$ & $159,99\Omega$\\
 \hline
 2. & $1,88V$ & $222,91\Omega$\\
@@ -151,10 +151,10 @@ $$
 Zestawienie wyników z poprzednich zadań.
 
 \begin{center}
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|c||c|c|c|}
 \hline
-\textbf{Lp.} & \textbf{$U_{th}$} & \textbf{$R_{th}$} & \textbf{$I_{Rx}$}\\
-\hline
+\textbf{Lp.} & \boldsymbol{$U_{th}$} & \boldsymbol{$R_{th}$} & \boldsymbol{$I_{Rx}$}\\
+\hhline{|=#=|=|=|}
 1. & $1,35V$ & $159,99\Omega$ & $2,62mA$\\
 \hline
 2. & $1,88V$ & $222,91\Omega$ & $4,26mA$\\
@@ -203,12 +203,12 @@ $\bm{I_1 = \frac{V_1 - I\cdot(R_4 + R_3)}{R_1} = \frac{5V - 0,00669A\cdot(100\Om
 Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
 
 \begin{center}
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c||c|c|}
 \hline
-\textbf{Lp.} & \textbf{$I_{Rx}$(z tw. Thevenina)} & \textbf{$I_{Rx}$(z obliczeń)}\\
-\hline
+\textbf{Lp.} & \boldsymbol{$I_{Rx}$}(z tw. Thevenina) & \boldsymbol{$I_{Rx}$}(z obliczeń)\\
+\hhline{|=#=|=|}
 1. & $2,62mA$ & $2,55mA$\\
-\hline %TU WPISAĆ WYNIKI OBLICZEŃ
+\hline 
 2. & $4,26mA$ & $4,177mA$\\
 \hline
 \end{tabular}
