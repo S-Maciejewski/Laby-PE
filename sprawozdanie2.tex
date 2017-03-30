@@ -9,6 +9,7 @@
 \usepackage[american]{circuitikz} 
 \usepackage{anysize}
 \marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+\bibliographystyle{IEEEtran}
 
 %makro do indeksów w tabeli
 \newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
@@ -67,7 +68,7 @@
 %ZADANIA
 
 \section*{Cel}
-Celem przeprowadzanych doświadczeń jest zaznajomienie się z twierdzeniem Thevenina oraz jego zastosowaniem do pomiaru prądów w gałęziach.
+Celem przeprowadzanych doświadczeń jest zaznajomienie się z twierdzeniem Thevenina oraz jego zastosowaniem do obliczania i pomiarów prądów w gałęziach.
 
 \section{Zadanie 1.}
 Rozpatrywany obwód wraz z wybranymi wartościami elementów.
@@ -79,10 +80,15 @@ Rozpatrywany obwód wraz z wybranymi wartościami elementów.
 	  (0,2) to [R, l=$R_4$, a=100$\Omega$] (2,2) to [R, l_=$R_2$, a^=220$\Omega$] (2,0) to [R, l_=$R_3$, a^=510$\Omega$] (2,-2) -- (0,-2)
 	  (2,2) -- (4,2) to [R, l_=$R_1$, a^=360$\Omega$] (4,0) -- (2,0);
 \end{circuitikz}
+\caption{Badany obwód}
+\label{fig:badobw}
 \end{figure}
+$\newline$
+Wartości elementów obwodu : $V_1 = 5V$,  $R_1 = 360\Omega$,  $R_2 = 220\Omega$,  $R_3 = 510\Omega$,  $R_4 = 100\Omega$
+
 
 \section{Zadanie 2.}
-Wartości rezystorów użytych do zbudowania obwodu.
+Wartości rezystorów użytych do zbudowania obwodu przedstawionego na rysunku \ref{fig:badobw}.
 
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
@@ -103,7 +109,11 @@ Wartości rezystorów użytych do zbudowania obwodu.
 \newpage
 
 \section{Zadanie 3.}
-Wyniki pomiarów dla twierdzenia Thevenina.
+Wyniki pomiarów dla twierdzenia Thevenina, gdzie: 
+\begin{center}
+\textbf{$U_{th}$} - napięcie panujące od strony zacisków AB \\
+\textbf{$R_{th}$} - rezystencja zastępcza widziana od strony zacisków AB \\
+\end{center}
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -118,7 +128,7 @@ Wyniki pomiarów dla twierdzenia Thevenina.
 \end{center}
 
 \section{Zadanie 4.}
-Obliczenie prądów dla badanego obwodu w gałęzi z rezystorem $R_x$ w oparciu o twierdzenie Thevenina.
+Obliczenie prądów dla badanego obwodu w gałęzi z rezystorem $R_x$ w oparciu o twierdzenie Thevenina \cite{thevenin}.
 
 \begin{figure}[!h]
 \centering
@@ -126,6 +136,8 @@ Obliczenie prądów dla badanego obwodu w gałęzi z rezystorem $R_x$ w oparciu 
 \draw (0,1) to [american voltage source, l_=$U_{th}$] (0,-1)
 	  (0,1) to [R, l=$R_{th}$] (2,1) to [R, l=$R_x$] (2,-1) -- (0,-1);
 \end{circuitikz}
+\caption{Schematyczny obwód}
+\label{fig:schemobw}
 \end{figure}
 
 $$
@@ -160,65 +172,32 @@ Analityczne obliczenie wartości szukanych prądów.
 	  (0,2) to [R, l=$R_4$, i=$I$, a=100$\Omega$] (2,2) to [R, l_=$R_2$, i=$I_2$, a^=220$\Omega$] (2,0) to [R, l_=$R_3$, i=$I$, a^=510$\Omega$] (2,-2) -- (0,-2)
 	  (2,2) -- (4,2) to [R, l_=$R_1$, i=$I_1$, a^=360$\Omega$] (4,0) -- (2,0);
 \end{circuitikz}
+\caption{Badany obwód}
+\label{fig:obw2}
 \end{figure}
 \newline
 \newline
-Korzystając z I i II prawa Kirchoffa otrzymujemy dla danego obwodu następujący układ równań : 
+Korzystając z II prawa Kirchoffa \cite{thevenin} otrzymujemy dla obwodu przedstawionego na rysunku \ref{fig:obw2} następujące równania : 
 \bigbreak
-\bigbreak
-$ \begin{cases} 
-\phantom{I_1 + }
-	   V_1& = IR_4 + I_2R_2 + JR_3\\
-\phantom{I_1 + }
-	   V_1& = IR_4 + I_1R_1 + IR_3\\
-I_1 + I_2& = I
-\end{cases} $
+$V_1 = IR_4 + I_2R_2 + IR_3$\\
 
+$V_1 = IR_4 + I_1R_1 + IR_3$
+\newline
+\newline
+Następnie korzystając ze wzoru na rezystancję zastępczą obwodu oraz zależności rezystancji od napięcia źródła obwodu i natężenia prądu w nim płynącego \cite{thevenin} otrzymujemy :
 \bigbreak
-\bigbreak
-
-$ \begin{cases}
-\phantom{I_1 + .}
-		0 &= I_2R_2 - I_1R_1\\
-I_1 + I_2 &= I\\
-\phantom{I_1 + }
-	   5V &= IR_4 + I_1R_1 + IR_3
-\end{cases} $
-
-\bigbreak
-\bigbreak
-
-$ \begin{cases}
-\phantom{I. }
-   I_1R_1 &= (I - I_1)R_2\\
-I_1 + I_2 &= I\\
-\phantom{I_1 + }
-	   5V &= IR_4 + (I - I_1)R_2 + IR_3
-\end{cases} $
-
-\bigbreak
-\bigbreak
-
-
-$\bm{R_Z} = R_4 + \frac{R_2R_1}{R_1 + R_2} + R_3 = 610 = \frac{220*360}{220 + 360} = \bm{747\Omega}$
+$R_Z = R_4 + \frac{R_{2} \cdot R_{1}}{R_1 + R_2} + R_3 = 610\Omega + \frac{220\Omega\cdot360\Omega}{220\Omega + 360\Omega} \approx \bm{747\Omega}$
 
 \bigbreak
 
-$R = \frac{U}{I}\quad\Rightarrow\quad \bm{I} = \frac{U}{R_Z} = \frac{5V}{747\Omega} = 6,69mA = \bm{0,00669A}$
+$R_Z = \frac{V_1}{I}\quad\Rightarrow\quad \bm{I} = \frac{V_1}{R_Z} = \frac{5V}{747\Omega} \approx 6,69mA = \bm{0,00669A}$
+\newline
+\newline
+Po przekształceniu dwóch pierwszych wzorów i podstawieniu wszystkich wymaganych wartości dostajemy : 
 \bigbreak
+$\bm{I_2 = \frac{V_1 - I\cdot(R_4 + R_3)}{R_2} = \frac{5V - 0,00669A\cdot(100\Omega + 510\Omega)}{220\Omega} \approx  4,177mA}$
 \bigbreak
-
-$5V = IR_4 + I_2R_2 + IR_3$
-\bigbreak
-
-$5V = IR_4 + I_1R_1 + IR_3$
-\bigbreak
-\bigbreak
-
-$\frac{5V - I(R_4 + R_3)}{R_2} = \bm{I_2 = 4,177mA}$
-\bigbreak
-
-$\frac{5V - I(R_4 + R_3)}{R_1} = \bm{I_1 = 2,55mA}$
+$\bm{I_1 = \frac{V_1 - I\cdot(R_4 + R_3)}{R_1} = \frac{5V - 0,00669A\cdot(100\Omega + 510\Omega)}{360\Omega} \approx 2,55mA}$
 
 \section{Zadanie 7.}
 Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
@@ -250,10 +229,14 @@ Mimo tych różnic, otrzymane doświadczalnie wyniki dobrze odpowiadają wyliczo
 stanowi o zasadności twierdzenia Thevenina.
 \end{flushleft}
 
-\section*{Bibliografia}
-W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
-\bibliographystyle{IEEEtran}
 
 \bibliography{IEEEabrv,refs}
+
+\begin{thebibliography}{9}
+
+\bibitem{thevenin}
+  W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
+
+\end{thebibliography}
 
 \end{document}
