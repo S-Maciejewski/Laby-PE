@@ -1,16 +1,24 @@
 \documentclass[polish,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb, amsfonts, amsthm, amsmath, bm}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{babel}
 \usepackage{pslatex}
-\usepackage[european]{circuitikz} 
+\usepackage{pgfplots}
+\usepackage{hhline}
+\usepackage[american]{circuitikz} 
 \usepackage{anysize}
 \marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+\bibliographystyle{IEEEtran}
 
+%makro do indeksów w tabeli
 \newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
 
+%makro do informacji w tabeli
 \newcommand{\PRzFieldCnt}[1]{\itshape #1}
 
+%potężne makro tworzące tabelę z informacjami o teamie
 \newcommand{\PRzHeading}[8]{
 %% #1 - nazwa laboratorium
 %% #2 - kierunek 
@@ -50,495 +58,222 @@
 \end{tabular}
 \end{center}
 }
+%koniec potężnego makro do tabeli
 
 \begin{document}
 
-\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Wprowadzenie}{1}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
+%stworzenie tabeli - miejsce na zmienianie danych w tabeli
+%indeksy do uzupełnienia
+\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Rezonans w obwodach RLC}{3}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
 
 %ZADANIA
 
-\section{Zadanie A}
+\section*{Cel}
+-----------------------------------------
 
-\subsection*{Cel}
-
-Ćwiczenie ma na celu zaznajomienie z podstawowymi wielkościami fizycznymi służącymi do opisu własności obwodów elektrycznych oraz oznaczeniami elementów tych obwodów (cewki, rezystory i kondensatory). Aby prawidłowo wykonać opisane w poleceniu pomiary konieczne jest także nauczenie się obsługi przyrządów pomiarowych - pomiar rezystancji, pojemności kondensatorów i pojemności cewek przy pomocy multimetru RIGOL DS1022.
-
-\subsection{Część I}
-Odczytanie wartości rezystancji na podstawie kodu paskowego rezystorów oraz pomiar jej wartości za pomocą multimetru.\\
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{R} & \textbf{Barwy} & \textbf{Odczyt} & \textbf{Pomiar}\\
-\hline
-R1 & czerwony, czerwony, brązowy & $220\Omega$ & $220\Omega$\\
-\hline
-R2 & pomarańczowy, pomarańczowy, zielony & $3,3M\Omega$ & $3,25M\Omega$\\
-\hline
-R3 & brązowy, czarny, brązowy & $100\Omega$ & $98\Omega$\\
-\hline
-R4 & brązowy, czarny, czerwony & $1k\Omega$ & $0,99k\Omega$\\
-\hline
-R5 & czerwony, czarny, czerwony & $2k\Omega$ & $1,95k\Omega$\\
-\hline
-R6 & czerwony, czarny, zielony & $2M\Omega$ & $1,97M\Omega$\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Część II}
-Odczytanie pojemności kondensatorów oraz pomiar ich pojemności przy pomocy mostka pomiarowego.\\
-
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
-\hline
-\textbf{C} & \textbf{Oznaczenie} & \textbf{Odczyt} & \textbf{Pomiar}\\
-\hline
-C1 & 223 & 22nF & 33,4nF\\
-\hline
-C2 & 10n & 10nF & 8,4nF\\
-\hline
-C3 & 132 & 3,3nF & 2,9nF\\
-\hline
-C4 & 222 & 2,2nF & 2,3nF\\
-\hline
-C5 & 10$\mu$F & 10$\mu$F & 10,7$\mu$F\\
-\hline
-C6 & 12$\mu$F & 22$\mu$F & 20,9$\mu$F\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Część III}
-Pomiar indukcyjności wybranych cewek używając mostka pomiarowego.\\
-
-\begin{center}
-\begin{tabular}{|c|c|}
-\hline
-\textbf{L} & \textbf{Pomiar}\\
-\hline
-L1 & 30,08nH\\
-\hline
-L2 & 30,28nH\\
-\hline
-L3 & 30,9$\mu$H\\
-\hline
-\end{tabular}
-\end{center}
-
-\section{Zadanie B}
-
-\subsection*{Cel}
-
-Zadanie B ma na celu zapoznanie się z metodą obliczania oporu zastępczego dla rezystorów połączonych szeregowo i równolegle (także dla całych obwodów) i naukę umiejętności budowania oraz pomiaru właściwości obwodów na płytce prototypowej. W sposób naturalny ćwiczenie kształci również umiejętność odczytywania schematów obwodów.\\
-
-\subsection{Część I}
-
-Obliczenie i wyprowadzenie wzoru dla rezystancji zastępczej obwodu przedstawionego poniżej.\\
+\section{Zadanie 1.}
+Rozpatrywany obwód wraz z wybranymi wartościami elementów.
 
 \begin{figure}[!h]
 \centering
 \begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,0) to [R, l=$R_7$, a=1$\Omega$] (2,0) -- (2, 0.7) to [R, l=$R_5$, a=100$\Omega$] (4,0.7) -- (4,0)
-(2,0) -- (2,-0.7) to [R, l=$R_6$, a=200$\Omega$] (4,-0.7) --  (4,0) -- (4.5,0) -- (4.5,2.1) to [R, l=$R_1$, a=2k$\Omega$] (6.5,2.1) -- (6.5,-2.1) to [R, l_=$R_4$, a^=270$\Omega$] (4.5,-2.1) -- (4.5,0)
-(4.5,0.7) to [R, l=$R_2$, a=3k$\Omega$] (6.5,0.7)
-(4.5,-0.7) to [R, l=$R_3$, a=1k$\Omega$] (6.5,-0.7)
-(6.5,0) -- (7,0) -- (7,0.7) to [R, l=$R_8$, a=1$\Omega$] (9, 0.7) -- (9, -0.7) to [R, l_=$R_9$, a^=100$\Omega$] (7,-0.7) -- (7,0)
-(9,0) -- (10,0);
-\draw (-0.2,0) node {A}
-	  (10.2,0) node {B};  
+\draw (-0.3,1) to [sinusoidal voltage source, l^=$V_{pp}$, a_=$8V$, o-o] (-0.3,-1)
+	  (-0.3,1) -- (1,1)
+	  (-0.3,-1) -- (1,-1)
+	  (2,1) to [short, -*] (2.5,1) -- (2.5, 2.5) to [voltmeter, -*] (4, 2.5) to [voltmeter] (5.5, 2.5) to [short, -*] (5.5, 1) to [short, -*] (6,1) to [R, l=$R_1$, a=1k$\Omega$, *-*] (6,-1) -- (2,-1) 
+	  (4,2.5) to [short, -*] (4,1) 
+	  (2.5,1) to [C, l=$C_1$, a=13.3nF] (4,1) to [L, l=$L_1$, a=66mH] (5.5,1)
+	  (6,1) -- (7.5,1) 
+	  (6,-1) -- (7.5,-1)
+	  (1.5,-2.3) to [short, -o] (3, -2.3)
+	  (1.5,-3) to [short, -o] (3, -3)
+	  (5,-2.3) to [short, -o] (6.5, -2.3)
+	  (5,-3) to [short, -o] (6.5, -3);
+\draw [line width = 2, blue] (1,1) -- (1,-1) -- (2,-1) -- (2, 1)
+	  (1.5, -1) -- (1.5, -3)
+	  (7.5,1) -- (7.5,-1.7) -- (5,-1.7) --(5,-3)  ;  
+\draw [line width = 1, dashed, gray] (2.2,1.9) -- (6.7,1.9) -- (6.7,-1.2) -- (2.2, -1.2) -- (2.2,1.9); 
+\draw (0.5,1.1) node {czerw.}
+	  (0.5,-0.9) node {biały}
+	  (7.2,1.1) node {czerw.}
+	  (7.2,-0.9) node {biały}
+	  
+	  (2.6, -2.2) node {czerw.}
+	  (2.6, -2.9) node {biały}
+	  (6.1, -2.2) node {czerw.}
+	  (6.1, -2.9) node {biały}
+	  (1.5, -0.8) node {BNC}
+	  (5.5,-1.5) node {BNC}
+      (1.3, -2) node[rotate=90] {BNC}
+      (3.3, -2.65) node[rotate=90] {\small\textbf{kanał X}}
+      (6.8, -2.65) node[rotate=90] {\small\textbf{kanał Y}}
+      (-1.1, 0.4) node {sinus}
+      (-1.45, -0.4) node {f = 1...15kHz} 
+	  ;
 \end{circuitikz}
+\caption{Badany obwód}
+\label{fig:badobw}
 \end{figure}
-
-$$
-R_{z} = R_{7} + \frac{1}{\frac{1}{R_{5}} + \frac{1}{R_{6}}} + \frac{1}{\frac{1}{R_{1}} + \frac{1}{R_{2}} + \frac{1}{R_{3}} + \frac{1}{R_{4}}} + \frac{1}{\frac{1}{R_{8}} + \frac{1}{R_{9}}} = $$ \\ $$R_{7} + \frac{R_{5} \cdot R_{6}}{R_{5} + R_{6}} + \frac{R_{1}\cdot R_{2}\cdot R_{3}\cdot R_{4}}{ R_{1}\cdot R_{2}\cdot R_{3} + R_{1}\cdot R_{2}\cdot R_{4} + R_{1}\cdot R_{3}\cdot R_{4} + R_{2}\cdot R_{3}\cdot R_{4}} + \frac{R_{8}\cdot R_{9}}{R_{8} + R_{9}}
-$$
-
-\begin{center}
-$R_{z} = 1k\Omega + \frac{100\Omega\cdot200\Omega}{100\Omega + 200\Omega} + \frac{1\Omega\cdot100\Omega}{1\Omega + 100\Omega}+$\\
-\vspace{0,5cm}
-\begin{large}
-$+ \frac{2k\Omega\cdot3k\Omega\cdot1k\Omega\cdot270\Omega}{2k\Omega\cdot3k\Omega\cdot1k\Omega + 2k\Omega\cdot3k\Omega\cdot270\Omega + 2k\Omega\cdot1k\Omega\cdot270\Omega + 3k\Omega\cdot1k\Omega\cdot270\Omega}$\\
-\end{large}
-\end{center}
-$$
-R_{z} = 1248,26\Omega
-$$
-
-\newpage
-\subsection{Część II}
-Obliczanie rezystancji obwodów oraz jej pomiar dla obwodu zbudowanego na płytce prototypowej.\\
-Pod każdym przykładem zamieszczono porównanie obliczonej rezystancji z jej zmierzoną wartością.\\
-
-\subsubsection{Obwód 1.}
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,0) -- (0.5,0) -- (0.5,0.7) to [R, l=$R_2$, a=2k$\Omega$] (2.5,0.7) to [R, l=$R_3$, a=2k$\Omega$] (4.5, 0.7) -- (4.5,0)
-	  (0.5,0) -- (0.5,-0.7) to [R, l=$R_1$, a=1k$\Omega$] (4.5,-0.7) -- (4.5,0) -- (5,0); 
-\path (-0.2,0) node {A}
-	  (5.2,0) node {B};
-\end{circuitikz}
-\end{figure}
-
-$$
-R_{z} = \frac{1}{\frac{1}{R_{1}} + \frac{1}{R_{2} + R_{3}}} = \frac{(R_{2}+R_{3})\cdot R_{1}}{R_{1}+R_{2}+R_{3}}
-$$
-\\
-$$
-R_{z} = \frac{(2k\Omega+2k\Omega)\cdot 1k\Omega}{1k\Omega+2k\Omega+2k\Omega} = 800\Omega
-$$
-\\
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Obliczenia} & \textbf{Pomiar}\\
-\hline
-$800\Omega$ & $790\Omega$\\
-\hline
-\end{tabular}
-
-\subsubsection{Obwód 2.}
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,0) -- (0.5,0) -- (0.5,-0.7) to [R, l=$R_4$, a=100$\Omega$] (7,-0.7) -- (7, 0)
-	  (0.5,0) -- (0.5,1.4) -- (1,1.4) -- (1,2.1) to [R, l=$R_1$, a=1k$\Omega$] (3,2.1) -- (3,0.7)
-	  (1,1.4) -- (1,0.7) to [R, l=$R_2$, a=2k$\Omega$] (3,0.7) -- (3,1.4) to [R, l=$R_3$, a=1k$\Omega$] (5,1.4) to [R, l=$R_5$, a=100$\Omega$] (7,1.4) -- (7,0)-- (7.5,0);
-\draw (-0.2,0) node {A}
-	  (7.7,0) node {B};
-\end{circuitikz}
-\end{figure}
-
-$$
-R_{z} = \frac{1}{\frac{1}{R_{4}} + \frac{1}{ \frac{1}{\frac{1}{R_{1}} + \frac{1}{R_{2}}}+R_{3} + R_{5}}} = \frac{R_{4}\cdot(R_{1}\cdot R_{2} + (R_{1} + R_{2})\cdot(R_{3}+R_{5}))}{R_{1}\cdot R_{2} + (R_{1}+R_{2})\cdot(R_{3}+R_{5}) + (R_{1}+R_{2})\cdot R_{4}}
-$$
-\\
-$$
-R_{z} = \frac{100\Omega\cdot(1k\Omega\cdot 2k\Omega + (1k\Omega + 2k\Omega)\cdot(1k\Omega+100\Omega)}{1k\Omega\cdot 2k\Omega + (1k\Omega+2k\Omega)\cdot(1k\Omega+100\Omega) + (1k\Omega+2k\Omega)\cdot 100\Omega} = 94,6 \Omega
-$$
-\\
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Obliczenia} & \textbf{Pomiar}\\
-\hline
-$94,6\Omega$ & $95\Omega$\\
-\hline
-\end{tabular}
-
-\newpage
-\subsubsection{Obwód 3.}
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,0) -- (1,0) to [R, l=$R_1$, a=2k$\Omega$] (1,-2) -- (0, -2)
-	  (1,0) -- (2,0) to [R, l=$R_3$, a=100$\Omega$] (4,0)
-	  (2,0) -- (2,-1.4) to [R, l=$R_4$, a=1k$\Omega$] (4,-1.4) -- (4,0) -- (5,0) to [R, l=$R_2$, a=2k$\Omega$] (5, -2) -- (6,-2)
-	  (5,0) -- (6,0);
-\path (-0.2,0) node {A}
-	  (-0.2,-2) node {B};
-\end{circuitikz}
-\end{figure}
-
-$$
-R_{z} = R_{1} = 2k\Omega
-$$
-\\
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Obliczenia} & \textbf{Pomiar}\\
-\hline
-$2k\Omega$ & $1,952k\Omega$\\
-\hline
-\end{tabular}
-
-\subsubsection{Obwód 4.}
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,0) -- (1,0) -- (1,-0.7) to [R, l=$R_4$, a=1k$\Omega$] (7.5,-0.7) -- (7.5, 0)
-	  (1,0) -- (1,1.4) -- (1.5,1.4) -- (1.5,2.1) to [R, l=$R_5$, a=100$\Omega$] (3.5,2.1) to [R, l=$R_1$, a=1k$\Omega$] (5.5,2.1) -- (5.5,1.4)
-	  (1.5,1.4) -- (1.5,0.7) to [R, l=$R_2$, a=2k$\Omega$] (5.5,0.7) -- (5.5,1.4)
-	  (5.5,1.4) to [R, l=$R_3$, a=2k$\Omega$] (7.5,1.4) -- (7.5,0)--(8.5,0);
-\path (-0.2,0) node {A}
-	  (8.7,0) node {B};
-\end{circuitikz}
-\end{figure}
-
-$$
-R_{z} = \frac{1}{\frac{1}{R_{4}} + \frac{1}{ \frac{1}{\frac{1}{R_{2}} + \frac{1}{R_{5} + R_{1}}}+R_{3}}} = \frac{R_{4}\cdot ((R_{1} + R_{5})\cdot R_{2} + (R_{1} + R_{2} + R_{5})\cdot R_{3})}{(R_{1} + R_{2} + R_{5})\cdot (R_{3} + R_{4}) + (R_{1} + R_{5})\cdot R_{2}}
-$$
-\\
-$$
-R_{z} = \frac{1k\Omega\cdot ((1k\Omega + 100\Omega)\cdot 2k\Omega + (1k\Omega + 2k\Omega + 100\Omega)\cdot 2k\Omega)}{(1k\Omega + 2k\Omega + 100\Omega)\cdot (2k\Omega + 1k\Omega) + (1k\Omega + 100\Omega)\cdot 2k\Omega} = 730,4 \Omega
-$$
-\\
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Obliczenia} & \textbf{Pomiar}\\
-\hline
-$730,4\Omega$ & $725\Omega$\\
-\hline
-\end{tabular}
-
-\newpage
-\subsubsection{Obwód 5.}
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,0) -- (1,0) to [R, l=$R_1$, a=2k$\Omega$] (1,-2) -- (0, -2)
-	  (1,0) -- (2,0) to [R, l=$R_3$, a=2k$\Omega$] (4,0)
-	  (2,0) -- (2,-1.2) to [R, l=$R_4$, a=1k$\Omega$] (4,-1.2) -- (4,0) -- (5,0) to [R, l=$R_2$, a=2k$\Omega$] (5, -2) -- (6,-2)
-	  (5,0) -- (6,0)
-	  (1,-2) -- (5, -2);
-\path (-0.2,0) node {A}
-	  (-0.2,-2) node {B};
-\end{circuitikz}
-\end{figure}
-
-$$
-R_{z} = \frac{1}{\frac{1}{R_{1}} + \frac{1}{ \frac{1}{\frac{1}{R_{4}} + \frac{1}{R_{3}}}+R_{2}}} = \frac{R_{1}\cdot(R_{3}\cdot R_{4} + R_{2}\cdot(R_{3} + R_{4}))}{R_{3}\cdot R_{4} + (R_{1}\cdot R_{2})\cdot (R_{3} + R_{4})}
-$$ 
-\\
-$$
-R_{z} = \frac{2k\Omega\cdot(2k\Omega\cdot 1k\Omega + 2k\Omega\cdot(2k\Omega + 1k\Omega))}{2k\Omega\cdot 1k\Omega + (2k\Omega\cdot 2k\Omega)\cdot (2k\Omega + 1k\Omega)} = 1142,9\Omega
-$$ 
-\\
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Obliczenia} & \textbf{Pomiar}\\
-\hline
-$1142,9\Omega$ & $1119\Omega$\\
-\hline
-\end{tabular}
+$\newline$
+Wartości elementów obwodu : $V_{pp} = 8V$, $R_1 = $1k$\Omega$,  $C_1 = 13.3$nF,  $L_1 = 66$mH
 
 
-\subsubsection{Obwód 6.}
+\section{Zadanie 2.}
+-----------------------------------
+%Wartości rezystorów użytych do zbudowania obwodu przedstawionego na rysunku \ref{fig:badobw}.
+%
+%\begin{center}
+%\begin{tabular}{|c||c|c|c|c|}
+%\hline
+%\textbf{Lp.} & \textbf{R} & \textbf{Kod paskowy(KP)} & \textbf{Wartość odczytana z KP} & \textbf{Wartość zmierzona}\\
+%\hhline{|=#=|=|=|=|}
+%1. & $R_1$ & pomarańczowy, niebieski, brązowy, złoty & $360\Omega\pm5\%$ & $354,9\Omega$\\
+%\hline
+%2. & $R_2$ & czerwony, czerwony, czarny, złoty & $220\Omega\pm5\%$ & $218\Omega$\\
+%\hline
+%3. & $R_3$ & zielony, brązowy, brązowy, złoty & $510\Omega\pm5\%$ & $499,9\Omega$\\
+%\hline
+%4. & $R_4$ & brązowy, czarny, brązowy, złoty & $100\Omega\pm5\%$ & $97,5\Omega$\\
+%\hline
+%\end{tabular}
+%\end{center}
+%\newpage
 
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,0) -- (0.5,0) to [R, l=$R_3$, a=1k$\Omega$] (2.5,0) -- (2.5, -0.7)
-	  (0,-1.4) -- (0.5,-1.4) to [R, l=$R_4$, a=2k$\Omega$] (2.5,-1.4)--(2.5,-0.7) -- (3,-0.7) -- (3,0) to [R, l=$R_1$, a=100$\Omega$] (5,0) --(5,-0.7)
-	  (3,-0.7) -- (3,-1.4) to [R, l=$R_2$, a=2k$\Omega$] (5,-1.4)-- (5,-0.7) -- (5.5, -0.7)
-	  (0.5, -1.4) to (0.5, -2.8) to [R, l=$R_5$, a=1k$\Omega$] (5.5,-2.8)-- (5.5,-0.7);
-\path (-0.2,0) node {A}
-	  (-0.2,-1.4) node {B};
-\end{circuitikz}
-\end{figure}
+\section{Zadanie 3.}
+------------------------------------
+%Wyniki pomiarów dla twierdzenia Thevenina, gdzie: 
+%\begin{center}
+%\textbf{$U_{th}$} - napięcie panujące od strony zacisków AB \\
+%\textbf{$R_{th}$} - rezystencja zastępcza widziana od strony zacisków AB \\
+%\end{center}
+%
+%\begin{center}
+%\begin{tabular}{|c||c|c|}
+%\hline
+%\textbf{Lp.} & \boldsymbol{$U_{th}$} & \boldsymbol{$R_{th}$}\\
+%\hhline{|=#=|=|}
+%1. & $1,35V$ & $159,99\Omega$\\
+%\hline
+%2. & $1,88V$ & $222,91\Omega$\\
+%\hline
+%\end{tabular}
+%\end{center}
 
-W celu zwiększenia czytelności obliczeń, w tym przypadku wprowadzimy dodatkowe oznaczenia:
-$$
-R_{6} = \frac{R_{1}\cdot R_{2}}{R_{1}+R_{2}} = \frac{100\Omega\cdot 2k\Omega}{100\Omega+2k\Omega} = 95,24\Omega
-$$
-$$
-R_{7} = R_{6} + R_{5} = 1000\Omega + 95,24\Omega = 1095,24\Omega
-$$
-$$
-R_{8} = \frac{R_{4}\cdot R_{7}}{R_{4}+R_{7}} = \frac{2000\Omega\cdot 1095,24\Omega}{2000\Omega + 1095,24\Omega} = 707,7\Omega
-$$
-\\
-$$
-R_{z} = R_{3} + R_{8} = 1000\Omega + 707,7\Omega = 1707,7\Omega\\
-$$
-\\
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Obliczenia} & \textbf{Pomiar}\\
-\hline
-$1707,7\Omega$ & $1684\Omega$\\
-\hline
-\end{tabular}
-
-\subsection{Podsumowanie}
-W zadaniu widać było różnice pomiędzy obliczoną rezystancją i jej zmierzoną, rzeczywistą wartością. Różnice te mogą wynikać między innymi z 
-:
-\begin{itemize}
-\item Niezerowego oporu przewodów płytki prototypowej i kabli użytych do podłączenia miernika;
-\item Niepewności pomiarowych sprzętu użytego w doświadczeniu;
-\item Ograniczonej precyzji wykonania opornika prowadzącej do różnicy między oporem nominalnym a rzeczywistym.
-\end{itemize}
-
-\section{Zadanie C}
-\subsection*{Cel}
-Zadanie C ma na celu zaznajomienie z obsługą zestawu laboratoryjnego NDN DF6911 (konkretnie sekcji DC POWER SUPPLY) i naukę wykonywania pomiarów napięcia i natężenia prądu stałego.
-
-
-\subsection{Część I}
-Odczyt i pomiar napięcia prądu zasilacza.
-
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{U} & \textbf{Pomiar} & \textbf{Odczyt}\\
-\hline
-1[V] & 1,203V & 1V\\
-\hline
-3[V] & 3,24V & 3V\\
-\hline
-4,5[V] & 4,75V & 4,5V\\
-\hline
-11[V] & 11,23V & 11V\\
-\hline
-13[V] & 13,22V & 13V\\
-\hline
-25[V] & 25,31V & 25V\\
-\hline
-28[V] & 28,27V & 28V\\
-\hline
-\end{tabular}
-\end{center}
-
-\subsection{Część II}
-Wyprowadzenie wzoru i zależności opisujących dzielnik napięcia przedstawiony na schemacie poniżej, konstrukcja tego dzielnika oraz próba wyznaczenia $R_{1}$ oraz $R_{2}$, dla których $U_{in}$ = $15V$ i $U_{out}$ = $3,3V$.\\
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-
-\draw (0,2) to [american voltage source, l_=$U_{in}$] (0,-2)
-	  (0,2) -- (1.4, 2) to [R, l=$R_1$] (1.4, 0) to [R, l=$R_2$] (1.4,-2) -- (0,-2) 
-	  (1.4,0) -- (2.8,0) -- (2.8,-0.75)
-	  (2.8,-1.25) -- (2.8,-2) -- (1.4,-2);
-\draw (2.8,-1) node {$U_{out}$};
-\end{circuitikz}
-\end{figure}
-$$U_{in} = R_{1}\cdot I + R_{2}\cdot I$$ 
-$$U_{out} = I\cdot R_{2} $$ 
-$$I = \frac{U_{out}}{R_{2}}$$ 
-$$U_{in} = R_{1} \cdot \frac{U_{out}}{R_{2}} + U_{out}$$ 
-$$\frac{R_{1}}{R_{2}} = \frac{U_{in} - U_{out}}{U_{out}}$$
-$$\frac{R_{1}}{R_{2}} = \frac{15V - 3,3V}{3,3V} = \frac{11,7V}{3,3V} = 3,54V$$\\
-
-Zatem, znając stosunek $\frac{R_{1}}{R_{2}}$, możemy spróbować uzyskać żądane napięcie używając oporników $R_{1} = 7k\Omega$ i $R_{2} = 2k\Omega$.\\
-Pomiar rezystancji dla tak skonstruowanego dzielnika napięcia wynosił $3,365V$.
-
-\subsection{Część III}
-
-Zbudowanie na płytce prototypowej obwodu przedstawionego poniżej, pomiar spadku napięcia na rezystorze $R_{1}$ oraz natężenia prądu w obwodzie.
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,1) to [american voltage source, l_=$V_1$, a^=$5V$] (0,-1)
-	  (0,1) to [R, l=$R_1$, a=2100$\Omega$] (3,1) -- (3,-1) -- (0,-1);
-\end{circuitikz}
-\end{figure}
-
-\begin{flushleft}
-Ponieważ opornik $R_{1}$ jest jedynym opornikiem w tym obwodzie, to spadek napięcia na nim wyniesie wartość napięcia źródła, czyli $U_{R1}=5V$. Stąd można obliczyć natężenie w następujący sposób:
-\end{flushleft}
-$$
-I=\frac{U}{R}=\frac{5V}{2100\Omega}=2,381mA
-$$
-\\
-\begin{tabular}{|c|c|}
-\hline
-\textbf{Natężenie obliczone} & \textbf{Pomiar}\\
-\hline
-$2,381mA$ & $2,424mA$\\
-\hline
-\end{tabular}
-
-\subsection{Część IV}
-Konstrukcja obwodu przedstawionego na schemacie i sprawdzenie dla niego praw Kirchhoffa (obliczanie spadków napięć na rezystorach i prądów w gałęziach oraz zestawienie ich z pomiarami).
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,1) to [american voltage source, l_=$V_1$, a^=$5V$] (0,-1)
-	  (0,1) to [R, l=$R_4$, a=1k$\Omega$] (3,1) to [R, l=$R_2$, a=2k$\Omega$] (5,1) -- (5,-1)
-	  (3,-1) to [R, l=$R_3$, a=200$\Omega$] (3,1)
-	  (0,-1) to [R, l=$R_1$, a=100$\Omega$] (3,-1) -- (5,-1);
-\end{circuitikz}
-\end{figure}
-
-%Zadanie C, część IV
-
+\section{Zadanie 4.}
+-------------------------------------
+%Obliczenie prądów dla badanego obwodu w gałęzi z rezystorem $R_x$ w oparciu o twierdzenie Thevenina \cite{thevenin}.
+%
 %\begin{figure}[!h]
 %\centering
-%\begin{tikzpicture}[
-%    circuit ee IEC,
-%    x = 1cm, y = 1cm,
-%    every info/.style = {font = \scriptsize},
-%    set diode graphic = var diode IEC graphic,
-%    set make contact graphic = var make contact IEC graphic]
-%
-%\draw (0,0) circle [radius = 0.5] 
-%	  (0,0.5) to (0,1) --
-%	  (0,1) to [resistor={ohm = 1k, info'={$R4$}}] (3,1) --
-%	  (3,1) to [resistor={ohm = 200, info'={$R3$}}](3,-1) -- 
-%	  (3,-1) to [resistor={ohm = 100, info'={$R1$}}](0,-1) --
-%	  (0,-1) to (0,-0.5)
-%	  (3,1) to [resistor={ohm = 2k, info'={$R2$}}] (6,1) --
-%	  (6,1) to (6,-1) --
-%	  (6,-1) to (3,-1);
-%\path (-0.5,0.7) node(x) {{V1}}
-%	  (-0.5,-0.7) node(x) {{5V}}
-%	  (0,-0.28) node(x) {{$\Large -$}}
-%	  (0,0.28) node(x) {{$\Large +$}}
-%	  ;
-%\end{tikzpicture}
+%\begin{circuitikz}[scale=1.1, font = \scriptsize]
+%\draw (0,1) to [american voltage source, l_=$U_{th}$] (0,-1)
+%	  (0,1) to [R, l=$R_{th}$] (2,1) to [R, l=$R_x$] (2,-1) -- (0,-1);
+%\end{circuitikz}
+%\caption{Schematyczny obwód}
+%\label{fig:schemobw}
 %\end{figure}
+%
+%$$
+%I_{R1} = \frac{U_{th1}}{R_{th1}+R_1} = \frac{1,35V}{159,99\Omega + 354,9\Omega} = 2,62mA
+%$$
+%$$
+%I_{R2} = \frac{U_{th2}}{R_{th2}+R_2} = \frac{1,88V}{222,91\Omega + 218\Omega} = 4,26mA
+%$$
 
-\begin{flushleft}
-Oznaczmy prąd płynący przez R4 jako I1, przez R3 jako I2 i przez R2 jako I3.
-Z II prawa Kirchhoffa wiemy, że:
-\end{flushleft}
+\section{Zadanie 5.}
+------------------------------------
+%Zestawienie wyników z poprzednich zadań.
+%
+%\begin{center}
+%\begin{tabular}{|c||c|c|c|}
+%\hline
+%\textbf{Lp.} & \boldsymbol{$U_{th}$} & \boldsymbol{$R_{th}$} & \boldsymbol{$I_{Rx}$}\\
+%%\hhline{|=#=|=|=|}
+%%1. & $1,35V$ & $159,99\Omega$ & $2,62mA$\\
+%%\hline
+%%2. & $1,88V$ & $222,91\Omega$ & $4,26mA$\\
+%%\hline
+%%\end{tabular}
+%%\end{center}
+%%\newpage
+\section{Zadanie 6.}
+----------------------------------
+%%Analityczne obliczenie wartości szukanych prądów. 
+%%\newline
+%%\begin{figure}[!h]
+%%\centering
+%%\begin{circuitikz}[scale=1.1, font = \scriptsize]
+%%\draw (0,2) to [american voltage source, l_=$V_1$, i=$I$, a^=$5V$] (0,-2)
+%%	  (0,2) to [R, l=$R_4$, i=$I$, a=100$\Omega$] (2,2) to [R, l_=$R_2$, i=$I_2$, a^=220$\Omega$] (2,0) to [R, l_=$R_3$, i=$I$, a^=510$\Omega$] (2,-2) -- (0,-2)
+%%	  (2,2) -- (4,2) to [R, l_=$R_1$, i=$I_1$, a^=360$\Omega$] (4,0) -- (2,0);
+%%\end{circuitikz}
+%%\caption{Badany obwód}
+%\label{fig:obw2}
+%\end{figure}
+%\newline
+%\newline
+%Korzystając z II prawa Kirchoffa \cite{thevenin} otrzymujemy dla obwodu przedstawionego na rysunku \ref{fig:obw2} następujące równania : 
+%\bigbreak
+%$V_1 = IR_4 + I_2R_2 + IR_3$\\
+%
+%$V_1 = IR_4 + I_1R_1 + IR_3$
+%\newline
+%\newline
+%Następnie korzystając ze wzoru na rezystancję zastępczą obwodu oraz zależności rezystancji od napięcia źródła obwodu i natężenia prądu w nim płynącego \cite{thevenin} otrzymujemy :
+%\bigbreak
+%$R_Z = R_4 + \frac{R_{2} \cdot R_{1}}{R_1 + R_2} + R_3 = 610\Omega + \frac{220\Omega\cdot360\Omega}{220\Omega + 360\Omega} \approx \bm{747\Omega}$
+%
+%\bigbreak
+%
+%$R_Z = \frac{V_1}{I}\quad\Rightarrow\quad \bm{I} = \frac{V_1}{R_Z} = \frac{5V}{747\Omega} \approx 6,69mA = \bm{0,00669A}$
+%\newline
+%\newline
+%Po przekształceniu dwóch pierwszych wzorów i podstawieniu wszystkich wymaganych wartości dostajemy : 
+%\bigbreak
+%$\bm{I_2 = \frac{V_1 - I\cdot(R_4 + R_3)}{R_2} = \frac{5V - 0,00669A\cdot(100\Omega + 510\Omega)}{220\Omega} \approx  4,177mA}$
+%\bigbreak
+%$\bm{I_1 = \frac{V_1 - I\cdot(R_4 + R_3)}{R_1} = \frac{5V - 0,00669A\cdot(100\Omega + 510\Omega)}{360\Omega} \approx 2,55mA}$
 
-$$
-5V - I_{1}\cdot(R_{1}+R_{4}) - R_{3}\cdot(I_{1} - I_{3}) = 0
-$$
-$$
-5V - I_{1}\cdot(R_{1}+R_{4}) - I_{3}\cdot R_{2} = 0\\
-$$
-$$
-I_{1}=11I_{3}
-$$
-$$
-5V=11I_{3}\cdot1100\Omega + 10I_{3}\cdot200\Omega \Rightarrow I_{3}=0,355mA
-$$
+\section{Zadanie 7.}
+--------------------------------
+%Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
+%
+%\begin{center}
+%\begin{tabular}{|c||c|c|}
+%\hline
+%\textbf{Lp.} & \boldsymbol{$I_{Rx}$}(z tw. Thevenina) & \boldsymbol{$I_{Rx}$}(z obliczeń)\\
+%\hhline{|=#=|=|}
+%1. & $2,62mA$ & $2,55mA$\\
+%\hline 
+%2. & $4,26mA$ & $4,177mA$\\
+%\hline
+%\end{tabular}
+%\end{center}
 
-\begin{flushleft}
-Zatem, obliczając wszystkie wartości i zestawiając je z wynikami pomiarów, można dokonać następującego porównania:
-\end{flushleft}
+\section{Wnioski}
+------------------------------
+%
+%Wartości natężenia prądów otrzymane w wyniku pomiarów i zastosowania twierdzenia Thevenina nieznacznie różnią się od wartości obliczonych analitycznie, 
+%co jest najpewniej skutkiem:
+%\begin{itemize}
+%\item błędów pomiarowych używanej aparatury;
+%\item ograniczonej precyzji wykonania rezystorów;
+%\item niezerowego oporu płytki prototypowej i kabli użytych do pomiaru.
+%\end{itemize}
+%
+%\begin{flushleft}
+%Mimo tych różnic, otrzymane doświadczalnie wyniki dobrze odpowiadają wyliczonym wartościom (błąd nie przekracza 3\%), co
+%stanowi o zasadności twierdzenia Thevenina.
+%\end{flushleft}
 
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-\textbf{Wielkość fizyczna} & \textbf{Obliczenia} & \textbf{Pomiar}\\
-\hline
-$I_{1}[mA]$ & $3,905mA$ & $3,962mA$\\
-\hline
-$I_{2}[mA]$ & $3,55mA$ & $3,587mA$\\
-\hline
-$I_{3}[mA]$ & $0,355mA$ & $0,362mA$\\
-\hline
-$U_{R1}[V]$ & $0,391V$ & $0,394V$\\
-\hline
-$U_{R2}[V]$ & $0,71V$ & $0,712V$\\
-\hline
-$U_{R3}[V]$ & $0,71V$ & $0,712V$\\
-\hline
-$U_{R4}[V]$ & $3,905V$ & $3,938V$\\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{flushleft}
-Powyższą tabelę można uznać za empiryczny dowód II prawa Kirchhoffa, gdyż drobne różnice między pomiarami i obliczeniami wynikają z niedoskonałości sprzętu pomiarowego i zaokrągleń przy obliczeniach.
-\end{flushleft}
-
-
-\section{Bibliografia}
-W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
-\bibliographystyle{IEEEtran}
 
 \bibliography{IEEEabrv,refs}
 
-\end{document}
+\begin{thebibliography}{9}
 
+\bibitem{thevenin}
+  W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
+
+\end{thebibliography}
+
+\end{document}
