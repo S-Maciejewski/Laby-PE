@@ -195,7 +195,128 @@ Wartości elementów użytych do zbudowania obwodu przedstawionego na rysunku \r
 
 
 \section{Zadanie 6.}
-----------------------------------
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+xlabel={Częstotliwość [kHz]},
+ylabel={Napiêcie [mV]},
+xmin=0,xmax=16,
+ymin=0,ymax=3200,
+legend pos=north east,
+ymajorgrids=true,grid style=dashed
+]
+
+%Vrms - napięcie na źródle
+\addplot[smooth, tension={0.8}, red, mark=*, mark size = {1pt}]
+coordinates {
+(2.26,1330)
+(2.83,1340)
+(3.34,1330)
+(3.83,1310)
+(4.36,1300)
+(4.85,1390)
+(5,1370)
+(5.23, 1350)
+(5.34,1350)
+(5.39,1350)
+(5.42,1350)
+(5.56,1370)
+(5.96, 1370)
+(6.99,1390)
+(7.82,1400)
+(8.63,1410)
+(9.61,1430)
+(10.22, 1390)
+(11.6,1390)
+(12.67,1380)
+(15,1390)
+};
+
+%napięcie na rezystorze
+\addplot[smooth, tension={0.8}, orange, mark=*, mark size = {1pt}]
+coordinates {
+(2.26,310)
+(2.83,430)
+(3.34,590)
+(3.83,770)
+(4.36,1000)
+(4.85,1210)
+(5, 1180)
+(5.23, 1110)
+(5.34,1080)
+(5.39,1100)
+(5.42,1110)
+(5.56,1060)
+(5.96, 910)
+(6.99,670)
+(7.82,550)
+(8.63,460)
+(9.61,400)
+(10.22, 330)
+(11.6,300)
+(12.67,260)
+(15,220)
+};
+
+%napięcie na kondensatorze
+\addplot[color=cyan, mark=*, mark size = {1pt}]
+coordinates {
+(2.26,1600)
+(2.83,1810)
+(3.34,2070)
+(3.83,2370)
+(4.36,2650)
+(4.85,2820)
+(5, 2680)
+(5.23, 2590)
+(5.34,2380)
+(5.39,2330)
+(5.42,2330)
+(5.56,2170)
+(5.96, 1800)
+(6.99,1120)
+(7.82,800)
+(8.63,600)
+(9.61,450)
+(10.22, 310)
+(11.6,260)
+(12.67,210)
+(15,130)
+};
+
+%napięcie na cewce
+\addplot[color=green, mark=*, mark size = {1pt}]
+coordinates {
+(2.26,340)
+(2.83,590)
+(3.34,950)
+(3.83,1440)
+(4.36,2170)
+(4.85,2850)
+(5, 2870)
+(5.23, 2980)
+(5.34,2960)
+(5.39,2940)
+(5.42,2990)
+(5.56,2930)
+(5.96, 2800)
+(6.99,2380)
+(7.82,2140)
+(8.63,2000)
+(9.61,1860)
+(10.22, 1700)
+(11.6,1650)
+(12.67,1600)
+(15,1540)
+};
+
+\legend{$V_{rms}$,R,C,L}
+\end{axis}
+\end{tikzpicture}
+\caption{Zależność napięć na elementach obwodu względem częstotliwości}
+\label{fig:wyk}
+\end{figure}
 
 \section{Zadanie 7.}
 --------------------------------
