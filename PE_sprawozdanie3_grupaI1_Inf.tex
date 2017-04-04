@@ -129,141 +129,80 @@ Wartości elementów użytych do zbudowania obwodu przedstawionego na rysunku \r
 \hhline{|=#=|=|=|=|}
 \textbf{Rezystor} & $1k\Omega$ & brązowy, czarny, czerwony, złoty & $1000\Omega\pm5\%$ & $976,6\Omega\pm5\%$\\
 \hline
-\textbf{Cewka} & $66mH$ & --- & --- & Indukcyjność: $69,78mH$ Opór: $123,3\Omega$\\
+\textbf{Cewka} & $66mH$ & --- & --- & $69,78mH$ (Opór: $123,3\Omega$)\\
 \hline
 \textbf{Kondensator} & $13,3nF$ & 332 (4 szt.) & $3,3nF$ x 4  & $13,25nF$\\
 \hline
 \end{tabular}
 \end{center}
 
-%\newpage
-
-\section{Zadanie 3.}
-------------------------------------
-%Wyniki pomiarów dla twierdzenia Thevenina, gdzie: 
-%\begin{center}
-%\textbf{$U_{th}$} - napięcie panujące od strony zacisków AB \\
-%\textbf{$R_{th}$} - rezystencja zastępcza widziana od strony zacisków AB \\
-%\end{center}
-%
-%\begin{center}
-%\begin{tabular}{|c||c|c|}
-%\hline
-%\textbf{Lp.} & \boldsymbol{$U_{th}$} & \boldsymbol{$R_{th}$}\\
-%\hhline{|=#=|=|}
-%1. & $1,35V$ & $159,99\Omega$\\
-%\hline
-%2. & $1,88V$ & $222,91\Omega$\\
-%\hline
-%\end{tabular}
-%\end{center}
-
-\section{Zadanie 4.}
--------------------------------------
-%Obliczenie prądów dla badanego obwodu w gałęzi z rezystorem $R_x$ w oparciu o twierdzenie Thevenina \cite{thevenin}.
-%
-%\begin{figure}[!h]
-%\centering
-%\begin{circuitikz}[scale=1.1, font = \scriptsize]
-%\draw (0,1) to [american voltage source, l_=$U_{th}$] (0,-1)
-%	  (0,1) to [R, l=$R_{th}$] (2,1) to [R, l=$R_x$] (2,-1) -- (0,-1);
-%\end{circuitikz}
-%\caption{Schematyczny obwód}
-%\label{fig:schemobw}
-%\end{figure}
-%
-%$$
-%I_{R1} = \frac{U_{th1}}{R_{th1}+R_1} = \frac{1,35V}{159,99\Omega + 354,9\Omega} = 2,62mA
-%$$
-%$$
-%I_{R2} = \frac{U_{th2}}{R_{th2}+R_2} = \frac{1,88V}{222,91\Omega + 218\Omega} = 4,26mA
-%$$
 
 \section{Zadanie 5.}
-------------------------------------
-%Zestawienie wyników z poprzednich zadań.
-%
-%\begin{center}
-%\begin{tabular}{|c||c|c|c|}
-%\hline
-%\textbf{Lp.} & \boldsymbol{$U_{th}$} & \boldsymbol{$R_{th}$} & \boldsymbol{$I_{Rx}$}\\
-%%\hhline{|=#=|=|=|}
-%%1. & $1,35V$ & $159,99\Omega$ & $2,62mA$\\
-%%\hline
-%%2. & $1,88V$ & $222,91\Omega$ & $4,26mA$\\
-%%\hline
-%%\end{tabular}
-%%\end{center}
-%%\newpage
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Lp.} & \textbf{Częstotliwość} & \textbf{$V_{rms}(1)$ źródło} & \textbf{$V_{rms}(2)$ rezystor} & \textbf{Napięcie na kondensatorze} & \textbf{Napięcie na cewce}\\
+\hline
+1. & $2,26kHz$ & $1,33V$ & $0,31V$ & $1,6V$ & $0,34V$\\
+\hline
+2. & $2,83kHz$ & $1,34V$ & $0,43V$ & $1,81V$ & $0,59V$\\
+\hline
+3. & $3,34kHz$ & $1,33V$ & $0,59V$ & $2,07V$ & $0,95V$ (???)\\
+\hline
+4. & $3,83kHz$ & $1,31V$ & $0,77V$ & $2,37V$ & $1,44$\\
+\hline
+5. & $4,36kHz$ & $1,30V$ & $1,00V$ & $2,65V$ & $2,17V$\\
+\hline
+6. & $4,85kHz$ & $1,39V$ & $1,21V$ & $2,82V$ & $2,85V$\\
+\hline
+7. & $5,00kHz$ & $1,37V$ & $1,18V$ & $2,68V$ & $2,87V$\\ 
+\hline
+8. & $5,15kHz$ & $1,35V$ & $1,17V$ & $2,59V$ & $3,00V$\\
+\hline
+9. & $5,23kHz$ & $1,35V$ & $1,11V$ & $2,59V$ & $2,98V$\\
+\hline
+10. & $5,34kHz$ & $1,35V$ & $1,08V$ & $2,38V$ & $2,96V$\\
+\hline
+11. & $5,39kHz$ & $1,35V$ & $1,10V$ & $2,33V$ & $2,99V$\\
+\hline
+12. & $5,42kHz$ & $1,35V$ & $1,11V$ & $2,33V$ & $2,99V$\\
+\hline
+13. & $5,56kHz$ & $1,37V$ & $1,06V$ & $2,17V$ & $2,93V$\\
+\hline
+14. & $5,96kHz$ & $1,37V$ & $0,91V$ & $1,80V$ & $2,80V$\\
+\hline
+15. & $6,99kHz$ & $1,39V$ & $0,67V$ & $1,12V$ & $2,38V$\\
+\hline
+16. & $7,82kHz$ & $1,40V$ & $0,55V$ & $0,80V$ & $2,14V$\\
+\hline
+17. & $8,63kHz$ & $1,41V$ & $0,46V$ & $0,60V$ & $2,00V$\\
+\hline
+18. & $9,61kHz$ & $1,43V$ & $0,40V$ & $0,45V$ & $1,86V$\\
+\hline
+19. & $10,88kHz$ & $1,38V$(???) & $0,33V$ & $0,31V$ & $1,70V$\\
+\hline
+20. & $11,60kHz$ & $1,39V$ & $0,30V$ & $0,26V$ & $1,65V$\\
+\hline
+21. & $12,67kHz$(???) & $1,38V$ & $0,26V$ & $0,21V$ & $1,60V$\\
+\hline
+22. & $15,00kHz$ & $1,39V$ & $0,22V$ & $0,13V$ & $1,54V$\\
+\hline
+\end{tabular}
+\end{center}
+
+
+
+
 \section{Zadanie 6.}
 ----------------------------------
-%%Analityczne obliczenie wartości szukanych prądów. 
-%%\newline
-%%\begin{figure}[!h]
-%%\centering
-%%\begin{circuitikz}[scale=1.1, font = \scriptsize]
-%%\draw (0,2) to [american voltage source, l_=$V_1$, i=$I$, a^=$5V$] (0,-2)
-%%	  (0,2) to [R, l=$R_4$, i=$I$, a=100$\Omega$] (2,2) to [R, l_=$R_2$, i=$I_2$, a^=220$\Omega$] (2,0) to [R, l_=$R_3$, i=$I$, a^=510$\Omega$] (2,-2) -- (0,-2)
-%%	  (2,2) -- (4,2) to [R, l_=$R_1$, i=$I_1$, a^=360$\Omega$] (4,0) -- (2,0);
-%%\end{circuitikz}
-%%\caption{Badany obwód}
-%\label{fig:obw2}
-%\end{figure}
-%\newline
-%\newline
-%Korzystając z II prawa Kirchoffa \cite{thevenin} otrzymujemy dla obwodu przedstawionego na rysunku \ref{fig:obw2} następujące równania : 
-%\bigbreak
-%$V_1 = IR_4 + I_2R_2 + IR_3$\\
-%
-%$V_1 = IR_4 + I_1R_1 + IR_3$
-%\newline
-%\newline
-%Następnie korzystając ze wzoru na rezystancję zastępczą obwodu oraz zależności rezystancji od napięcia źródła obwodu i natężenia prądu w nim płynącego \cite{thevenin} otrzymujemy :
-%\bigbreak
-%$R_Z = R_4 + \frac{R_{2} \cdot R_{1}}{R_1 + R_2} + R_3 = 610\Omega + \frac{220\Omega\cdot360\Omega}{220\Omega + 360\Omega} \approx \bm{747\Omega}$
-%
-%\bigbreak
-%
-%$R_Z = \frac{V_1}{I}\quad\Rightarrow\quad \bm{I} = \frac{V_1}{R_Z} = \frac{5V}{747\Omega} \approx 6,69mA = \bm{0,00669A}$
-%\newline
-%\newline
-%Po przekształceniu dwóch pierwszych wzorów i podstawieniu wszystkich wymaganych wartości dostajemy : 
-%\bigbreak
-%$\bm{I_2 = \frac{V_1 - I\cdot(R_4 + R_3)}{R_2} = \frac{5V - 0,00669A\cdot(100\Omega + 510\Omega)}{220\Omega} \approx  4,177mA}$
-%\bigbreak
-%$\bm{I_1 = \frac{V_1 - I\cdot(R_4 + R_3)}{R_1} = \frac{5V - 0,00669A\cdot(100\Omega + 510\Omega)}{360\Omega} \approx 2,55mA}$
 
 \section{Zadanie 7.}
 --------------------------------
-%Zestawienie danych otrzymanych w wyniku obliczeń z danymi pomiarowymi.
-%
-%\begin{center}
-%\begin{tabular}{|c||c|c|}
-%\hline
-%\textbf{Lp.} & \boldsymbol{$I_{Rx}$}(z tw. Thevenina) & \boldsymbol{$I_{Rx}$}(z obliczeń)\\
-%\hhline{|=#=|=|}
-%1. & $2,62mA$ & $2,55mA$\\
-%\hline 
-%2. & $4,26mA$ & $4,177mA$\\
-%\hline
-%\end{tabular}
-%\end{center}
 
 \section{Wnioski}
 ------------------------------
-%
-%Wartości natężenia prądów otrzymane w wyniku pomiarów i zastosowania twierdzenia Thevenina nieznacznie różnią się od wartości obliczonych analitycznie, 
-%co jest najpewniej skutkiem:
-%\begin{itemize}
-%\item błędów pomiarowych używanej aparatury;
-%\item ograniczonej precyzji wykonania rezystorów;
-%\item niezerowego oporu płytki prototypowej i kabli użytych do pomiaru.
-%\end{itemize}
-%
-%\begin{flushleft}
-%Mimo tych różnic, otrzymane doświadczalnie wyniki dobrze odpowiadają wyliczonym wartościom (błąd nie przekracza 3\%), co
-%stanowi o zasadności twierdzenia Thevenina.
-%\end{flushleft}
+
 
 
 \bibliography{IEEEabrv,refs}
