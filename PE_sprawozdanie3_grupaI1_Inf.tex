@@ -9,8 +9,11 @@
 \usepackage{hhline}
 \usepackage[american]{circuitikz} 
 \usepackage{anysize}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.jpg}
 \marginsize{2.5cm}{2.5cm}{3cm}{3cm}
 \bibliographystyle{IEEEtran}
+
 
 %makro do indeksów w tabeli
 \newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
@@ -69,7 +72,8 @@
 %ZADANIA
 
 \section*{Cel}
------------------------------------------
+Celem przeprowadzanego doświadczenia jest zapoznanie się ze zjawiskiem rezonansu szeregowego w obwodzie RLC.
+W tym celu wykonywane są kolejno zadania:
 
 \section{Zadanie 1.}
 Rozpatrywany obwód wraz z wybranymi wartościami elementów. \\
@@ -116,7 +120,7 @@ Wyznaczona przez prowadzącego wartość pojemności kondensatora użytego w do�
 \label{fig:badobw}
 \end{figure}
 $\newline$
-Wartości elementów obwodu : $V_{pp} = 8V$, $R_1 = $1k$\Omega$,  $C_1 = 13.3$nF,  $L_1 = 66$mH
+Wartości elementów obwodu : $V_{pp} = 4V$, $R_1 = $1k$\Omega$,  $C_1 = 13.3$nF,  $L_1 = 66$mH
 \newpage
 
 \section{Zadanie 2.}
@@ -192,7 +196,6 @@ Wyniki pomiarów napięć na rezystancji, pojemności i  indukcyjności oraz nap
 \end{tabular}
 \end{center}
 \newpage
-
 
 
 \section{Zadanie 6.}
@@ -325,14 +328,32 @@ coordinates {
 \end{figure}
 
 \section{Zadanie 7.}
---------------------------------
+Niestety nie udało nam się doprowadzić do zrównania napięć $V_{rms}(1)$ źródła i $V_{rms}(2)$ rezystora, jednak zdołaliśmy zbliżyć się do częstotliwości rezonansowej przy częstotliwości pobudzenia $5,23kHz$.\\
+Odczyt ten pokrywa się z częstotliwością rezonansową obliczoną ze wzoru $f=\frac{1}{2\pi\sqrt{LC}}$, która wynosi $f=\frac{1}{2\pi\sqrt{69,78mH\cdot13,25nF}} = 5,23kHz$ dla zmierzonych wartości L i C (przedstawionych w zadaniu 2.). \\
+\\Dla nominalnych wartości pojemności kondensatora i indukcyjności cewki częstotliwość rezonansowa wynosi $5,37kHz$, zatem różnica pomiędzy obliczoną a zmierzoną częstotliwością jest większa.
+
 \section{Zadanie 8.}
---------------------------------
+Odczyt z ekranu oscyloskopu dla częstotliwości najbliższej do rezonansu:\\
+\includegraphics[width=\textwidth]{rezonans}
+
 \section{Zadanie 9.}
---------------------------------
+Odczyt z ekranu oscyloskopu dla obwodu pobudzonego częstotliwością powyżej rezonansowej:\\
+\includegraphics[width=\textwidth]{powyzej}
+\newpage
+Odczyt z ekranu oscyloskopu dla obwodu pobudzonego częstotliwością poniżej rezonansowej:\\
+\includegraphics[width=\textwidth]{ponizej}
+
+---COŚ O PRZESUNIĘCIACH FAZOWYCH---
+
 \section{Zadanie 10.}
-???????????????????????????????? \\
-nie jestem pewien czy to zadanie też mamy zrobić 
+Wyznaczanie dobroci elementu indukcyjnego ze wzoru $Q_{L} = \frac{\omega_{0}L}{R_{L}}$ korzystając z wyznaczonych empirycznie parametrów.\\
+$\omega_{0}=\frac{1}{\sqrt{LC}}$ - pulsacja rezonansowa obwodu
+$$
+Q_{L} = \frac{\frac{1}{\sqrt{69,78mH\cdot13,25nF}}\cdot69,78mH}{123,3\Omega} = 18,61
+$$
+
+
+
 \section{Wnioski}
 ------------------------------
 
@@ -342,9 +363,9 @@ nie jestem pewien czy to zadanie też mamy zrobić
 
 \begin{thebibliography}{9}
 
-\bibitem{thevenin}
+\bibitem{rlc}
   W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
 
 \end{thebibliography}
 
-\end{document}
+\end{document}7
