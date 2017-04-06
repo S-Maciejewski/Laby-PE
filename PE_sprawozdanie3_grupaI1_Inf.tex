@@ -328,9 +328,7 @@ coordinates {
 \end{figure}
 
 \section{Zadanie 7.}
-Niestety nie udało nam się doprowadzić do zrównania napięć $V_{rms}(1)$ źródła i $V_{rms}(2)$ rezystora, jednak zdołaliśmy zbliżyć się do częstotliwości rezonansowej przy częstotliwości pobudzenia $5,23kHz$.\\
-Odczyt ten pokrywa się z częstotliwością rezonansową obliczoną ze wzoru $f=\frac{1}{2\pi\sqrt{LC}}$, która wynosi $f=\frac{1}{2\pi\sqrt{69,78mH\cdot13,25nF}} = 5,23kHz$ dla zmierzonych wartości L i C (przedstawionych w zadaniu 2.). \\
-\\Dla nominalnych wartości pojemności kondensatora i indukcyjności cewki częstotliwość rezonansowa wynosi $5,37kHz$, zatem różnica pomiędzy obliczoną a zmierzoną częstotliwością jest większa.
+Minimalna różnica pomiędzy napięciem zasilającym a spadkiem napięcia na rezystancji wystąpiła dla częstotliwości 5,15kHz. Częstotliwość rezonansowa dla zmierzonych wartości pojemności (13,25nF) i indukcyjności (69,78mH) wynosi 5,23kHz. Różnica wynosi 1,5\%, co mieści się w zakresie błędu pomiaru.
 
 \section{Zadanie 8.}
 Odczyt z ekranu oscyloskopu dla częstotliwości najbliższej do rezonansu:\\
@@ -343,7 +341,9 @@ Odczyt z ekranu oscyloskopu dla obwodu pobudzonego częstotliwością powyżej r
 Odczyt z ekranu oscyloskopu dla obwodu pobudzonego częstotliwością poniżej rezonansowej:\\
 \includegraphics[width=\textwidth]{ponizej}
 
----COŚ O PRZESUNIĘCIACH FAZOWYCH---
+Przesunięcie fazowe między napięciem zasilającym a napięciem $U_R$ w stanie rezonansu wynosiło 0, co oznacza rezystancyjny charakter obwodu w stanie rezonansu (brak wartości urojonej impedancji).\\
+Spadek napięcia na rezystancji R jest proporcjonalny do prądu płynącego w obwodzie i dla częstotliwości wyższych od rezonansowych jest opóźniony w fazie w stosunku do napięcia zasilającego, co pozwala wnioskować indukcyjny charakter obwodu dla częstotliwości wyższych od rezonansowych.
+Dla częstotliwości niższych od częstotliwości rezonansowej napięcie na rezystancji (a więc i prąd) nieznacznie wyprzedza napięcie zasilające, co pozwala wnioskować pojemnościowy charakter obwodu.
 
 \section{Zadanie 10.}
 Wyznaczanie dobroci elementu indukcyjnego ze wzoru $Q_{L} = \frac{\omega_{0}L}{R_{L}}$ korzystając z wyznaczonych empirycznie parametrów.\\
@@ -354,8 +354,8 @@ $$
 
 
 \section{Wnioski}
-Nie udało się zaobserwować na ekranie oscyloskopu sytuacji, w której wykresy się pokrywają (nie udało się osiągnąć dokładnie częstotliwości rezonansowej). Może to wynikać głównie z niskiej precyzji pokrętła do modulowania częstotliwości, oporów na kablach i płytce stykowej oraz z ograniczonej dokładności urządzeń pomiarowych.\\
-Z tego samego powodu mogła pojawić się zaskakująco mała różnica pomiędzy $V_{rms}(1)$ źródła i $V_{rms}(2)$ rezystora dla częstotliwości poniżej rezonansowej (dla $5,15kHz$), która jest nawet mniejsza niż różnica dla częstotliwości rezonansowej $5,23kHz$.
+W stanie rezonansu spadek napięcia na rezystancji ($1,17V$) był mniejszy od napięcia zasilającego ($1,35V$) o 13\%. Wynika to z tego, że dla częstotliwości rezonansowej impedancja obwodu składała się z szeregowo połączonej rezystancji R ($976,6\Omega$) i zastępczej rezystancji cewki $R_L$ ($123,3\Omega$). Brakujący spadek napięcia ($0,18V$) odkładał się na rezystancji $R_L$.
+Teoretycznie wyznaczony spadek napięcia na rezystorze powinien być mniejszy od napięcia zasilającego o 11,2\%, co powoduje, że możemy przyjąć, że różnice wyników pomiarów i obliczeń teoretycznych mieszczą się w zakresie błędu pomiarowego.
 
 
 \bibliography{IEEEabrv,refs}
