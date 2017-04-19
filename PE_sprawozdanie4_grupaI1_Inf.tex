@@ -94,30 +94,47 @@ Rzeczywiste wartości rezystancji wykorzystanych elementów:
 \end{tabular}
 \end{center}
 
-%3.Przygotuj zestaw pomiarowy według rysunku 4.a
+
+\subsection*{3.}
+
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=0.9, font = \scriptsize, european voltages]
+\draw (0,-1) to [american current source, o-o, v>=$U_z$] (0,1) to [stroke diode, l=$D1$, v<=$U_d$, o-*] (3,1) to [R,*-*, v<=$U_{R_1}$] (3,-1) -- (0,-1)
+	  (3,1) -- (4.5,1) to [voltmeter] (4.5,-1) -- (3,-1);
+	  
+	  
+\draw (3.5, 0.2) node {$R_1$}
+	  (3.5, -0.2) node {1k$\Omega$}
+	  ;
+
+\end{circuitikz}
+\caption{Układ do badania charakterystyki statycznej diody PN - kierunek przewodzenia}
+\label{fig:badobw}
+\end{figure}
 
 \subsection*{4.}
 \begin{flushleft}
-Pomiary spadków napięć $U_{R}$ na rezystorze zmierzone dla wartości napięcia źródła $U_{z}$ w zakresie $0 - 5V$ oraz obliczone wartości napięć na zaciskach diody $U_{d}$ i wartości prądów diody $I_{d}$ wyrażone jako odpowiednio:
+Pomiary spadków napięć $U_{R1}$ na rezystorze zmierzone dla wartości napięcia źródła $U_{z}$ w zakresie $0 - 5V$ oraz obliczone wartości napięć na zaciskach diody $U_{d}$ i wartości prądów diody $I_{d}$ wyrażone jako odpowiednio:
 \end{flushleft}
 
 $$
-U_{d} = U_{z} - U_{R}
+U_{d} = U_{z} - U_{R_1}
 $$
 
 $$
-I_{d} = \frac{U_{R}}{R}
+I_{d} = \frac{U_{R_1}}{R1}
 $$
 
 \begin{flushleft}
-gdzie $R$ jest rzeczywistą (zmierzoną) wartością rezystancji opornika $R1$ wykorzystanego do konstrukcji układu.\\
+gdzie $R$ jest rzeczywistą (zmierzoną) wartością rezystancji opornika $R_1$ wykorzystanego do konstrukcji układu.\\
 Wyniki zaokrąglono do dwóch miejsc po przecinku.
 \end{flushleft}
 
 \begin{center}
 \begin{tabular}{|c|c||c|c|}
 \hline
-\boldsymbol{$U_z$} [V] & \boldsymbol{$U_R$} [V] & \boldsymbol{$U_d$} [V]& \boldsymbol{$I_d$} [mA]\\
+\boldsymbol{$U_z$} [V] & \boldsymbol{$U_{R_1}$} [V] & \boldsymbol{$U_d$} [V]& \boldsymbol{$I_d$} [mA]\\
 \hhline{|=|=#=|=|}
 0 & 0 & 0 & 0\\ \hline
 0,2 & 0,01 & 0,19 & 0,01\\ \hline
@@ -133,11 +150,28 @@ Wyniki zaokrąglono do dwóch miejsc po przecinku.
 4 & 3,51 & 0,49 & 3,57\\ \hline
 4,5 & 4,03 & 0,47 & 4,09\\ \hline
 5 & 4,55 & 0,45 & 4,26\\ \hline
-\hline
+
 \end{tabular}
 \end{center}
 
-%5. Zmodyfikuj zestaw pomiarowy według schematu z rysunku 4.b
+\subsection*{5.}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize, european voltages]
+\draw (0,-1) to [american current source, o-o, v>=$U_z$] (0,1)
+(3,1) to [stroke diode, l_=$D1$, v^>=$U_d$, o-*] (0,1)
+(3,1) to [R,*-*, v<=$U_{R_2}$] (3,-1) -- (0,-1)
+	  (3,1) -- (4.5,1) to [voltmeter] (4.5,-1) -- (3,-1);
+	  
+	  
+\draw (3.5, 0.2) node {$R_2$}
+	  (3.5, -0.2) node {3M$\Omega$}
+	  ;
+
+\end{circuitikz}
+\caption{Układ do badania charakterystyki statycznej diody PN - kierunek zaporowy}
+\label{fig:badobw}
+\end{figure}
 
 \subsection*{6.}
 \begin{flushleft}
@@ -156,7 +190,6 @@ Wyniki zaokrąglono do dwóch miejsc po przecinku, za wyjątkiem $U_{d}$, które
 10 & 3,94 & 9,996 & 1,31\\ \hline
 15 & 4,52 & 14,995 & 1,50\\ \hline
 20 & 4,75 & 19,995 & 1,58\\ \hline
-\hline
 \end{tabular}
 \end{center}
 
@@ -167,11 +200,85 @@ Wyniki zaokrąglono do dwóch miejsc po przecinku, za wyjątkiem $U_{d}$, które
 
 %Na wspólnym wykresie zobrazuj przebieg charakterystyki Id = f(Ud) dla diody spolaryzowanej w kierunku zaporowym i przewodzenia
 
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+xlabel={Napięcie na źródle [V]},
+ylabel={Prąd diody [mA]},
+xmin=0,xmax=22,
+ymin=0,ymax=5,
+legend pos=north east,
+ymajorgrids=true,grid style=dashed
+]
+
+%Vrms - napięcie na źródle
+\addplot[smooth, tension={0.8}, red, mark=*, mark size = {1pt}]
+coordinates {
+(0,0)
+(0.2,0.01)
+(0.4,0.11)
+(0.6,0.27)
+(0.8,0.43)
+(1,0.59)
+(1.5,1.08)
+(2,1.6)
+(2.5,2.12)
+(3, 2.65)
+(3.5,3.08)
+(4,3.57)
+(4.5,4.09)
+(5,4.26)
+};
+
+%napięcie na rezystorze
+\addplot[smooth, tension={0.8}, cyan, mark=*, mark size = {1pt}]
+coordinates {
+(0,0)
+(5,1.11)
+(10,1.31)
+(15,1.5)
+(20,1.58)
+};
+\legend{kierunek przewodzenia,kierunek zaporowy}
+\end{axis}
+\end{tikzpicture}
+\caption{Przebieg charakterystyki $I_d = f(U_z)$ dla diody spolaryzowanej w kierunku zaporowym i przewodzenia}
+\label{fig:wyk}
+\end{figure}
+
 \section{Zadanie 1.3}
 
 
-\subsection*{1.} [obwód 1]
-\newline
+\subsection*{1.}
+
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize]
+\draw (0,1) to [sinusoidal voltage source, l^=sinus, o-o] (0,-1)
+	  (0,1) to [stroke diode, l_=$D2$, o-*] (2,1) to [R, l_=$R$, a^=10k$\Omega$, *-*] (2, -1) -- (0,-1)
+	  (2,1) -- (3.5,1) to [short, -o] (3.5, 0.3) -- (3.8, 0.3) 
+	  (2,-1) -- (3.5,-1) to [short, -o] (3.5, -0.3) -- (3.8, -0.3)
+	  (0,1) -- (0, 3) to [short, -o] (1, 3)
+	  (1,2.4) to [short, o-] (0.5, 2.4) 
+	  (1,2.4) -- (1.3, 2.4)
+	  (1,3) -- (1.3, 3) 
+	  ; 
+\draw
+
+	  (2,-1.5) node {GND}
+	  (0.5,1.9) node {GND}
+   
+      (-1, 0) node {f = 50Hz} 
+      (2,-1) node [rground] {}
+      (0.5,2.4) node [rground] {}
+      (4, 0) node[rotate=90] {\small\textbf{kanał B}}
+      (1.5, 2.7) node[rotate=90] {\small\textbf{kanał A}}
+	  ;
+\end{circuitikz}
+\caption{Układ pomiarowy dla badania własności prostownika jednopołówkowego}
+\label{fig:badobw}
+\end{figure}
 
 \subsection*{2.} 
 
@@ -201,12 +308,42 @@ Różnica między napięciami wynika z faktu, iż badany układ, jako prostownik
 %zwiększylibyście jeszcze te pola w tabeli?
 
 
-\subsection*{4.} [obwód 2]
-
+\subsection*{4.}
 
 %5. Ustaw dowolnie wybraną wartość międzyszczytową napięcia Uin przebiegu wejściowego, tak aby przekraczała 2Vpp oraz dowolną częstotliwość z przedziału 50Hz...1000Hz.
 %10V, 500Hz
 
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize]
+\draw (0,1) to [sinusoidal voltage source, l_=sinus, o-o] (0,-1)
+	  (0,1) to [stroke diode, l_=$D$, o-*] (2,1) to [R, l_=$R$, *-*] (2, -1) -- (0,-1)
+	  (2,1) -- (7.5,1) to [short, -o] (7.5, 0.3) -- (7.8, 0.3) 
+	  (2,-1) -- (7.5,-1) to [short, -o] (7.5, -0.3) -- (7.8, -0.3)
+	  (0,1) -- (0, 3) to [short, -o] (1, 3)
+	  (1,2.4) to [short, o-] (0.5, 2.4) 
+	  (1,2.4) -- (1.3, 2.4)
+	  (1,3) -- (1.3, 3) 
+	  
+	  (3.5,1) to [ecapacitor, l=CF] (3.5,-1)
+	  (5,1) to [esource] (5,-1)
+	  (6.3,1) to [esource] (6.3,-1)
+	  ; 
+\draw
+
+	  (2,-1.5) node {GND}
+	  (0.5,1.9) node {GND}
+   	  (5,0) node {$V_{AC}$}
+   	  (6.3,0) node {$V_{DC}$}
+      (2,-1) node [rground] {}
+      (0.5,2.4) node [rground] {}
+      (8, 0) node[rotate=90] {\small\textbf{kanał B}}
+      (1.5, 2.7) node[rotate=90] {\small\textbf{kanał A}}
+	  ;
+\end{circuitikz}
+\caption{Układ prostownika jednopołówkowego z filtracją}
+\label{fig:badobw}
+\end{figure}
 
 \subsection*{6.}
 % Przy pomocy multimetu zmierz wartości napięć stałych UR(DC) oraz zmiennych UR(AC) na rezystancji obciążenia R. Przy pomocy oscyloskopu wyznacz wartości międzyszczytowe napięcia UR(pp) tętnień na rezystancji R. 
@@ -236,13 +373,33 @@ Różnica między napięciami wynika z faktu, iż badany układ, jako prostownik
 
 \subsection*{9.} [Interpretacja, Teoria(?)]
 % Jaka jest interpretacja pomiarów napięcia stałego (DC) oraz zmiennego (AC) w układach prostownikowych?
-
+\newpage
 
 \section{Zadanie 1.4}
 
 
-\subsection*{1.} [Obwód]
-\newline
+\subsection*{1.}
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize, european voltages]
+\draw (0,-1) to [american current source, o-o] (0,1)
+(0,1) to [stroke led, l_=$LED1$] (2,1) to [stroke led, l_=$LED2$] (4,1) to [R, l_=$R_1$, a^=1k$\Omega$] (4,-1) to (0,-1)
+	  (0.2,1) -- (0.2,2.5) to [voltmeter] (1.8, 2.5) -- (1.8, 1) 
+	  (2.2,1) -- (2.2, 2.5) to [voltmeter] (3.8,2.5) -- (3.8, 1)
+;
+	  
+	  
+	  
+\draw (1,0.2) node {green}
+	  (3,0.2) node {red}
+	  (2,-1) node [rground] {}
+	  (2,-1.5) node {GND}
+	  ;
+
+\end{circuitikz}
+\caption{Schemat układu pomiarowego do badania diod świecących}
+\label{fig:badobw}
+\end{figure}
 
 \subsection*{2.}
 Wpływ wartości napięcia zasilania na świecenie diod.\\
