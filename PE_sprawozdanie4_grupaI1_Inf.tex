@@ -108,7 +108,7 @@ Rzeczywiste wartości rezystancji wykorzystanych elementów:
 
 \end{circuitikz}
 \caption{Układ do badania charakterystyki statycznej diody PN - kierunek przewodzenia}
-\label{fig:badobw}
+\label{fig:przewodzenie}
 \end{figure}
 
 \newpage
@@ -122,7 +122,7 @@ U_{d} = U_{z} - U_{R_1}
 $$
 
 $$
-I_{d} = \frac{U_{R_1}}{R1}
+I_{d} = \frac{U_{R_1}}{R_1}
 $$
 
 \begin{flushleft}
@@ -169,7 +169,7 @@ Wyniki zaokrąglono do dwóch miejsc po przecinku.
 
 \end{circuitikz}
 \caption{Układ do badania charakterystyki statycznej diody PN - kierunek zaporowy}
-\label{fig:badobw}
+\label{fig:zaporowy}
 \end{figure}
 
 \subsection*{6.}
@@ -230,16 +230,16 @@ coordinates {
 \addplot[smooth, tension={0.8}, cyan, mark=*, mark size = {1pt}]
 coordinates {
 (0,0)
-(5,1.11)
-(10,1.31)
-(15,1.5)
-(20,1.58)
+(5,0.00111)
+(10,0.00131)
+(15,0.0015)
+(20,0.00158)
 };
 \legend{kierunek przewodzenia,kierunek zaporowy}
 \end{axis}
 \end{tikzpicture}
 \caption{Przebieg charakterystyki $I_d = f(U_z)$ dla diody spolaryzowanej w kierunku zaporowym i przewodzenia}
-\label{fig:wyk}
+\label{fig:przew_i_zap}
 \end{figure}
 
 \newpage
@@ -273,7 +273,7 @@ coordinates {
 	  ;
 \end{circuitikz}
 \caption{Układ pomiarowy dla badania własności prostownika jednopołówkowego}
-\label{fig:badobw}
+\label{fig:prost}
 \end{figure}
 
 \newpage
@@ -282,7 +282,7 @@ coordinates {
 
 Oscylogram kształtu przebiegu na wejściu i wyjściu prostownika.\\
 
-\includegraphics[width=\textwidth]{50hz}
+%\includegraphics[width=\textwidth]{50hz}
 
 
 
@@ -340,7 +340,7 @@ Kanał 2 pokazuje przebieg napięcia wyjściowego i miał ustawioną stałą pod
 	  ;
 \end{circuitikz}
 \caption{Układ prostownika jednopołówkowego z filtracją}
-\label{fig:badobw}
+\label{fig:prost_filtr}
 \end{figure}
 
 \subsection*{6.}
@@ -398,7 +398,7 @@ Zgodnie z wnioskami z punktu 8. zauważamy, że wartość maksymalna napięcia p
 
 \end{circuitikz}
 \caption{Schemat układu pomiarowego do badania diod świecących}
-\label{fig:badobw}
+\label{fig:diody_swiec}
 \end{figure}
 
 \newpage
@@ -409,17 +409,17 @@ Na zdjęciach przedstawiono świecenie diod dla napięć $5V$, $10V$ oraz $15V$.
 \\
 \textbf{1. $5V$}\\
 \\
-\includegraphics[width=\textwidth]{5v}
+%\includegraphics[width=\textwidth]{5v}
 \\
 \newpage
 \textbf{2. $10V$}\\
 \\
-\includegraphics[width=\textwidth]{10v}
+%\includegraphics[width=\textwidth]{10v}
 \\
 \\
 \textbf{3. $15V$}\\
 \\
-\includegraphics[width=\textwidth]{15V}
+%\includegraphics[width=\textwidth]{15V}
 \\
 
 
@@ -441,12 +441,12 @@ W badanym układzie pomiarowym zastosowano diody świecące o czerwonej i żół
 Cyfrą, którą mieliśmy uzyskać na wyświetlaczu była cyfra 6, poniżej przedstawiono zdjęcie i schemat połączeń niezbędnych do otrzymania takiego obrazu na wyświetlaczu.\\
 \\
 \textbf{Zdjęcie wyświetlacza}\\
-\includegraphics[width=\textwidth]{cyfra2}
+%\includegraphics[width=\textwidth]{cyfra2}
 
 \begin{figure}[!h]
 \centering
 \begin{circuitikz}[scale=1.1, font = \scriptsize, european voltages]
-\draw (2,-1) to [american current source, o-o] (2,1.3) to [short,-o] (5,1.3) to [short,-o] (11,1.3)  (11,-1) -- (2, -1)
+\draw (2,-1) to [american current source, o-o] (2,1.3) to [short,-o] (5,1.3) to [short,-o] (11,1.3)  (11,-1) -- (4, -1) to [R] (2,-1)
 (4,1.3) to [short,o-] (4,1) (6,1.3) to [short,o-] (6,1) (7,1.3) to [short,o-] (7,1) (8,1.3) to [short,o-] (8,1) (9,1.3) to [short,o-] (9,1) (10,1.3) to [short,o-] (10,1)
 
 (4,1) to [stroke led, -o] (4,-1) 
