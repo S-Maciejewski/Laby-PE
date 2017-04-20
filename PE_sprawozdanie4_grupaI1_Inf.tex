@@ -443,10 +443,58 @@ Cyfrą, którą mieliśmy uzyskać na wyświetlaczu była cyfra 6, poniżej prze
 \textbf{Zdjęcie wyświetlacza}\\
 \includegraphics[width=\textwidth]{cyfra2}
 
+\begin{figure}[!h]
+\centering
+\begin{circuitikz}[scale=1.1, font = \scriptsize, european voltages]
+\draw (2,-1) to [american current source, o-o] (2,1.3) to [short,-o] (5,1.3) to [short,-o] (11,1.3)  (11,-1) -- (2, -1)
+(4,1.3) to [short,o-] (4,1) (6,1.3) to [short,o-] (6,1) (7,1.3) to [short,o-] (7,1) (8,1.3) to [short,o-] (8,1) (9,1.3) to [short,o-] (9,1) (10,1.3) to [short,o-] (10,1)
 
+(4,1) to [stroke led, -o] (4,-1) 
+(5,1) to [stroke led, o-o] (5,-1) 
+(6,1) to [stroke led, -o] (6,-1) 
+(7,1) to [stroke led, -o] (7,-1) 
+(8,1) to [stroke led, -o] (8,-1) 
+(9,1) to [stroke led, -o] (9,-1) 
+(10,1) to [stroke led, -o] (10,-1) 
+(11,1) to [stroke led, o-o] (11,-1) 
+;
+\draw (-2,-1.5) -- (-2,1.5) -- (0.5, 1.5) -- (0.5,-1.5) -- (-2,-1.5);	  
+	  
+\draw [line width = 4, red, rounded corners]
+	  (-1.5, -1.1) -- (-0.4,-1.1)
+      (-1.3, 0) -- (-0.2,0)
+      (-1.1, 1.1) -- (0,1.1)
+      (-1.6, -1) -- (-1.4,-0.1)
+      (-1.4, 0.1) -- (-1.2,1)
+      (-0.3, -1) -- (-0.1,-0.1)
+      (-0.1, 0.1) -- (0.1,1)	
+      (0.1,-1.1) -- (0.22,-1.1)
+	  ; 
+	  
+\draw (3.7,0.5) node {A}
+	  (4.7,0.5) node {B}
+	  (5.7,0.5) node {C}
+	  (6.7,0.5) node {D}
+	  (7.7,0.5) node {E}
+	  (8.7,0.5) node {F}
+	  (9.7,0.5) node {G}
+	  (10.7,0.5) node {dp}
+	  
+	  (-0.5,1.3) node {A}
+	  (0.2,0.5) node {B}
+	  (0,-0.5) node {C}
+	  (-0.85,-0.9) node {D}
+	  (-1.75,-0.5) node {E}
+	  (-1.55,0.5) node {F}
+	  (-0.65,0.2) node {G}
+	  (0.2,-0.9) node {dp}
+	
+	  ;
 
-
-[Schemat połączeń D:]
+\end{circuitikz}
+\caption{Schemat zrealizowanych połączeń z oznaczeniami wyprowadzeń wyświetlacza}
+\label{fig:wysw}
+\end{figure}
 
 
 \bibliography{IEEEabrv,refs}
