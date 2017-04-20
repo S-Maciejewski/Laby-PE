@@ -208,7 +208,6 @@ legend pos=north east,
 ymajorgrids=true,grid style=dashed
 ]
 
-%Vrms - napięcie na źródle
 \addplot[smooth, tension={0.8}, red, mark=*, mark size = {1pt}]
 coordinates {
 (0,0)
@@ -227,7 +226,7 @@ coordinates {
 (5,4.26)
 };
 
-%napięcie na rezystorze
+
 \addplot[smooth, tension={0.8}, cyan, mark=*, mark size = {1pt}]
 coordinates {
 (0,0)
@@ -287,25 +286,27 @@ Oscylogram kształtu przebiegu na wejściu i wyjściu prostownika.\\
 
 
 
-\subsection*{3.} Różnica amplitud napięcia między przebiegiem wejściowym oraz wyjściowym:
+\subsection*{3.} Różnica wartości skutecznych napięcia między przebiegiem wejściowym oraz wyjściowym:
 
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
-$V_{RMS1}$ & 1,64V \\
+$V_{RMS1}$ & 2,4V \\
 \hline
-$V_{RMS2}$ & 0,7V \\ 
+$V_{RMS2}$ & 1,8V \\ 
 \hline
-różnica & 0,96V \\
+różnica & 0,6V \\
 \hline
 \end{tabular}
 \end{center}
 
 \begin{flushleft}
-Różnica między napięciami wynika z faktu, iż badany układ, jako prostownik jednopołówkowy, dokonuje częściowego wyprostowania płynącego prądu - zmienia go z prądu przemiennego na prąd tętniący, czyli prąd przemienny, z którego "usuwamy" ujemne wartości napięcia.
+Zasadnicza różnica między napięciami wynika z faktu, iż badany układ, jako prostownik jednopołówkowy, dokonuje częściowego wyprostowania płynącego prądu - zmienia go z prądu przemiennego na prąd tętniący, czyli prąd przemienny, z którego "usuwamy" ujemne wartości napięcia.\\
+Kanał 1 pokazuje przebieg wejściowy napięcia sinusoidalnie zmiennego. Stała podziałki podziałki kanału 1 była w oscyloskopie ustawiona na wartość 2 wolty na działkę. Widoczna sinusoida ma amplitudę 1,2 działki, co oznacza, że amplituda wynosiła 2,4V.\\
+Kanał 2 pokazuje przebieg napięcia wyjściowego i miał ustawioną stałą podziałki na 1 wolt na działkę. Przebieg wyjściowy zgodnie z przewidywaniami nie zawiera ujemnej połówki przebiegu sinusoidalnie zmiennego, a dodatnia połówka ma amplitudę 1,8V. Oznacza to, że dodatnia połówka przebiegu sinusoidalnie zmiennego ma amplitudę mniejszą o 2,4V - 1,8V, czyli 0,6V, co odpowiada typowemu spadkowi napięcia na złączu PN diody krzemowej.
+ 
 \end{flushleft}
 
-\newpage
 
 \subsection*{4.}
 
@@ -363,15 +364,16 @@ Napięcia stałe oraz zmienne na rezystancji $R$, wraz z wartościami międzyszc
 \end{tabular}
 \end{center}
 
-%Niby jednostki sa u gory, ale jak uznacie, ze czytelniej z jednostkami, to mozecie dopisac
 
 
-\subsection*{8.} [Interpretacja] 
-% Jakie zależności można dostrzec pomiędzy wielkością napięcia międzyszczytowego tętnień, wartością pojemności filtrującej Cf oraz wartością rezystancji obciążenia R?
+\subsection*{8.} 
+Na wyjściu prostownika z układem filtrującym składającym się z pojedynczej pojemności pojawia się przebieg quasipiłokształtny. Zbocze narastające tego przebiegu w przybliżeniu odpowiada fragmentowi przebiegu sinusoidalnego z wartością maksymalną równą amplitudzie przebiegu wejściowego pomniejszone o spadek napięcia na diodzie. Za punktem maksimum zasilanie rezystora przejmuje kondensator, który rozładowuje się aż do momentu, kiedy kolejne zbocze narastające przebiegu sinusoidalnego z prostownika osiągnie wartość napięcia większą od bieżącej wartości napięcia na kondensatorze. Obniżenie napięcia na kondensatorze pomiędzy kolejnymi "doładowaniami" kondensatora zgodnie z prawami fizyki zależy wprost proporcjonalnie od ładunku, który wypłynął z kondensatora i odwrotnie proporcjonalny do pojemności, co oznacza, że im większa pojemność, tym mniejsze tętnienia oraz im większa wartość rezystancji, tym mniejszy prąd, co za tym idzie mniejszy ładunek przepływający przez rezystancję i mniejsze tętnienia na kondensatorze.
 
-\subsection*{9.} [Interpretacja, Teoria(?)]
-% Jaka jest interpretacja pomiarów napięcia stałego (DC) oraz zmiennego (AC) w układach prostownikowych?
 \newpage
+
+\subsection*{9.} 
+Zgodnie z wnioskami z punktu 8. zauważamy, że wartość maksymalna napięcia pozostaje stała, a zwiększanie tętnień idzie w parze ze zmniejszaniem wartości minimalnej na kondensatorze. Pokrywa się to z wynikami napięcia stałego i zmiennego na elemencie filtrującym. Większa składowa zmienna idzie w parze ze zmniejszeniem średniej wartości napięcia stałego.
+
 
 \section{Zadanie 1.4}
 
@@ -399,6 +401,8 @@ Napięcia stałe oraz zmienne na rezystancji $R$, wraz z wartościami międzyszc
 \label{fig:badobw}
 \end{figure}
 
+\newpage
+
 \subsection*{2.}
 Wpływ wartości napięcia zasilania na świecenie diod.\\
 Na zdjęciach przedstawiono świecenie diod dla napięć $5V$, $10V$ oraz $15V$.\\
@@ -418,12 +422,10 @@ Na zdjęciach przedstawiono świecenie diod dla napięć $5V$, $10V$ oraz $15V$.
 \includegraphics[width=\textwidth]{15V}
 \\
 
-%Uruchom układ pomiarow. Zaobserwuj wpływ wartości napięcia zasilania na intensynowść świecenia diod.
+
 
 
 \subsection*{3.} Spadki napięć na obu świecących diodach:
-%Przy pomocy woltomierza napięcia stałego zmierz wartości spadków napięć na obu świecacych diodach. Pomiaru dokonaj z dokładnością przy najmniej 1mV .
-\newline
 
 Spadek na diodzie żółtej: 1,967V
 \newline
@@ -432,8 +434,8 @@ Spadek na diodzie czerwonej: 2,036V
 \newline
 
 
-\subsection*{4.} [Wyjaśnienie]
-%Wyjaśnij zależność między zmierzonymi spadkami napięcia a kolorem świecenia diody.
+\subsection*{4.}
+W badanym układzie pomiarowym zastosowano diody świecące o czerwonej i żółtej barwie światła. Pomimo przepływu tego samego prądu przez obydwie diody spadek napięcia na diodzie czerwonej był większy niż spadek napięcia na diodzie żółtej. Różne barwy światła osiąga się poprzez domieszkowanie różnymi pierwiastkami, co przekłada się na różne wartości szerokości przerwy energetycznej, co zostało zaobserwowane w badanych diodach.
 
 \section{Zadanie 1.5}
 Cyfrą, którą mieliśmy uzyskać na wyświetlaczu była cyfra 6, poniżej przedstawiono zdjęcie i schemat połączeń niezbędnych do otrzymania takiego obrazu na wyświetlaczu.\\
