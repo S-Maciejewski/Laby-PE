@@ -1,0 +1,239 @@
+\documentclass[polish,a4paper]{article}
+\usepackage{amsmath}
+\usepackage{amssymb, amsfonts, amsthm, amsmath, bm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{babel}
+\usepackage{pslatex}
+\usepackage{pgfplots}
+\usepackage{hhline}
+\usepackage[american]{circuitikz} 
+\usepackage{anysize}
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.jpg}
+\marginsize{2.5cm}{2.5cm}{3cm}{3cm}
+\bibliographystyle{IEEEtran}
+
+
+%makro do indeksów w tabeli
+\newcommand{\PRzFieldDsc}[1]{\sffamily\bfseries\scriptsize #1}
+
+%makro do informacji w tabeli
+\newcommand{\PRzFieldCnt}[1]{\itshape #1}
+
+%potężne makro tworzące tabelę z informacjami o teamie
+\newcommand{\PRzHeading}[8]{
+%% #1 - nazwa laboratorium
+%% #2 - kierunek 
+%% #3 - specjalność 
+%% #4 - rok studiów 
+%% #5 - symbol grupy lab.
+%% #6 - temat 
+%% #7 - numer lab.
+%% #8 - skład grupy ćwiczeniowej
+
+\begin{center}
+\begin{tabular}{ p{0.32\textwidth} p{0.15\textwidth} p{0.15\textwidth} p{0.12\textwidth} p{0.12\textwidth} }
+
+  &   &   &   &   \\
+\hline
+\multicolumn{5}{|c|}{}\\[-1ex]
+\multicolumn{5}{|c|}{{\LARGE #1}}\\
+\multicolumn{5}{|c|}{}\\[-1ex]
+
+\hline
+\multicolumn{1}{|l|}{\PRzFieldDsc{Kierunek}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Specjalność}}	& \multicolumn{1}{|l|}{\PRzFieldDsc{Rok studiów}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Symbol grupy lab.}} \\
+\multicolumn{1}{|c|}{\PRzFieldCnt{#2}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#3}}		& \multicolumn{1}{|c|}{\PRzFieldCnt{#4}}		& \multicolumn{2}{|c|}{\PRzFieldCnt{#5}} \\
+
+\hline
+\multicolumn{4}{|l|}{\PRzFieldDsc{Temat Laboratorium}}		& \multicolumn{1}{|l|}{\PRzFieldDsc{Numer lab.}} \\
+\multicolumn{4}{|c|}{\PRzFieldCnt{#6}}				& \multicolumn{1}{|c|}{\PRzFieldCnt{#7}} \\
+
+\hline
+\multicolumn{5}{|l|}{\PRzFieldDsc{Skład grupy ćwiczeniowej oraz numery indeksów}}\\
+\multicolumn{5}{|c|}{\PRzFieldCnt{#8}}\\
+
+\hline
+\multicolumn{3}{|l|}{\PRzFieldDsc{Uwagi}}	& \multicolumn{2}{|l|}{\PRzFieldDsc{Ocena}} \\
+\multicolumn{3}{|c|}{\PRzFieldCnt{\ }}		& \multicolumn{2}{|c|}{\PRzFieldCnt{\ }} \\
+
+\hline
+\end{tabular}
+\end{center}
+}
+%koniec potężnego makro do tabeli
+
+\begin{document}
+
+%stworzenie tabeli - miejsce na zmienianie danych w tabeli
+%indeksy do uzupełnienia
+\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{???}{?}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
+
+%ZADANIA
+
+\section*{Cel}
+
+
+\section{Zadanie ?}
+%Obwod
+
+
+\section{Zadanie ?}
+%wyznaczyć wartość napięcia bramki, przy której lawinowo wzrasta przepływ %prądu - więcej pomiarów w tym obszarze
+%napięcie Bramka - Źródło | wartość prądu drenu
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{$U_{GS} [V]$} & \textbf{$I_d [mA]$}\\
+\hhline{|=|=|}
+
+0 & 0\\
+\hline
+0,5 & 0\\
+\hline
+1 & 0\\
+\hline
+1,9 & 0,16\\
+\hline
+2 & 0,57\\
+\hline
+2,1 & 2,07\\
+\hline
+2,2 & 3,17\\
+\hline
+2,3 & 4,95\\
+\hline
+2,4 & 5,02\\
+\hline
+2,5 & 5,03\\
+\hline
+3 & 5,05\\
+\hline
+3,5 & 5,05\\
+\hline
+4 & 5,05\\
+\hline
+4,5 & 5,06\\
+\hline
+5 & 5,06\\
+\hline
+
+\end{tabular}
+\end{center}
+
+
+\section{Zadanie ?}
+%wykres
+% Na podstawie zarejestrowanych wartości utwórz wykres w sprawozdaniu z wykonania ćwiczenia.
+%4.  Odczytaj z noty katalogowej producenta tranzystora wartość napięcia progowego Uth. Nanieś odczytaną wartość na wykres.
+
+\section{Zadanie ?}
+%wnioski
+% warunki, jakie musi spełnić napięcie bramki względem masy w rozpatrywanym układzie, aby tranzystor nMOS zaczął przewodzić prąd?
+
+
+\section{Zadanie ?}
+%schemat
+
+\section{Zadanie ?}
+%oblicz napięcia bramka - źródło U_{GS}  ze wzoru: U_{GS} = -(U_{SS} - U_1)
+
+%napięcie wytwarzane przez zasilacz i przyłożone między bramkę a dren | prąd drenu  
+% + cos jeszcze chyba
+%TODO: Jakie jednostki???
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{$U_1 $} & \textbf{$I_D $} & \textbf{$U_{GS}$}\\
+\hhline{|=|=|=]}
+0 & 5,04 & \\
+\hline
+0,5 & 5,03 & \\
+\hline
+1 & 5,01 & \\
+\hline
+1,5 & 4,9 & \\
+\hline
+1,6 & 2,09 & \\
+\hline
+1,7 & 1,36 & \\
+\hline
+1,8 & 0,57 & \\
+\hline
+1,9 & 0,27 & \\
+\hline
+2 & 0,08 & \\
+\hline
+2,5 - 5 & 0 & \\
+\hline
+
+\end{tabular}
+\end{center}
+
+\section{Zadanie ?}
+%WYKRES
+% Na podstawie zarejestrowanych wartości utwórz wykres Wartości prądu drenu w funkcji napięcia Bramka- Źródło U_GS. Zwróć uwagę, że bieżącym sposobie włączenia tranzystora do obwodu, wartości U_GS będą ujemne.
+% 4. Odczytaj z noty katalogowej producenta tranzystora wartość napięcia progowego Uth. Nanieś odczytaną wartość na wykres.
+
+\section{Zadanie ?}
+%OBWOD: 1.8
+
+\section{Zadanie ?}
+napięcie Bramka-Źródło $U_{GS}$ : 5,05V
+
+%napięcie dren - źródło | I_D
+
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+\textbf{$U_{GS} [V]$} & \textbf{$I_d [mA]$}\\
+\hhline{|=|=|}
+
+0 & 0\\
+\hline
+3,2 & 1,16 \\
+\hline
+6,1 & 2,23 \\
+\hline
+8,7 & 3,14 \\
+\hline
+11,3 & 4,15 \\
+\hline
+14,0 & 5,18 \\
+\hline
+16,7 & 6,19 \\
+\hline
+19,4 & 7,19 \\
+\hline
+22,2 & 8,19 \\
+\hline
+25 & 9,24 \\
+\hline
+27,9 & 0,29 \\
+\hline
+
+\end{tabular}
+\end{center}
+
+
+\section{Zadanie ?}
+\section{Zadanie ?}
+\section{Zadanie ?}
+\section{Zadanie ?}
+
+
+\section{Wnioski}
+
+
+\bibliography{IEEEabrv,refs}
+
+\begin{thebibliography}{9}
+
+\bibitem{rlc}
+  W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.
+
+\end{thebibliography}
+
+\end{document}7
