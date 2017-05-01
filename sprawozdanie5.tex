@@ -518,6 +518,7 @@ napięcie Bramki $U_{GS}$: -5,05V
 \end{tabular}
 \end{center}
 
+\newpage
 \subsection*{3.}
 
 \begin{figure}[!h]
@@ -607,7 +608,7 @@ napięcie Bramki $U_{GS}$: UZUPEŁNIĆ!
 [WNIOSKI]
 % Jak wartość napięcia Bramki wpływa na kształt zarejestrowanych charakterystyk drenowych?
 
-
+\newpage
 \section{Zadanie 1.9}
 
 \subsection*{1.}
@@ -635,11 +636,14 @@ napięcie Bramki $U_{GS}$: UZUPEŁNIĆ!
 
 \subsection*{3.}
 Po zwarciu palcem zacisków oznaczonych jako A - A dioda zaczęła świecić, co widać na poniższym zdjęciu:
-[ZDJĘCIE]
+
+\includegraphics[width=\textwidth]{zwarcie}
+
 % Podłącz napięcie zasilające. Zewrzyj palcem zaciski obwodu oznaczone jako A−A. Zaobserwuj przełączanie stanu zapalenia/zgaszenia diody
 %Obserwacja: Janek robi za przewód i świeci, lol, puszcza to przestaje, lol
 
 
+\newpage
 
 \subsection*{4.}
 
@@ -664,8 +668,8 @@ Po zwarciu palcem zacisków oznaczonych jako A - A dioda zaczęła świecić, co
 \label{fig:obw1.15}
 \end{figure}
 
-[OBSERWACJA, WNIOSKI]
-% Rozbuduj układ do postaci z rys. 1.15. Dokonaj krótkotrwałego zwarcia wyprowadzeń A − A. Zaobserwuj działanie układu. Jaka może być aplikacja praktyczna takiego urządzenia?
+Układ zachowuje się podobnie jak w poprzednim przypadku, z tym, że dioda świeci przez jakiś czas po zwarciu przewodów. Dzieje się tak dzięki energii zgromadzonej w kondensatorze. \\
+Taki układ prezentuje pożytek z zastosowania wszelkiego rodzaju akumulatorów ładunku elektrycznego. Praktyczne zastosowania działających analogicznie układów widzimy na co dzień praktycznie wszędzie (baterie zasilające komputery, latarki itd.).
 %Obserwacja: Janek dotyka i puszcza a to dalej świeci, lol
 
 \section{Zadanie 1.10}
@@ -720,17 +724,34 @@ Po zwarciu palcem zacisków oznaczonych jako A - A dioda zaczęła świecić, co
 \label{fig:obw1.17}
 \end{figure}
 
+\newpage
 \subsection*{4.}
-[zdjęcia, obserwacja, wypływ na diodę]
+Zależność świecenia diody od wypełnienia sygnału sterującego została ukazana na poniższych zdjęciach:\\
+
+\begin{figure}
+\caption{1) Małe wypełnienie}
+\includegraphics[scale=0.05]{male}
+\includegraphics[scale=0.25]{maleOsc}
+
+\caption{2) Duże wypełnienie}
+\includegraphics[scale=0.05]{duze}
+\includegraphics[scale=0.30]{duzeOsc}
+\end{figure}
+
+\newpage
 
 \subsection*{5.}
-[zdjęcia, dla jakiej częst. : 1,13MHz]
+Poniżej znajduje się oscylogram ukazujący przebieg sygnałów (w powiększeniu) dla częstotliwości pobudzenia $1,13Mhz$.\\
+\begin{center}
+\includegraphics[scale=0.4]{oscylogram}
+\end{center}
+
 %RiseTime: 72ns/68ns?
 %wartości opóźnienia w przełączeniach tranzystora:
 %szacowany czas przełączenia t_d:
 %Oszacowanie:
 
-%\section{Wnioski}
+\subsection*{6.}
 
 
 \bibliography{IEEEabrv,refs}
