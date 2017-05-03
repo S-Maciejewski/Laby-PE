@@ -146,7 +146,7 @@ Celem przeprowadzanych ćwiczeń jest zapoznanie się z właściwościami tranzy
 \end{figure}
 
 \subsection*{2.}
-Pomiary prądu drenu $I_D$ w zależności od napięcia bramka - źródło $U_{GS}$ z uwzględnieniem szczególnej wartości $U_{GS}$, przy której gwałtownie wzrasta natężenie prądu.
+Pomiary prądu drenu $I_D$ w zależności od napięcia bramka - źródło $U_{GS}$ z uwzględnieniem szczególnej wartości $U_{GS}$, przy której gwałtownie wzrasta natężenie prądu - $1,9V$.
 
 \begin{center}
 \begin{tabular}{|l|l|}
@@ -194,9 +194,13 @@ Pomiary prądu drenu $I_D$ w zależności od napięcia bramka - źródło $U_{GS
 % Na podstawie zarejestrowanych wartości utwórz wykres w sprawozdaniu z wykonania ćwiczenia.
 %4.  Odczytaj z noty katalogowej producenta tranzystora wartość napięcia progowego Uth. Nanieś odczytaną wartość na wykres.
 
+\subsection*{4.}
+Minimalna wartość napięcia progowego wynosi $0,8V$, typowa wartość to $2,0V$, zaś wartość maksymalna wynosi $3,0V$.
+
 \subsection*{5.}
-[wnioski]
-% warunki, jakie musi spełnić napięcie bramki względem masy w rozpatrywanym układzie, aby tranzystor nMOS zaczął przewodzić prąd?
+
+Wyniki pomiarów wskazują, że badany tranzystor zaczyna przewodzić gdy napięcie bramka-źródło przekroczy wartość $1,9V$. Jest to zgodne z danymi katalogowymi tranzystora, które napięcie progowe (napięcie odcięcia) określają jako większe od $0,8V$, a mniejsze od $3,0V$, typowo $2,0V$. Oznacza to, że zmierzona wartość napięcia progowego jest tylko nieznacznie mniejsza od wartości typowej. 
+
 \newpage
 
 \section{Zadanie 1.6}
@@ -239,13 +243,9 @@ Pomiary prądu drenu $I_D$ w zależności od napięcia bramka - źródło $U_{GS
 \end{figure}
 
 \subsection*{2.}
-%oblicz napięcia bramka - źródło U_{GS}  ze wzoru: U_{GS} = -(U_{SS} - U_1)
 
-%napięcie wytwarzane przez zasilacz i przyłożone między bramkę a dren | prąd drenu  
-% + cos jeszcze chyba
-%TODO: Jakie jednostki???
-
-Pomiary prądu drenu $I_D$ w zależności od napięcia źródła $U_{1}$ z uwzględnieniem szczególnej wartości $U_{1}$, przy której gwałtownie wzrasta natężenie prądu. Dla wszystkich pomiarów obliczone zostało także napięcie bramka - źródło $U_{GS}$ na podstawie napięciowego prawa Kirchhoffa, ze wzoru $U_{GS}=-(U_{SS}-U_1)$.
+Pomiary prądu drenu $I_D$ w zależności od napięcia źródła $U_{1}$ z uwzględnieniem szczególnej wartości $U_{1}$, przy której gwałtownie wzrasta natężenie prądu. Dla wszystkich pomiarów obliczone zostało także napięcie bramka - źródło $U_{GS}$ na podstawie napięciowego prawa Kirchhoffa, ze wzoru $U_{GS}=-(U_{SS}-U_1)$.\\
+Widać dla jakiej wartości $V1$ prąd drenu zaczyna gwałtownie spadać - jest to napięcie skojarzone z progiem załączenia tranzystora: $2V$, to oznacza, że napięcie bramka-źródło wynosiło $-3V$ - ta wartość mieści się w przedziale z noty katalogowej.
 
 \begin{center}
 \begin{tabular}{|l|l|l|}
@@ -283,15 +283,20 @@ Pomiary prądu drenu $I_D$ w zależności od napięcia źródła $U_{1}$ z uwzgl
 5 & 0 & 0\\
 \hline
 
-
-
 \end{tabular}
 \end{center}
+
 
 \subsection*{3.} 
 [WYKRES]
 % Na podstawie zarejestrowanych wartości utwórz wykres Wartości prądu drenu w funkcji napięcia Bramka- Źródło U_GS. Zwróć uwagę, że bieżącym sposobie włączenia tranzystora do obwodu, wartości U_GS będą ujemne.
 % 4. Odczytaj z noty katalogowej producenta tranzystora wartość napięcia progowego Uth. Nanieś odczytaną wartość na wykres.
+
+\subsection*{4.}
+Dla używanego tranzystora progowe wartości napięcia wynoszą minimum $-1V$ i maksimum $-3,5V$.\\
+Wyniki pomiarów wskazują, że badany tranzystor zaczyna przewodzić gdy napięcie bramka-źródło przekroczy $-3V$. Zmierzona wartość należy do zakresu określonego przez dane katalogowe tranzystora, które napięcie progowe (napięcie odcięcia) określają jako wartość z przedziału  od $-1V$ do $-3,5V$, zatem parametry danego tranzystora zgadzają się z danymi katalogowymi.
+
+
 
 \section{Zadanie 1.7}
 
@@ -357,7 +362,7 @@ Napięcie bramka-źródło $U_{GS} = 5,05V$
 \hline
 25 & 9,24 \\
 \hline
-27,9 & 0,29 \\
+27,9 & 10,29 \\
 \hline
 
 \end{tabular}
@@ -398,7 +403,7 @@ Napięcie bramka-źródło $U_{GS} = 5,05V$
 
 \subsection*{4.}
 
-Napięcie bramka-źródło $U_{GS} = 2,52V$ (mV?)
+Napięcie bramka-źródło $U_{GS} = 2,52V$
 
 \begin{center}
 \begin{tabular}{|l|l|}
@@ -482,7 +487,7 @@ Napięcie bramka-źródło $U_{GS} = 2,52V$ (mV?)
 \end{figure}
 
 \subsection*{2.}
-napięcie Bramki $U_{GS}$: -5,05V
+Zmierzone napięcie bramki $U_{GS}$ wynosiło $-5,05V$.
 
 %napięcie Dren - Źródło | prąd drenu
 %TODO: czy te minusy w tabeli? I czy pierwsza kolumna?
@@ -490,7 +495,7 @@ napięcie Bramki $U_{GS}$: -5,05V
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\textbf{źródło?} & \textbf{$U_{DS} [V]$} & \textbf{$I_D [mA]$}\\
+\textbf{Napięcie źródła [V]} & \textbf{$U_{DS} [V]$} & \textbf{$I_D [mA]$}\\
 \hhline{|=|=|=|}
 
 1 & -1,12 & 0 \\
@@ -567,7 +572,7 @@ napięcie Bramki $U_{GS}$: UZUPEŁNIĆ!
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-\textbf{źródło?} & \textbf{$U_{DS} [V]$} & \textbf{$I_D [mA]$}\\
+\textbf{Napięcie źródła [V]} & \textbf{$U_{DS} [V]$} & \textbf{$I_D [mA]$}\\
 \hhline{|=|=|=|}
 1 & -1,13 & 0 \\
 \hline
