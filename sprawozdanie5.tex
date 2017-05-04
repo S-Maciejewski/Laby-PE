@@ -601,8 +601,8 @@ coordinates {
 \end{figure}
 
 \subsection*{6.}
-[WNIOSKI]
-% Jak wartość napięcia Bramki wpływa na kształt zarejestrowanych charakterystyk drenowych?
+Wykonane pomiary obejmowały fragment charakterystyki drenowej (wyjściowej) tranzystora MOS dla niewielkich napięć dren-źródło. Na wykresie zielonym możemy obserwować zarówno fragment charakterystyki w obszarze liniowym jak i początkowym obszarze nasycenia. Jest to możliwe dzięki temu, że napięcie bramka-źródło ($2,52V$) jest bliskie napięciu odcięcia wcześniej zmierzonego. Charakterystyka czerwona obejmuje wyłącznie fragment liniowej charakterystyki wyjściowej, ponieważ wysoka wartość rezystancji umieszczonej w drenie tranzystora $(1k\Omega)$, oraz niezbyt wysoka wartość napięcia zasilającego ($10V$) nie pozwoliła na badanie charakterystyki dla prądów drenu większych niż $10mA$. Stąd wniosek, że prąd nasycenia drenu dla napięcia Bramka-Źródło równego $5,05V$ musi być wielokrotnie większy od $10mA$.
+
 
 \newpage
 \section{Zadanie 1.8}
@@ -725,10 +725,8 @@ Zmierzone napięcie bramki $U_{GS}$ wynosiło $-5,05V$.
 
 
 \subsection*{4.}
-napięcie Bramki $U_{GS}$: UZUPEŁNIĆ!
+Napięcie bramki $U_{GS}$ wynosiło $2,5V$.
 
-%napięcie Dren - Źródło | prąd drenu
-%TODO: j/w
 
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -817,8 +815,10 @@ coordinates {
 
 
 \subsection*{6.}
-[WNIOSKI]
-% Jak wartość napięcia Bramki wpływa na kształt zarejestrowanych charakterystyk drenowych?
+Otrzymane charakterystyki w zadaniu 1.8 są niepoprawne (nie są charakterystykami wyjściowymi lub charakterystykami drenowymi tranzystora MOS z kanałem typu p). Wynika to z błędnego układu pomiarowego, w którym:\\
+1) nie było mierzone napięcie Dren-Źródło, tylko napięcie zasilające układ\\
+2) napięcie Bramka-Źródło zmieniało się w trakcie każdego pomiaru po zmianie napięcia zasilającego (zależało od napięcia zasilającego)\\
+Dla układu 1.10 napięcie Bramka-Źródło było równe różnicy $5V$ i napięcia zasilającego, czyli dla napięcia zasilającego $10V$ wynosiło $-5V$, a dla $1V$ wynosiło $+4V$, co spowodowało, że nie był spełniony podstawowy warunek $U_{GS} = const$ dla każdego wykresu z rodziny. Analogicznie dla schematu z rysunku 1.11: napięcie pomiędzy Bramką a Źródłem było równe $2,5V$ - napięcie zasilania.
 
 \newpage
 \section{Zadanie 1.9}
@@ -883,7 +883,7 @@ Po zwarciu palcem zacisków oznaczonych jako A - A dioda zaczęła świecić, co
 \end{figure}
 
 Układ zachowuje się podobnie jak w poprzednim przypadku, z tym, że dioda świeci przez jakiś czas po zwarciu przewodów. Dzieje się tak dzięki energii zgromadzonej w kondensatorze. \\
-Taki układ prezentuje pożytek z zastosowania wszelkiego rodzaju akumulatorów ładunku elektrycznego. Praktyczne zastosowania działających analogicznie układów widzimy na co dzień praktycznie wszędzie (baterie zasilające komputery, latarki itd.).
+Czas świecenia diody po rozwarciu styku A - A zależy od pojemności kondensatora, wartości rezystora przez który kondensator się rozładowuje oraz od napięcia odcięcia rezystora. Gdy napięcie bramka-źródło spadnie poniżej napięcia odcięcia, tranzystor odcina prąd, a dioda gaśnie. Taki układ może mieć zastosowanie np. w włącznikach czasowych światła na klatkach schodowych bloków mieszkalnych.
 
 
 \section{Zadanie 1.10}
