@@ -851,10 +851,10 @@ Badanie zachowania tranzystora nMOS jako przełącznika, w którym przepływem p
 \subsection*{3.}
 Po zwarciu palcem zacisków oznaczonych jako A - A dioda zaczęła świecić, co widać na poniższym zdjęciu:
 
-\includegraphics[width=\textwidth]{zwarcie}
 
-% Podłącz napięcie zasilające. Zewrzyj palcem zaciski obwodu oznaczone jako A−A. Zaobserwuj przełączanie stanu zapalenia/zgaszenia diody
-%Obserwacja: Janek robi za przewód i świeci, lol, puszcza to przestaje, lol
+\begin{center}
+\includegraphics[scale=0.6]{zwarcie}
+\end{center}
 
 
 \newpage
@@ -962,13 +962,15 @@ Poniżej znajduje się oscylogram ukazujący przebieg sygnałów (w powiększeni
 \includegraphics[scale=0.4]{oscylogram}
 \end{center}
 
-%RiseTime: 72ns/68ns?
-%wartości opóźnienia w przełączeniach tranzystora:
-%szacowany czas przełączenia t_d:
-%Oszacowanie:
+Z oscylogramu widać, że opóźnienie czasowe związane ze stanem przejściowym w pracy elementu to około $10ns$. 
 
 \subsection*{6.}
 
+Maksymalna częstotliwość stabilną pracy układu tranzystora i diody wyrażoną wzorem 
+$$
+f_{max} = \frac{1}{t_d}
+$$
+wynosi, dla $t_d = 10ns$, $f_{max} = 10^8 Hz = 100 MHz$.
 
 \bibliography{IEEEabrv,refs}
 
