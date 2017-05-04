@@ -107,43 +107,7 @@ Celem przeprowadzanych ćwiczeń jest zapoznanie się z właściwościami tranzy
 \label{fig:obw1.6}
 \end{figure}
 
-%##################  obwód 1.7   ###################
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1, font = \scriptsize, european voltages]
-\draw (0,0) to [american current source, o-o, l=$5V$] (0,2) -- (0,4) -- (6,4)-- (6,3)
-(6, 2.1) to [R, l_=$R_7$, a^=1k$\Omega$, i>_=$I_D$] (6,0) to [esource] (3.5,0) -- (0,0)
-(2,0) to [american current source, o-, l=$0..5V$] (2,2) to [short, -o] (2, 3.07)
-(3.5, 0) to [esource, *-] (3.5,2) to [short, -*] (3.5,3.07)
-(2,3.07) -- (5.1,3.07)
-(4.1, 0.3) -- (4.1,2.5)
-(-1.3, 0.3) -- (-1.3,3.5)
-(4.6, 3.8) -- (4.6,3.5) ;
 
-
-\draw (6,2.8) node[pigfete,bodydiode](pnp){}
-(2,-0.05) node [rground] {}
-(2, -0.6) node {GND}
-(6.2, 3.48) node {S}
-(6.2, 2.08) node {D}
-(5.1, 3.3) node {G}
-(6.4, 2.7) node [right, scale = 0.8] {Q4}
-(6.4, 2.9) node [right, scale = 0.8] {BS250}
-
-(4.75, 0) node {mA}
-(3.5, 1) node {V}
-(4.1, 2.5) node [vcc, scale = 0.7]{}
-(-1.3, 3.4) node [vcc, scale = 0.7]{}
-(4.6, 3.6) node [vcc, scale = 0.7, rotate = 180]{}
-(4.3, 1.4) node {$U_1$}
-(-1.6, 2) node {$U_{SD}$}
-(4.3, 3.55) node {$U_{GS}$}
-;
-
-\end{circuitikz}
-\caption{Obw. 1.7 Układ do badania charakterystyki bramkowej tranzystora pMOS}
-\label{fig:obw1.7}
-\end{figure}
 
 \subsection*{2.}
 Pomiary prądu drenu $I_D$ w zależności od napięcia bramka - źródło $U_{GS}$ z uwzględnieniem szczególnej wartości $U_{GS}$, przy której gwałtownie wzrasta natężenie prądu - $1,9V$.
@@ -151,7 +115,7 @@ Pomiary prądu drenu $I_D$ w zależności od napięcia bramka - źródło $U_{GS
 \begin{center}
 \begin{tabular}{|l|l|}
 \hline
-\textbf{$U_{GS} [V]$} & \textbf{$I_d [mA]$}\\
+\textbf{$U_{GS} [V]$} & \textbf{$I_D [mA]$}\\
 \hhline{|=|=|}
 
 0 & 0\\
@@ -190,21 +154,77 @@ Pomiary prądu drenu $I_D$ w zależności od napięcia bramka - źródło $U_{GS
 
 
 \subsection*{3.}
-[wykres]
 % Na podstawie zarejestrowanych wartości utwórz wykres w sprawozdaniu z wykonania ćwiczenia.
 %4.  Odczytaj z noty katalogowej producenta tranzystora wartość napięcia progowego Uth. Nanieś odczytaną wartość na wykres.
 
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+xlabel={Napięcie Bramka-Źródło [V]},
+ylabel={Prąd drenu [mA]},
+xmin=0,xmax=5.5,
+ymin=0,ymax=7,
+legend pos=north east,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[smooth, tension={0.3}, red, mark=*, mark size = {1pt}]
+coordinates {
+(0,0)
+(0.5,0)
+(1,0)
+(1.9,0.16)
+(2,0.57)
+(2.1,2.07)
+(2.2,3.17)
+(2.3,4.95)
+(2.4,5.02)
+(2.5, 5.03)
+(3,5.05)
+(3.5,5.05)
+(4,5.05)
+(4.5,5.06)
+(5, 5.06)
+};
+
+\addplot[cyan, line width = 0.6mm]
+coordinates {
+(0.8,0)
+(0.8,5.1)
+};
+
+\addplot[dashed, cyan, line width = 0.6mm]
+coordinates {
+(2,0)
+(2,5.1)
+};
+
+\addplot[cyan, line width = 0.6mm]
+coordinates {
+(3,0)
+(3,5.1)
+};
+
+\legend{wykres zależności,wartości graniczne}
+\end{axis}
+\end{tikzpicture}
+\caption{Wartości prądu drenu $I_D$ w zależności od napięcia Bramka Źródło $U_{GS}$ dla tranzystora nMOS}
+\label{fig:wykres1}
+\end{figure}
+
 \subsection*{4.}
-Minimalna wartość napięcia progowego wynosi $0,8V$, typowa wartość to $2,0V$, zaś wartość maksymalna wynosi $3,0V$.
+Minimalna wartość napięcia progowego odczytana z noty katalogowej producenta wynosi $0,8V$, typowa wartość to $2,0V$, zaś wartość maksymalna wynosi $3,0V$.
 
 \subsection*{5.}
 
 Wyniki pomiarów wskazują, że badany tranzystor zaczyna przewodzić gdy napięcie bramka-źródło przekroczy wartość $1,9V$. Jest to zgodne z danymi katalogowymi tranzystora, które napięcie progowe (napięcie odcięcia) określają jako większe od $0,8V$, a mniejsze od $3,0V$, typowo $2,0V$. Oznacza to, że zmierzona wartość napięcia progowego jest tylko nieznacznie mniejsza od wartości typowej. 
 
-\newpage
 
 \section{Zadanie 1.6}
 \subsection*{1.}
+
+%##################  obwód 1.7   ###################
 \begin{figure}[!h]
 \centering
 \begin{circuitikz}[scale=1, font = \scriptsize, european voltages]
@@ -288,14 +308,69 @@ Widać dla jakiej wartości $V1$ prąd drenu zaczyna gwałtownie spadać - jest 
 
 
 \subsection*{3.} 
-[WYKRES]
+
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+xlabel={Napięcie Bramka-Źródło [V]},
+ylabel={Prąd drenu [mA]},
+xmin=-5.5,xmax = 0,
+ymin=0,ymax=7,
+legend pos=north east,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[smooth, tension={0.3}, red, mark=*, mark size = {1pt}]
+coordinates {
+(-5,5.04)
+(-4.5,5.03)
+(-4,5.01)
+(-3.5,4.9)
+(-3.4,2.09)
+(-3.3,1.36)
+(-3.2,0.57)
+(-3.1,0.27)
+(-3,0.08)
+(-2.5,0)
+(-2,0)
+(-1.5,0)
+(-1,0)
+(-0.5,0)
+(0, 0)
+};
+
+\addplot[cyan, line width = 0.6mm]
+coordinates {
+(-1,0)
+(-1,5.1)
+};
+
+\addplot[dashed, cyan, line width = 0.6mm]
+coordinates {
+(2,0)
+(2,5.1)
+};
+
+\addplot[cyan, line width = 0.6mm]
+coordinates {
+(-3.5,0)
+(-3.5,5.1)
+};
+
+\legend{wykres zależności,wartości graniczne}
+\end{axis}
+\end{tikzpicture}
+\caption{Wartości prądu drenu $I_D$ w zależności od napięcia Bramka Źródło $U_{GS}$ dla tranzystora pMOS}
+\label{fig:wykres2}
+\end{figure}
 % Na podstawie zarejestrowanych wartości utwórz wykres Wartości prądu drenu w funkcji napięcia Bramka- Źródło U_GS. Zwróć uwagę, że bieżącym sposobie włączenia tranzystora do obwodu, wartości U_GS będą ujemne.
 % 4. Odczytaj z noty katalogowej producenta tranzystora wartość napięcia progowego Uth. Nanieś odczytaną wartość na wykres.
 
-\subsection*{4.}
-Dla używanego tranzystora progowe wartości napięcia wynoszą minimum $-1V$ i maksimum $-3,5V$.\\
-Wyniki pomiarów wskazują, że badany tranzystor zaczyna przewodzić gdy napięcie bramka-źródło przekroczy $-3V$. Zmierzona wartość należy do zakresu określonego przez dane katalogowe tranzystora, które napięcie progowe (napięcie odcięcia) określają jako wartość z przedziału  od $-1V$ do $-3,5V$, zatem parametry danego tranzystora zgadzają się z danymi katalogowymi.
 
+\subsection*{4.}
+Dla używanego tranzystora progowe wartości napięcia odczytane z noty katalogowej producenta wynoszą minimum $-1V$ i maksimum $-3,5V$.\\
+Wyniki pomiarów wskazują, że badany tranzystor zaczyna przewodzić gdy napięcie bramka-źródło przekroczy $-3V$. Zmierzona wartość należy do zakresu określonego przez dane katalogowe tranzystora, które napięcie progowe (napięcie odcięcia) określają jako wartość z przedziału  od $-1V$ do $-3,5V$, zatem parametry danego tranzystora zgadzają się z danymi katalogowymi.
 
 
 \section{Zadanie 1.7}
@@ -368,7 +443,6 @@ Napięcie bramka-źródło $U_{GS} = 5,05V$
 \end{tabular}
 \end{center}
 
-\newpage
 \subsection*{3.}
 
 \begin{figure}[!h]
@@ -435,11 +509,90 @@ Napięcie bramka-źródło $U_{GS} = 2,52V$
 
 \end{tabular}
 \end{center}
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+xlabel={Napięcie Dren-Źródło [mV]},
+ylabel={Prąd drenu [mA]},
+xmin=0,xmax=330,
+ymin=0,ymax=12,
+legend pos=south east,
+ymajorgrids=true,grid style=dashed
+]
+
+\addplot[smooth, tension={0.3}, green, mark=*, mark size = {1pt}]
+coordinates {
+(0,0)
+(12.7,1.17)
+(24,2.12)
+(37.6,3.16)
+(52.3,4.14)
+(68.8,5.10)
+(89.6,6.10)
+(116.3,7.12)
+(150.1,8.06)
+(205, 9.09)
+(298,9.94)
+};
+
+\legend{$U_{GS} = 2.52V$}
+\end{axis}
+\end{tikzpicture}
+\caption{Wartości prądu drenu $I_D$ w zależności od napięcia Dren-Źródło $U_{DS}$ dla tranzystora nMOS przy obniżonym napięciu bramki}
+\label{fig:wykres4}
+\end{figure}
 
 \subsection*{5.}
-[WYKRES]
 % Wartości pomiarów uzyskanych w obwodach z rys 1.8 oraz 1.9 zobrazuj na wspólnym wykresie. Przy obydwu krzywych napisz wartości napięć bramki U_GS jakie występowało w trakcie badania.
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+xlabel={Napięcie Dren-Źródło [mV]},
+ylabel={Prąd drenu [mA]},
+xmin=0,xmax=330,
+ymin=0,ymax=12,
+legend pos=south east,
+ymajorgrids=true,grid style=dashed
+]
 
+\addplot[smooth, tension={0.3}, red, mark=*, mark size = {1pt}]
+coordinates {
+(0,0)
+(3.2,1.16)
+(6.1,2.23)
+(8.7,3.14)
+(11.3,4.15)
+(14,5.18)
+(16.7,6.19)
+(19.4,7.19)
+(22.2,8.19)
+(25, 9.24)
+(27.9,10.29)
+};
+
+\addplot[smooth, tension={0.3}, green, mark=*, mark size = {1pt}]
+coordinates {
+(0,0)
+(12.7,1.17)
+(24,2.12)
+(37.6,3.16)
+(52.3,4.14)
+(68.8,5.10)
+(89.6,6.10)
+(116.3,7.12)
+(150.1,8.06)
+(205, 9.09)
+(298,9.94)
+};
+
+\legend{$U_{GS} = 5.05V$,$U_{GS} = 2.52V$}
+\end{axis}
+\end{tikzpicture}
+\caption{Wartości prądu drenu $I_D$ w zależności od napięcia Dren-Źródło $U_{DS}$ dla tranzystora nMOS dla różnych napięć bramki}
+\label{fig:wykres3}
+\end{figure}
 
 \subsection*{6.}
 [WNIOSKI]
@@ -600,12 +753,58 @@ napięcie Bramki $U_{GS}$: UZUPEŁNIĆ!
 
 \end{tabular}
 \end{center}
-
+\newpage
 
 \subsection*{5.}
-[WYKRES]
 % Wartości pomiarów uzyskanych w obwodach z rys 1.10 oraz 1.11 zobrazuj na wspólnym wykresie w sprawozdaniu. Przy obydwu krzywych napisz wartości napięć bramki UGS jakie występowało w trakcie badania.
+\begin{figure}[!h]
+\centering
+\begin{tikzpicture}[scale=1]
+\begin{axis}[
+xlabel={Napięcie Dren-Źródło [mV]},
+ylabel={Prąd drenu [mA]},
+xmin=-10,xmax=1,
+ymin=0,ymax=12,
+legend pos=north west,
+ymajorgrids=true,grid style=dashed
+]
 
+\addplot[smooth, tension={0.3}, red, mark=*, mark size = {1pt}]
+coordinates {
+(-1.12,0)
+(-2.15,0)
+(-3.15,0)
+(-4.24,0)
+(-5.15,0)
+(-6.16,0)
+(-6.92,0.22)
+(-1.46,6.15)
+(-0.1,8.13)
+(-0.07, 9.20)
+(-0.07,10.18)
+};
+
+\addplot[smooth, tension={0.3}, green, mark=*, mark size = {1pt}]
+coordinates {
+(-1.13,0)
+(-2.18,0)
+(-3.18,0)
+(-4.16,0)
+(-4.35,0.3)
+(-0.27,4.95)
+(-0.05,6.14)
+(-0.05,7.19)
+(-0.05,8.17)
+(-0.05, 9.2)
+(-0.05,10.21)
+};
+
+\legend{$U_{GS} = -5.05V$,$U_{GS} = ?$}
+\end{axis}
+\end{tikzpicture}
+\caption{Wartości prądu drenu $I_D$ w zależności od napięcia Dren-Źródło $U_{DS}$ dla tranzystora pMOS dla różnych napięć bramki}
+\label{fig:wykres5}
+\end{figure}
 
 
 
