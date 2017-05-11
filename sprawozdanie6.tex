@@ -9,6 +9,7 @@
 \usepackage{hhline}
 \usepackage[american]{circuitikz} 
 \usepackage{anysize}
+\usepackage{gensymb}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.jpg}
 \marginsize{2.5cm}{2.5cm}{3cm}{3cm}
@@ -81,26 +82,46 @@ amplitudy
 \subsection*{7.}
 \includegraphics[scale=0.5]{amplituda}
 \subsection*{8.}
-oszacuj wzmocnienie
+Wzmocnienie: 2[V/V], w skali decybelowej: 20 log10(2) -> 6 dB
 \subsection*{9.}
 porównaj wzmocnienia
 \subsection*{10.}
-wnioski
+W układzie wtórnika $Z_f$ wynosi $0\Omega$, a $Z_{in}$ wynosi $\infty$ . Po podstawieniu do wzoru otrzymujemy wartość wzmocnienia równą 1. Wtórnik napięciowy stosuje się w celu separacji wejścia od wyjścia, bowiem nie obciąża on układu wejściowego (generującego napięcie wejściowe), ponieważ impedancja wejściowa wzmacniacza operacyjnego teoretycznie jest nieskończona. Równocześnie, ponieważ teoretyczna impedancja wyjściowa wzmacniacza operacyjnego wynosi 0, w związku z czym może być (teoretycznie) dowolnie obciążona.
 
 \section{Zadanie 1.4}
 
 \subsection*{1.}
 
 \subsection*{4.}
-tabelka
+
+\begin{center}
+\begin{tabular}{|c|c|c|c||c|c|c|c|c|}
+\hline
+\textbf{$Z_{in}$} & \textbf{nr przełącznika} & \textbf{$Z_f$} & \textbf{nr przełącznika} & \textbf{$k_u$ teoretyczne } & \textbf{$u_we$} & \textbf{$u_wy$} & \textbf{$k_u$ [V/V]} & \textbf{$k_u$ [dB] } \\ 
+\hhline{|=|=|=|=#=|=|=|=|=|}
+$k_u$ teoretyczne & $u_we$ & $u_wy$ & $k_u$ & ...\\ %w dB z tego wzoru gdzieś wyżej
+$1k\Omega$ & 1 & $2k\Omega$ & 1 & -2 [V/V] & 0,5 V & 1V & -2 & ...\\
+\hline
+$1k\Omega$ & 1 & $1k\Omega$ & 2 & -1 [V/V] & 0,5 V & 0,5V & -1 & ...\\
+\hline
+$1k\Omega$ & 1 & $5k1\Omega$ & 3 & -5,1[V/V] & 100mV & 0,5V & -5 & ...\\
+\hline
+$2k\Omega$ & 2 & $1k\Omega$ & 2 & -0,5[V/V] & 1V & 0,5V & -0,5 & ...\\
+\hline
+
+\end{tabular}
+\end{center}
+
+
 \subsection*{5.}
 \includegraphics[scale=0.5]{czestotliwosc}
 \subsection*{6.}
 \includegraphics[scale=0.5]{k_odwracajaca}
 \subsection*{7.}
-komentarz
+Różnice zostały stwierdzone dla wzmocnienia 5,1[V/V] i są spowodowane błędem pomiaru. Szacowany błąd odczytu wartości napięcia amplitudy na oscyloskopie wynosi około 5% (jedna działka do wartości międzyszczytowej - 1/20), powoduje to, że wartość teoretyczna mieści się w przedziale błędu pomiaru (4,75[V/V] - 5,25[V/V]). 
 \subsection*{8.}
-wnioski
+Przesunięcie fazowe między przebiegami wynosi $180\degree$ i jest spowodowane podaniem sygnału na wejście odwracające wzmacniacza operacyjnego.
+
 
 \section{Zadanie 1.5}
 
@@ -127,12 +148,13 @@ schemat?
 \subsection*{4.}
 \includegraphics[scale=0.5]{czestotliwosc3}
 \subsection*{5.}
-\includegraphics[scale=0.5]{przebieg_prostokatny}
+\includegraphics[scale=0.5]{lepiej}
 \subsection*{6.}
-Lepiej: \includegraphics[scale=0.5]{przebieg_prostokatny}
+Lepiej: \includegraphics[scale=0.5]{lepiej}\\
 Gorzej: \includegraphics[scale=0.5]{gorzej}
 \subsection*{7.}
-wnioski
+Na przebiegu wyjściowym układu różniczkującego obserwujemy 2 rodzaje zniekształceń. Pierwsze zniekształcenie polega na ograniczonej prędkości narastania i opadania zbocza przebiegu wyjściowego. Wynika to z ograniczeń wzmacniacza operacyjnego, którego jedną z cech katalogowych jest maksymalna prędkość narastania napięcia wyjściowego (niezależne od charakterystyk częstotliwościowych). Drugie zniekształcenie wynika z pracy wzmacniacza w nasyceniu, napięcia maksymalne są równe napięciu zasilania wzmacniacza operacyjnego. Zasadniczo przebieg prostokątny otrzymano przede wszystkim ze względu na nasycenie, a w mniejszym stopniu ze względu na różniczkowanie sygnału przez układ badany.
+Teoretycznie powinniśmy uzyskać zniekształcenia polegające na podwzbudzaniu wzmacniacza operacyjnego (zafalowania części płaskich) wynikające ze zbliżania się układu ze sprzeżeniem zwrotnym do stanu niestabilnego (kryterium Nyquista).
 
 
 \bibliography{IEEEabrv,refs}
