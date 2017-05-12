@@ -9,6 +9,7 @@
 \usepackage{hhline}
 \usepackage[american]{circuitikz} 
 \usepackage{anysize}
+\usepackage{gensymb}
 \usepackage{graphicx}
 \DeclareGraphicsExtensions{.jpg}
 \marginsize{2.5cm}{2.5cm}{3cm}{3cm}
@@ -67,434 +68,190 @@
 
 %stworzenie tabeli - miejsce na zmienianie danych w tabeli
 %indeksy do uzupełnienia
-\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Diody}{4}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
+\PRzHeading{Laboratorium Podstaw Elektroniki}{Informatyka}{--}{I}{I1}{Układy wzmacniaczy operacyjnych}{6}{Ewa Fengler(132219), Sebastian Maciejewski(132275), Jan Techner(132332)}{}
 
 %ZADANIA
 
 \section*{Cel}
-Celem przeprowadzanych doświadczeń jest zapoznanie się z układami diodowymi dzięki badaniu charakterystyki diody złączowej, konstrukcji prostownika jednopołówkowego oraz budowaniu obwodów zawierających diody świecące.
+Celem przeprowadzanych doświadczeń jest poznanie funkcji wzmacniaczy operacyjnych w układach elektronicznych. \newline
 
-\section{Zadanie 1.2}
-
-
-\subsection*{2.}
-Rzeczywiste wartości rezystancji wykorzystanych elementów:
-
-\begin{center}
-\begin{tabular}{|c||c|c|c|c|}
+Wszystkie elementy rezystancyjne i pojemnościowe zamieszczone na płycie laboratoryjnej zostały przedstawione w poniższej tabeli :
+\begin{table}[!h]
+\centering
+\begin{tabular}{|r|c|c|c|}
 \hline
-\textbf{Element} & \textbf{Wartość zadana} & \textbf{Oznaczenie} & \textbf{Odczyt} & \textbf{Wartość zmierzona}\\
-\hhline{|=#=|=|=|=|}
-\textbf{R1} & 1k$\Omega$ & brązowy, czarny, czerwony, złoty & $1k\Omega\pm5\%$ & $984,3\Omega$\\
-\hline
-\textbf{R2} & 3M$\Omega$ & pomarańczowy, czarny, zielony, złoty & $3M\Omega\pm5\%$ & $3,009M\Omega$\\
-\hline
+\textbf{Element obwodu} &\textbf{Oznaczenie} &\textbf{Odczyt} \\ \hline
+ \textbf{R\textsubscript{1}} & Brązowy, Czarny, Czerwony, Złoty & 1k$\Omega \pm 5\%$ \\ \hline
+\textbf{R\textsubscript{2}} & Brązowy, Czarny, Czerwony, Złoty & 1k$\Omega \pm 5\%$\\ \hline
+\textbf{R\textsubscript{3}} & Brązowy, Czarny, Czerwony, Złoty & 1k$\Omega \pm 5\%$\\ \hline
+\textbf{R\textsubscript{4}} & Czerwony, Czarny, Czerwony, Złoty & 2k$\Omega \pm 5\%$\\ \hline
+\textbf{R\textsubscript{5}} & Brązowy, Czarny, Czerwony, Złoty & 1k$\Omega \pm 5\%$\\ \hline
+\textbf{R\textsubscript{6}} & Zielony, Brązowy, Czerwony, Złoty & 5.1k$\Omega \pm 5\%$\\ \hline
+\textbf{R\textsubscript{7}} & Brązowy, Czarny, Czerwony, Złoty & 1k$\Omega \pm 5\%$\\ \hline
+\textbf{R\textsubscript{8}} & Czerwony, Czarny, Czerwony, Złoty & 2k$\Omega \pm 5\%$\\ \hline
+\textbf{C\textsubscript{1}} & 104 & 100$\mu$F\\ \hline
+\textbf{C\textsubscript{2}} & 10$\mu$F & 10$\mu$F\\ \hline
 \end{tabular}
+\caption{Odczytane wartości elementów układu}
+\label{fig:pomiary}
+\end{table}
+\section{Zadanie 1.3}
+Badanie działania wzmacniacza w konfiguracji nieodwracającej. 
+\subsection*{1.}
+Płyta ćwiczeniowa do badania wzmacniacza w konfiguracji nieodwracającej została przygotowana zgodnie ze schematem podanym na stronie\cite{rlc}.  Wartości elementów rezystancyjnych \textbf{R\textsubscript{1}} oraz \textbf{R\textsubscript{2}} odpowiedzialnych za wyznaczanie stopnia wzmocnienia w tej konfiguracji przedstawiono w tabeli \ref{fig:pomiary}.
+\subsection*{5.}
+Na wyjściu generatora został ustawiony przebieg sinusoidalny o częstotliwości 4kHz, ponieważ taka wartość została podana przez prowadzącego zajęcia.
+\subsection*{6.}
+Odczytane z oscyloskopu amplitudy przebiegów wejściowych i wyjściowych to : 
+\begin{center}
+Amplituda przebiegu wejściowego = $\sim$ 0.5V \\
+Amplituda przebiegu wyjściowego = $\sim$ 1V
 \end{center}
-
-
-\subsection*{3.}
-
+ 
+\subsection*{7.}
 \begin{figure}[!h]
 \centering
-\begin{circuitikz}[scale=0.9, font = \scriptsize, european voltages]
-\draw (0,-1) to [american current source, o-o, v>=$U_z$] (0,1) to [stroke diode, l=$D1$, v<=$U_d$, o-*] (3,1) to [R,*-*, v<=$U_{R_1}$] (3,-1) -- (0,-1)
-	  (3,1) -- (4.5,1) to [voltmeter] (4.5,-1) -- (3,-1);
-	  
-	  
-\draw (3.5, 0.2) node {$R_1$}
-	  (3.5, -0.2) node {1k$\Omega$}
-	  ;
-
-\end{circuitikz}
-\caption{Układ do badania charakterystyki statycznej diody PN - kierunek przewodzenia}
-\label{fig:przewodzenie}
+\includegraphics[width=0.5\textwidth]{amplituda}
+\caption{oscylogram ukazujący działanie stopnia wzmacniającego w konfiguracji nieodwracającej}
 \end{figure}
+\subsection*{8.}
+$$\frac{A_{out}}{A_{in}} = \frac{1V}{0.5V} = 2$$\\
+$$10 log_{10}(2)^2 = 20 log_{10}(2) = 6.02dB$$\\
+Oszacowane wzmocnienie wzmacniacza wynosi w skali liniowej $\sim$2[V/V], natomiast w skali decybelowej jest to około 6 dB. \\
+\subsection*{9.}
+\begin{equation}
+\frac{U_{out}(s)}{U_{in}(s)} = 1 + \frac{Z_{f}}{Z_{in}}
+\end{equation}
+$$\frac{U_{out}(s)}{U_{in}(s)} = 1 + \frac{1k\Omega}{1k\Omega} = 1+1=2$$
+$$\frac{U_{out}(s)}{U_{in}(s)} = 2$$
+Uzyskana wartość wzmocnienia obliczona w podpunkcie 8 (w skali liniowej) pokrywa się z wartością wzmocnienia obliczoną na podstawie zależności (1)\cite{rlc}
+\subsection*{10.}
+W układzie wtórnika $Z_f$ wynosi $0\Omega$, a $Z_{in}$ wynosi $\infty$ . Po podstawieniu do wzoru otrzymujemy wartość wzmocnienia równą 1. Wtórnik napięciowy stosuje się w celu separacji wejścia od wyjścia, bowiem nie obciąża on układu wejściowego (generującego napięcie wejściowe), ponieważ impedancja wejściowa wzmacniacza operacyjnego teoretycznie jest nieskończona. Równocześnie, ponieważ teoretyczna impedancja wyjściowa wzmacniacza operacyjnego wynosi 0, w związku z czym może być (teoretycznie) dowolnie obciążona.
 
-\newpage
+\section{Zadanie 1.4}
+Badanie działania wzmacniacza w konfiguracji odwracającej. 
+\subsection*{1.}
+Płyta ćwiczeniowa do badania wzmacniacza w konfiguracji odwracającej została przygotowana zgodnie ze schematem podanym na stronie\cite{rlc}.  Wartości elementów rezystancyjnych oraz pojemnościowych  możliwych do załączenia w roli impedancji Z\textsubscript{f} oraz Z\textsubscript{in} w tej konfiguracji przedstawiono w tabeli \ref{fig:pomiary}.
+\subsection*{3.}
+Na wyjściu generatora został ustawiony przebieg sinusoidalny o częstotliwości 4kHz, ponieważ taka wartość została podana przez prowadzącego zajęcia.
 \subsection*{4.}
-\begin{flushleft}
-Pomiary spadków napięć $U_{R1}$ na rezystorze zmierzone dla wartości napięcia źródła $U_{z}$ w zakresie $0 - 5V$ oraz obliczone wartości napięć na zaciskach diody $U_{d}$ i wartości prądów diody $I_{d}$ wyrażone jako odpowiednio:
-\end{flushleft}
+W tabeli poniżej zostały umieszczone następujące dane : 
+\begin{itemize}
+\item teorytyczne wartości wzmocnienia napięciowego $k_u$ obliczone ze wzoru $\frac{U_{out}(s)}{U_{in}(s)} = - \frac{Z_{f}}{Z_{in}}$ \cite{rlc}.
+\item amplitudy przebiegów wejściowych $u_{we}$ i wyjściowych $u_{wy}$ dla różnych nastaw Zf oraz Zin odczytane z oscyloskopu.
+\item  aktualne wartości wzmocnienia napięciowego $k_u$ układu obliczone na podstawie stosunku $u_{wy}$ i $u_{we}$ wyrażone w skali liniowej i decybelowej.
+\end{itemize}
 
-$$
-U_{d} = U_{z} - U_{R_1}
-$$
-
-$$
-I_{d} = \frac{U_{R_1}}{R_1}
-$$
-
-\begin{flushleft}
-gdzie $R$ jest rzeczywistą (zmierzoną) wartością rezystancji opornika $R_1$ wykorzystanego do konstrukcji układu.\\
-Wyniki zaokrąglono do dwóch miejsc po przecinku.
-\end{flushleft}
-
-\begin{center}
-\begin{tabular}{|c|c||c|c|}
+\begin{table}[!h]
+\centering
+\begin{tabular}{|c|c|c|c||c|c|c|c|c|}
 \hline
-\boldsymbol{$U_z$} [V] & \boldsymbol{$U_{R_1}$} [V] & \boldsymbol{$U_d$} [V]& \boldsymbol{$I_d$} [mA]\\
-\hhline{|=|=#=|=|}
-0 & 0 & 0 & 0\\ \hline
-0,2 & 0,01 & 0,19 & 0,01\\ \hline
-0,4 & 0,11 & 0,29 & 0,11\\ \hline
-0,6 & 0,27 & 0,33 & 0,27\\ \hline
-0,8 & 0,42 & 0,38 & 0,43\\ \hline
-1 & 0,58 & 0,42 & 0,59\\ \hline
-1,5 & 1,06 & 0,44 & 1,08\\ \hline
-2 & 1,57 & 0,43 & 1,60\\ \hline
-2,5 & 2,09 & 0,41 & 2,12\\ \hline
-3 & 2,61 & 0,39 & 2,65\\ \hline
-3,5 & 3,03 & 0,47 & 3,08\\ \hline
-4 & 3,51 & 0,49 & 3,57\\ \hline
-4,5 & 4,03 & 0,47 & 4,09\\ \hline
-5 & 4,55 & 0,45 & 4,26\\ \hline
-
+\textbf{$Z_{in}$} & \textbf{nr przełącznika} & \textbf{$Z_f$} & \textbf{nr przełącznika} & \textbf{$k_u$ teoretyczne } & \textbf{$u_{we}$} & \textbf{$u_{wy}$} & \textbf{$k_u$ [V/V]} & \textbf{$k_u$ [dB] } \\ 
+\hhline{|=|=|=|=#=|=|=|=|=|}
+$1k\Omega$ & 1 & $2k\Omega$ & 1 & -2 [V/V] & 0,5 V & 1V & 2 & 6.02\\
+\hline
+$1k\Omega$ & 1 & $1k\Omega$ & 2 & -1 [V/V] & 0,5 V & 0,5V & 1 & 0\\
+\hline
+$1k\Omega$ & 1 & $5.1k\Omega$ & 3 & -5,1[V/V] & 100mV & 0,5V & 5 & 13.97\\
+\hline
+$2k\Omega$ & 2 & $1k\Omega$ & 2 & -0,5[V/V] & 1V & 0,5V & 0,5 & -6.02\\
+\hline
 \end{tabular}
-\end{center}
+\caption{Zestawienie danych pomiarowych i obliczeniowych stopnia wzmacniającego.}
+\label{fig:dane_pomiarowe1}
+\end{table}
+\newpage
 
 \subsection*{5.}
 \begin{figure}[!h]
 \centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize, european voltages]
-\draw (0,-1) to [american current source, o-o, v>=$U_z$] (0,1)
-(3,1) to [stroke diode, l_=$D1$, v^>=$U_d$, o-*] (0,1)
-(3,1) to [R,*-*, v<=$U_{R_2}$] (3,-1) -- (0,-1)
-	  (3,1) -- (4.5,1) to [voltmeter] (4.5,-1) -- (3,-1);
-	  
-	  
-\draw (3.5, 0.2) node {$R_2$}
-	  (3.5, -0.2) node {3M$\Omega$}
-	  ;
-
-\end{circuitikz}
-\caption{Układ do badania charakterystyki statycznej diody PN - kierunek zaporowy}
-\label{fig:zaporowy}
+\includegraphics[width=0.5\textwidth]{czestotliwosc}
+\caption{Aktualny pomiar częstotliwości badanego przebiegu}
 \end{figure}
-
 \subsection*{6.}
-\begin{flushleft}
-Podobnie jak w podpunkcie 4., w tabeli przedstawiono pomiary spadków napięć $U_{R}$ na rezystorze $R_2$ (dla wyznaczonej doświadczalnie wartości jego rezystancji) zmierzone dla wartości napięcia źródła $U_{z}$ w zakresie $0 - 20V$ oraz obliczone wartości napięć na zaciskach diody $U_{d}$ i wartości prądów diody $I_{d}$ wyrażone wzorami przedstawionymi w podpunkcie 4.\\
-Wyniki zaokrąglono do dwóch miejsc po przecinku, za wyjątkiem $U_{d}$, którego wartości zaokrąglono do trzech miejsc po przecinku. 
-
-\end{flushleft}
-
-\begin{center}
-\begin{tabular}{|c|c||c|c|}
-\hline
-\boldsymbol{$U_z$} [V] & \boldsymbol{$U_R$} [mV] & \boldsymbol{$U_d$} [V]& \boldsymbol{$I_d$} [$\mu A$]\\
-\hhline{|=|=#=|=|}
-0 & 0 & 0 & 0\\ \hline
-5 & 3,35 & 4,999 & 1,11\\ \hline
-10 & 3,94 & 9,996 & 1,31\\ \hline
-15 & 4,52 & 14,995 & 1,50\\ \hline
-20 & 4,75 & 19,995 & 1,58\\ \hline
-\end{tabular}
-\end{center}
-
-
-
-\subsection*{9.}
-
 \begin{figure}[!h]
 \centering
-\begin{tikzpicture}[scale=1]
-\begin{axis}[
-xlabel={Napięcie na źródle [V]},
-ylabel={Prąd diody [mA]},
-xmin=0,xmax=22,
-ymin=0,ymax=5,
-legend pos=north east,
-ymajorgrids=true,grid style=dashed
-]
-
-\addplot[smooth, tension={0.8}, red, mark=*, mark size = {1pt}]
-coordinates {
-(0,0)
-(0.2,0.01)
-(0.4,0.11)
-(0.6,0.27)
-(0.8,0.43)
-(1,0.59)
-(1.5,1.08)
-(2,1.6)
-(2.5,2.12)
-(3, 2.65)
-(3.5,3.08)
-(4,3.57)
-(4.5,4.09)
-(5,4.26)
-};
-
-
-\addplot[smooth, tension={0.8}, cyan, mark=*, mark size = {1pt}]
-coordinates {
-(0,0)
-(5,0.00111)
-(10,0.00131)
-(15,0.0015)
-(20,0.00158)
-};
-\legend{kierunek przewodzenia,kierunek zaporowy}
-\end{axis}
-\end{tikzpicture}
-\caption{Przebieg charakterystyki $I_d = f(U_z)$ dla diody spolaryzowanej w kierunku zaporowym i przewodzenia}
-\label{fig:przew_i_zap}
+\includegraphics[width=0.5\textwidth]{k_odwracajaca}
+\caption{Działanie stopnia wzmacniającego w konfiguracji odwracającej dla przełączników 1 i 1}
 \end{figure}
+\subsection*{7.}
+Różnice zostały stwierdzone dla wzmocnienia 5,1[V/V] i są spowodowane błędem pomiaru. Szacowany błąd odczytu wartości napięcia amplitudy na oscyloskopie wynosi około 5\%% (jedna działka do wartości międzyszczytowej - 1/20), powoduje to, że wartość teoretyczna mieści się w przedziale błędu pomiaru (4,75[V/V] - 5,25[V/V]). 
+\subsection*{8.}
+Przesunięcie fazowe między przebiegami wynosi $180\degree$ i jest spowodowane podaniem sygnału na wejście odwracające wzmacniacza operacyjnego.
 
-\newpage
-\section{Zadanie 1.3}
-
-
-\subsection*{1.}
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,1) to [sinusoidal voltage source, l^=sinus, o-o] (0,-1)
-	  (0,1) to [stroke diode, l_=$D2$, o-*] (2,1) to [R, l_=$R$, a^=10k$\Omega$, *-*] (2, -1) -- (0,-1)
-	  (2,1) -- (3.5,1) to [short, -o] (3.5, 0.3) -- (3.8, 0.3) 
-	  (2,-1) -- (3.5,-1) to [short, -o] (3.5, -0.3) -- (3.8, -0.3)
-	  (0,1) -- (0, 3) to [short, -o] (1, 3)
-	  (1,2.4) to [short, o-] (0.5, 2.4) 
-	  (1,2.4) -- (1.3, 2.4)
-	  (1,3) -- (1.3, 3) 
-	  ; 
-\draw
-
-	  (2,-1.5) node {GND}
-	  (0.5,1.9) node {GND}
-   
-      (-1, 0) node {f = 50Hz} 
-      (2,-1) node [rground] {}
-      (0.5,2.4) node [rground] {}
-      (4, 0) node[rotate=90] {\small\textbf{kanał B}}
-      (1.5, 2.7) node[rotate=90] {\small\textbf{kanał A}}
-	  ;
-\end{circuitikz}
-\caption{Układ pomiarowy dla badania własności prostownika jednopołówkowego}
-\label{fig:prost}
-\end{figure}
-
-\newpage
-
-\subsection*{2.} 
-
-Oscylogram kształtu przebiegu na wejściu i wyjściu prostownika.\\
-
-%\includegraphics[width=\textwidth]{50hz}
-
-
-
-\subsection*{3.} Różnica wartości skutecznych napięcia między przebiegiem wejściowym oraz wyjściowym:
-
-\begin{center}
-\begin{tabular}{|l|l|}
-\hline
-$V_{RMS1}$ & 2,4V \\
-\hline
-$V_{RMS2}$ & 1,8V \\ 
-\hline
-różnica & 0,6V \\
-\hline
-\end{tabular}
-\end{center}
-
-\begin{flushleft}
-Zasadnicza różnica między napięciami wynika z faktu, iż badany układ, jako prostownik jednopołówkowy, dokonuje częściowego wyprostowania płynącego prądu - zmienia go z prądu przemiennego na prąd tętniący, czyli prąd przemienny, z którego "usuwamy" ujemne wartości napięcia.\\
-Kanał 1 pokazuje przebieg wejściowy napięcia sinusoidalnie zmiennego. Stała podziałki podziałki kanału 1 była w oscyloskopie ustawiona na wartość 2 wolty na działkę. Widoczna sinusoida ma amplitudę 1,2 działki, co oznacza, że amplituda wynosiła 2,4V.\\
-Kanał 2 pokazuje przebieg napięcia wyjściowego i miał ustawioną stałą podziałki na 1 wolt na działkę. Przebieg wyjściowy zgodnie z przewidywaniami nie zawiera ujemnej połówki przebiegu sinusoidalnie zmiennego, a dodatnia połówka ma amplitudę 1,8V. Oznacza to, że dodatnia połówka przebiegu sinusoidalnie zmiennego ma amplitudę mniejszą o 2,4V - 1,8V, czyli 0,6V, co odpowiada typowemu spadkowi napięcia na złączu PN diody krzemowej.
- 
-\end{flushleft}
-
-
-\subsection*{4.}
-
-
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize]
-\draw (0,1) to [sinusoidal voltage source, l_=sinus, o-o] (0,-1)
-	  (0,1) to [stroke diode, l_=$D$, o-*] (2,1) to [R, l_=$R$, *-*] (2, -1) -- (0,-1)
-	  (2,1) -- (7.5,1) to [short, -o] (7.5, 0.3) -- (7.8, 0.3) 
-	  (2,-1) -- (7.5,-1) to [short, -o] (7.5, -0.3) -- (7.8, -0.3)
-	  (0,1) -- (0, 3) to [short, -o] (1, 3)
-	  (1,2.4) to [short, o-] (0.5, 2.4) 
-	  (1,2.4) -- (1.3, 2.4)
-	  (1,3) -- (1.3, 3) 
-	  
-	  (3.5,1) to [ecapacitor, l=CF] (3.5,-1)
-	  (5,1) to [esource] (5,-1)
-	  (6.3,1) to [esource] (6.3,-1)
-	  ; 
-\draw
-
-	  (2,-1.5) node {GND}
-	  (0.5,1.9) node {GND}
-   	  (5,0) node {$V_{AC}$}
-   	  (6.3,0) node {$V_{DC}$}
-      (2,-1) node [rground] {}
-      (0.5,2.4) node [rground] {}
-      (8, 0) node[rotate=90] {\small\textbf{kanał B}}
-      (1.5, 2.7) node[rotate=90] {\small\textbf{kanał A}}
-	  ;
-\end{circuitikz}
-\caption{Układ prostownika jednopołówkowego z filtracją}
-\label{fig:prost_filtr}
-\end{figure}
-
-\subsection*{6.}
-
-Napięcia stałe oraz zmienne na rezystancji $R$, wraz z wartościami międzyszczytowymi napięcia tętnień na rezystancji R, dla danych kombinacji elementów.
-
-
-\begin{center}
-\begin{tabular}{|c|c||c|c|c|}
-\hline
-\boldsymbol{$R [\Omega]$} & \boldsymbol{$C_f [\mu F]$} & \boldsymbol{$U_{R(DC)} [V]$} & \boldsymbol{$U_{R(AC)} [V]$} & \boldsymbol{$U_{R(pp)} [V]$} \\
-\hhline{|=|=#=|=|=|}
-2200 & 2,2 & 3,897 & 0,436 & 1,5 \\
-\hline
-220	& 2,2 & 1,550 & 1,167 & 3,52 \\
-\hline
-220 & 20 & 2,199 & 0,236 & 0,8 \\
-\hline
-2200 & 20 & 3,975 & 0,050 & 0,18 \\
-\hline
-\end{tabular}
-\end{center}
-
-
-
-\subsection*{8.} 
-Na wyjściu prostownika z układem filtrującym składającym się z pojedynczej pojemności pojawia się przebieg quasipiłokształtny. Zbocze narastające tego przebiegu w przybliżeniu odpowiada fragmentowi przebiegu sinusoidalnego z wartością maksymalną równą amplitudzie przebiegu wejściowego pomniejszone o spadek napięcia na diodzie. Za punktem maksimum zasilanie rezystora przejmuje kondensator, który rozładowuje się aż do momentu, kiedy kolejne zbocze narastające przebiegu sinusoidalnego z prostownika osiągnie wartość napięcia większą od bieżącej wartości napięcia na kondensatorze. Obniżenie napięcia na kondensatorze pomiędzy kolejnymi "doładowaniami" kondensatora zgodnie z prawami fizyki zależy wprost proporcjonalnie od ładunku, który wypłynął z kondensatora i odwrotnie proporcjonalny do pojemności, co oznacza, że im większa pojemność, tym mniejsze tętnienia oraz im większa wartość rezystancji, tym mniejszy prąd, co za tym idzie mniejszy ładunek przepływający przez rezystancję i mniejsze tętnienia na kondensatorze.
-
-\newpage
-
-\subsection*{9.} 
-Zgodnie z wnioskami z punktu 8. zauważamy, że wartość maksymalna napięcia pozostaje stała, a zwiększanie tętnień idzie w parze ze zmniejszaniem wartości minimalnej na kondensatorze. Pokrywa się to z wynikami napięcia stałego i zmiennego na elemencie filtrującym. Większa składowa zmienna idzie w parze ze zmniejszeniem średniej wartości napięcia stałego.
-
-
-\section{Zadanie 1.4}
-
-
-\subsection*{1.}
-\begin{figure}[!h]
-\centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize, european voltages]
-\draw (0,-1) to [american current source, o-o] (0,1)
-(0,1) to [stroke led, l_=$LED1$] (2,1) to [stroke led, l_=$LED2$] (4,1) to [R, l_=$R_1$, a^=1k$\Omega$] (4,-1) to (0,-1)
-	  (0.2,1) -- (0.2,2.5) to [voltmeter] (1.8, 2.5) -- (1.8, 1) 
-	  (2.2,1) -- (2.2, 2.5) to [voltmeter] (3.8,2.5) -- (3.8, 1)
-;
-	  
-	  
-	  
-\draw (1,0.2) node {green}
-	  (3,0.2) node {red}
-	  (2,-1) node [rground] {}
-	  (2,-1.5) node {GND}
-	  ;
-
-\end{circuitikz}
-\caption{Schemat układu pomiarowego do badania diod świecących}
-\label{fig:diody_swiec}
-\end{figure}
-
-\newpage
-
-\subsection*{2.}
-Wpływ wartości napięcia zasilania na świecenie diod.\\
-Na zdjęciach przedstawiono świecenie diod dla napięć $5V$, $10V$ oraz $15V$.\\
-\\
-\textbf{1. $5V$}\\
-\\
-%\includegraphics[width=\textwidth]{5v}
-\\
-\newpage
-\textbf{2. $10V$}\\
-\\
-%\includegraphics[width=\textwidth]{10v}
-\\
-\\
-\textbf{3. $15V$}\\
-\\
-%\includegraphics[width=\textwidth]{15V}
-\\
-
-
-
-
-\subsection*{3.} Spadki napięć na obu świecących diodach:
-
-Spadek na diodzie żółtej: 1,967V
-\newline
-
-Spadek na diodzie czerwonej: 2,036V
-\newline
-
-
-\subsection*{4.}
-W badanym układzie pomiarowym zastosowano diody świecące o czerwonej i żółtej barwie światła. Pomimo przepływu tego samego prądu przez obydwie diody spadek napięcia na diodzie czerwonej był większy niż spadek napięcia na diodzie żółtej. Różne barwy światła osiąga się poprzez domieszkowanie różnymi pierwiastkami, co przekłada się na różne wartości szerokości przerwy energetycznej, co zostało zaobserwowane w badanych diodach.
 
 \section{Zadanie 1.5}
-Cyfrą, którą mieliśmy uzyskać na wyświetlaczu była cyfra 6, poniżej przedstawiono zdjęcie i schemat połączeń niezbędnych do otrzymania takiego obrazu na wyświetlaczu.\\
-\\
-\textbf{Zdjęcie wyświetlacza}\\
-%\includegraphics[width=\textwidth]{cyfra2}
+Badanie działania wzmacniacza całkującego (integratora)
+\subsection*{3.}
+Na wyjściu generatora został ustawiony przebieg prostokątny o częstotliwości 4kHz, ponieważ taka wartość została podana przez prowadzącego zajęcia.
+\subsection*{4.}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{przebieg_trojkatny}
+\caption{Stabilny przebieg trójkątny na wyjściu integratora}
+\end{figure}
+\subsection*{5.}
+zdjęcie i obliczenie nachylenia?????????????\\
+\begin{table}[!h]
+\centering
+\begin{tabular}{|c|c|c|c||c|c|c|c|c|}
+\hline
+\textbf{$R$} & \textbf{nr przełącznika} & \textbf{$C$} & \textbf{nr przełącznika} & \textbf{$\frac{1}{T_i}$ teoretyczne} & \textbf{$\frac{1}{T_i}$ obliczone }\\ 
+\hhline{|=|=|=|=#=|=|=|=|=|}
+$1k\Omega$ & 1 & $10nF$ & 4 & 100000 & ???  \\
+\hline
+$2k\Omega$ & 2 & $10nF$ & 4 & 50000 & ???\\
+\hline
+\end{tabular}
+\caption{Zestawienie danych pomiarowych i obliczeniowych stopnia wzmacniającego w roli integratora.}
+\label{fig:dane_pomiarowe2}
+\end{table}
+\newpage
+\subsection*{6. i 7.}
+Stała całkowania i częstotliwość sygnału wejściowego zostały dobrane tak, że szerokość podstawy zbocza trójkąta pokryła się z szerokością impulsu prostokątnego.
 
 \begin{figure}[!h]
 \centering
-\begin{circuitikz}[scale=1.1, font = \scriptsize, european voltages]
-\draw (2,-1) to [american current source, o-o] (2,1.3) to [short,-o] (5,1.3) to [short,-o] (11,1.3)  (11,-1) -- (4, -1) to [R] (2,-1)
-(4,1.3) to [short,o-] (4,1) (6,1.3) to [short,o-] (6,1) (7,1.3) to [short,o-] (7,1) (8,1.3) to [short,o-] (8,1) (9,1.3) to [short,o-] (9,1) (10,1.3) to [short,o-] (10,1)
-
-(4,1) to [stroke led, -o] (4,-1) 
-(5,1) to [stroke led, o-o] (5,-1) 
-(6,1) to [stroke led, -o] (6,-1) 
-(7,1) to [stroke led, -o] (7,-1) 
-(8,1) to [stroke led, -o] (8,-1) 
-(9,1) to [stroke led, -o] (9,-1) 
-(10,1) to [stroke led, -o] (10,-1) 
-(11,1) to [stroke led, o-o] (11,-1) 
-;
-\draw (-2,-1.5) -- (-2,1.5) -- (0.5, 1.5) -- (0.5,-1.5) -- (-2,-1.5);	  
-	  
-\draw [line width = 4, red, rounded corners]
-	  (-1.5, -1.1) -- (-0.4,-1.1)
-      (-1.3, 0) -- (-0.2,0)
-      (-1.1, 1.1) -- (0,1.1)
-      (-1.6, -1) -- (-1.4,-0.1)
-      (-1.4, 0.1) -- (-1.2,1)
-      (-0.3, -1) -- (-0.1,-0.1)
-      (-0.1, 0.1) -- (0.1,1)	
-      (0.1,-1.1) -- (0.22,-1.1)
-	  ; 
-	  
-\draw (3.7,0.5) node {A}
-	  (4.7,0.5) node {B}
-	  (5.7,0.5) node {C}
-	  (6.7,0.5) node {D}
-	  (7.7,0.5) node {E}
-	  (8.7,0.5) node {F}
-	  (9.7,0.5) node {G}
-	  (10.7,0.5) node {dp}
-	  
-	  (-0.5,1.3) node {A}
-	  (0.2,0.5) node {B}
-	  (0,-0.5) node {C}
-	  (-0.85,-0.9) node {D}
-	  (-1.75,-0.5) node {E}
-	  (-1.55,0.5) node {F}
-	  (-0.65,0.2) node {G}
-	  (0.2,-0.9) node {dp}
-	
-	  ;
-
-\end{circuitikz}
-\caption{Schemat zrealizowanych połączeń z oznaczeniami wyprowadzeń wyświetlacza}
-\label{fig:wysw}
+\includegraphics[width=0.5\textwidth]{czestotliwosc2}
+\caption{Aktualny pomiar częstotliwości badanego przebiegu}
 \end{figure}
+\subsection*{8.}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{czestotliwosc2}
+\caption{Oscylogram ukazujący działanie integratora dla przełączników 2 i 4}
+\end{figure}
+\newpage
+\section{Zadanie 1.6}
+Badanie działania wzmacniacza różniczkującego
+\subsection*{3.}
+Na wyjściu generatora został ustawiony przebieg trójkątny o częstotliwości 1kHz.
+\subsection*{4.}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{czestotliwosc3}
+\caption{Aktualny pomiar częstotliwości badanego przebiegu}
+\end{figure}
+\subsection*{5.}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{IMG_0310}
+\caption{Stabilny przebieg prostokątny na wyjściu układu}
+\end{figure}
+\subsection*{6.}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{lepszy}
+\caption{Lepszy przebieg prostokątny na wyjściu układu}
+\end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.5\textwidth]{gorszy}
+\caption{Gorszy przebieg prostokątny na wyjściu układu}
+\end{figure}
+\subsection*{7.}
+Na przebiegu wyjściowym układu różniczkującego obserwujemy 2 rodzaje zniekształceń. Pierwsze zniekształcenie polega na ograniczonej prędkości narastania i opadania zbocza przebiegu wyjściowego. Wynika to z ograniczeń wzmacniacza operacyjnego, którego jedną z cech katalogowych jest maksymalna prędkość narastania napięcia wyjściowego (niezależne od charakterystyk częstotliwościowych). Drugie zniekształcenie wynika z pracy wzmacniacza w nasyceniu, napięcia maksymalne są równe napięciu zasilania wzmacniacza operacyjnego. Zasadniczo przebieg prostokątny otrzymano przede wszystkim ze względu na nasycenie, a w mniejszym stopniu ze względu na różniczkowanie sygnału przez układ badany.
+Teoretycznie powinniśmy uzyskać zniekształcenia polegające na podwzbudzaniu wzmacniacza operacyjnego (zafalowania części płaskich) wynikające ze zbliżania się układu ze sprzeżeniem zwrotnym do stanu niestabilnego (kryterium Nyquista).
 
 
 \bibliography{IEEEabrv,refs}
@@ -502,8 +259,9 @@ Cyfrą, którą mieliśmy uzyskać na wyświetlaczu była cyfra 6, poniżej prze
 \begin{thebibliography}{9}
 
 \bibitem{rlc}
-  W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://etacar.put.poznan.pl/mariusz.naumowicz/materialy.html oraz z wiedzy własnej.
+  W trakcie przeprowadzania doświadczeń i pisania sprawozdania zespół korzystał głównie z materiałów ze strony http://mariusznaumowicz.ddns.net/materialy.html oraz z wiedzy własnej.\\
+
 
 \end{thebibliography}
 
-\end{document}7
+\end{document}
